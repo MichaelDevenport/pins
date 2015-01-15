@@ -19,5 +19,8 @@ module Pins
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    #For deploying on Heroku 3.2 only. Have run code as a safe measure.
+    config.assets.initialize_on_precompile = false
   end
 end
