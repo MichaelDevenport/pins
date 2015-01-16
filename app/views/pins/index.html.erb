@@ -5,9 +5,10 @@
     <div class="box panel panel-default">
       <%= link_to image_tag(pin.image.url(:medium)), pin %>
       <div class="panel-body">
-        <%= pin.description %><br/>
-        <strong><%= pin.user.name if pin.user %></strong>
-        <% if pin.user == current_user %>
+        <p><%= pin.description %></p>
+        <p><strong><%= pin.user.name if pin.user %></strong></p>
+        
+        <% if current_user && pin.user == current_user %>
           <div class="actions">
             <%= link_to edit_pin_path(pin) do %>
               <span class="glyphicon glyphicon-edit"></span>
@@ -17,13 +18,12 @@
               <span class="glyphicon glyphicon-trash"></span>
               Delete
             <% end %>
-            <%= link_to 'Edit', edit_pin_path(pin) %>
-            <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
         <% end %>
+        
       </div>
     </div>
-  <% end %> 
+  <% end %>
 </div>
 
 <div class="center">
