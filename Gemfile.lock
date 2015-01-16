@@ -35,6 +35,11 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    aws-sdk (1.61.0)
+      aws-sdk-v1 (= 1.61.0)
+    aws-sdk-v1 (1.61.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.9)
     builder (3.2.2)
     climate_control (0.0.3)
@@ -74,8 +79,11 @@ GEM
     masonry-rails (0.2.4)
       railties
     mime-types (2.4.3)
+    mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.10.1)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
@@ -150,6 +158,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk (~> 1.61.0)
   bootstrap-sass!
   coffee-rails (~> 4.0.0)
   devise (~> 3.4.1)
