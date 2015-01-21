@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-   <div class="jumbotron center">
-	  <head>
-		 <meta charset="utf-8">
+   <head>
+      <meta charset="utf-8">
+      <title>WEBrip Video</title>
+   </head>
 
-		 <title>WEBrip.tv</title>
-	  </head>
+   <div class="panel panel-default">
 
-	  <body>
+   <body>
+      <div class="jumbotron center">
+         <div class="container">
 
-		 <div class="container">
-			   <h1>WEBrip Video</h1>
+            <h1>WEBrip Video</h1>
 			
 			   <h2>Is the best links to all the best video downloads and streaming available online</h2>
 
@@ -24,13 +25,13 @@
 
             <h3>How to upload a link</h3>
 
-			   <p>Joining is easy to and costs nothing. Setting up an account gives You the ability to upload your videos cover-image and provide a link to it, plus give it a description and title. This is super if you run a movie site and will drive traffic a 180 back to yours ! But you don't have to have a website to sign up everybody is welcome. Do it now it's free, confidential, and we never ask for credit card details.</p>
+			   <p>Joining is easy to and costs nothing. Setting up an account gives You the ability to upload your video cover-images and provide a link to it, plus give it a description and title. This is super if you run a movie site and will drive traffic a 180 back to yours ! But you don't have to have a website to sign up everybody is welcome. Do it now it's free, confidential, and we never ask for credit card details.</p>
 
             <p>
                <%= link_to "Join us now", new_user_registration_path, class: "btn btn-success btn-small" %>
             </p>
 
-            <P>Thousands of movies are just click away and hundreds added daily free</p>
+            <P>Thousands of movies are just a click away and new release video links added daily.</p>
 
             <p>
                <%= link_to "Video's here", root_path, class: "btn btn-danger btn-small" %>
@@ -45,37 +46,35 @@
             <p>Links below to our best rated sites. Check them out !</p>
 
             <a> 
-   				<%= link_to image_tag("youtube.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q' %> 
+   			   <%= link_to image_tag("youtube.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q' %> 
 			   </a>
 
 			   <a>
-   				<%= link_to image_tag("g2g.png", alt: "G2g.fm videos"), 'http://g2g.fm/' %> 
+   			   <%= link_to image_tag("g2g.png", alt: "G2g.fm videos"), 'http://g2g.fm/' %> 
 			   </a>
 
 			   <a>
-   				<%= link_to image_tag("graboid1.png", alt: "Graboid video"), 'http://www.graboid.com/' %>  
-   			</a>
+   			   <%= link_to image_tag("graboid1.png", alt: "Graboid video"), 'http://www.graboid.com/' %>  
+            </a>
 
-   			<a>
-   				<%= link_to image_tag("netflix.png", alt: "Netflix video"), 'https://www.netflix.com/global' %> 
-   			</a>
+            <a>
+   			   <%= link_to image_tag("netflix.png", alt: "Netflix video"), 'https://www.netflix.com/global' %> 
+            </a>
 
-   			<a>
-   				<%= link_to image_tag("lightbox.JPG", alt: "Lightbox video"), 'http://preview.lightbox.co.nz/free-trial-offer/?gclid=CjwKEAiA0O2lBRDOrPX4oJP3t2oSJACjpaHAaMoge0nxdNaV1CWOEPrhYK6RW_y6U2yukRdKVkyDzxoC0A3w_wcB#/' %>  
-   			</a>
+            <a>
+   			   <%= link_to image_tag("lightbox.JPG", alt: "Lightbox video"), 'http://preview.lightbox.co.nz/free-trial-offer/?gclid=CjwKEAiA0O2lBRDOrPX4oJP3t2oSJACjpaHAaMoge0nxdNaV1CWOEPrhYK6RW_y6U2yukRdKVkyDzxoC0A3w_wcB#/' %>  
+            </a>
 
-   			<a href="http://www.fatso.co.nz/" target="_blank">
-   				<%= link_to image_tag("fatso.JPG", alt: "fatso video"), 'https://www.netflix.com/global' %>
-   			</a>
+            <a href="http://www.fatso.co.nz/" target="_blank">
+   		       <%= link_to image_tag("fatso.JPG", alt: "fatso video"), 'https://www.netflix.com/global' %>
+            </a>
 
-   			<a>
-   				<%= link_to image_tag("imdb.png", alt: "Imdb video review"), 'http://www.imdb.com/' %>
-   			</a>
+            <a>
+   			   <%= link_to image_tag("imdb.png", alt: "Imdb video review"), 'http://www.imdb.com/' %>
+            </a>
 
-   			<p>Thank you for visiting our website. Come back soon.</p>
-			
- 
-		   </div><!-- .container --> 
-      </body>
-   </div>   
+            <p>Thank you for visiting our website. Come back soon.</p>
+         </div><!--container-->
+      </div>			
+   </body>     
 </html>

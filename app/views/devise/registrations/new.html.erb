@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+  </head>
+
+
   <div class="panel panel-default">
     <div class="panel-heading">
       <h1>Sign up here</h1>
-
       <h3>WEBrip Video the best links to all the best video online</h3>
-
       <p>
         Caution by siging up you agree to our Terms and Conditions
       </p>
@@ -17,170 +21,60 @@
         <%= devise_error_messages! %>
 
           <div class="form-group">
-            <%= f.label :name %>
-            <span class="input-xlarge uneditable-input"> - Type a User Name in this field, example: 'Mr Rails' </span>
+            <%= f.label :name %><i> - Type a User Name in this field, example: 'Mr Rails'</i>
             <%= f.text_field :name, autofocus: true, class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :email %>
-            <span class="input-xlarge uneditable-input"> - Type a current email here, your email address is only needed for site fuctionality, it is not of public record. </span>
+            <%= f.label :email %><i> - Type a current email here, your email address is only needed for site fuctionality, it is not of public record.</i>
             <%= f.email_field :email, autofocus: true, class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :password %>
-            <span class="input-xlarge uneditable-input"> - Pick a random password, see below intructions. </span>
+            <%= f.label :password %><i> - Pick a random password, see below intructions.</i>
             <%= f.password_field :password, class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.submit "Sign up", class: "btn btn-primary" %>
+            <%= f.submit "Sign up", class: "btn btn-primary" %><i> - I agree to the Terms and Conditions.</i>
           </div>
         <% end %>
       </div>
 
-      <div class="panel-footer">
-
-        <p>
-          ..already a member ?
-        </p>
-
-        <%= render "devise/shared/links" %>
-      </div>
-  </div>
-
-  <div class="jumbotron center">
-
-    <head>
-
-      <meta charset="utf-8">
-      <title>Sign Up</title>
-
-    </head>
-
     <body>
+      <div class="jumbotron center">
+        <div class="container">
 
-      <div class="container">
+          <h2>How to sign up</h2>
 
-        <h2>How to sign up</h2>
+          <h3>Name field</h3>
 
-        <h3>Name field</h3>
+         <p>
+            Above in the Name field, choose a User name. This can be anything you want to call yourself.
+          </p>
 
-        <p>
-          Above in the Name field, choose a User name. This can be anything you want to call yourself.
-        </p>
+          <h3>Email field</h3>
 
-        <h3>Email field</h3>
+          <p>
+            Provide your Email address example: you@gmail.com. Be sure to use a current and valid email that only you have access to. Enter into the Email field above.  
+          </p>
 
-        <p>
-          Provide your Email address example: you@gmail.com. Be sure to use a current and valid email that only you have access to. Enter into the Email field above.  
-        </p>
+          <h3>Password field</h3>
 
-        <h3>Password field</h3>
+          <p>
+            Choose a password in the above field Password. 'A good password is one that know one else may guess', so don't use anything like Birth dates, phone numbers, names of things you like, family names, and friends etc. A random password made up of really anything from A-Z , 0-9 and mix up a combination of say 10, example: Rs1headMp4. You should record your password and save it somwehere safe. 
+          </p>
 
-        <p>
-          Choose a password in the Password field above. 'A good password is one that know one else may guess', so don't use anything like Birth dates, phone numbers, names of things you like, family names, and friends etc. A random password made up of really anything from A-Z , 0-9 and just mix up combination of say 10. You should record your password and save it somwehere safe. 
-        </p>
-
-        <h3>Thank you for joining WEBrip Video</h3>
-        <h2>The best links to all the best video downloads and streaming available online</h2>
-      </div>
+          <h3>Thank you for joining WEBrip Video</h3>
+          <h2>The best links to all the best video downloads and streaming available online</h2>
+        </div>
+      </div><!--container-->
     </body>
-  </div>
 
-  <div class="panel panel-default">
     <div class="panel-footer">
-
-      <h4>Terms and Conditions</h4>
-
-      <p>
-
-        Terms of Service
-
-        Last Updated: 15 November 2013
-        1. Acceptance of Terms.
-
-        WEBrip Video provides its monthly recurring Service (as defined below) to you subject to this Terms of Service agreement (“TOS”). Webrip Video may update this TOS from time to time. By continuing to use the Service, you signify your binding acceptance of the TOS, as published on the Webrip website (“Site”) and you represent that you are of legal age to form a binding contract.
-        2. Description of Service.
-
-        The “Service” includes (a) the Site, (b) the services provided by the Site and by the Webrip software made available through the Site, and (c) all data, text, images, sounds, video, content and software made available through the Site or services. Any new features added to or augmenting the Service are also subject to this TOS. For the purpose of this service 1GB = 1,000MB of bandwidth each month as displayed in your account.
-        2a. Free Service.
-
-        As per the Description of Service above, the “Free Trial” also includes (a) the Site, (b) the services provided by the Site and by the Webrip Video software made available through the Site, and (c) all data, text, images, sounds, video, content and software made available through the Site or services. A free trial is provided as described on the Site and does not require a credit card to be used. Any new features added to or augmenting the Service and Free Service are also subject to this TOS. For the purpose of this Service 1GB = 1,000MB of bandwidth as displayed in your account.
-
-        The amount of bandwidth given during a free trial may vary and is subject to change at Graboid’s discretion. A free trial ends when the allotted free bandwidth has been consumed, or after 30 days, whichever comes first. Any unused bandwidth remaining at the 30 day mark will expire.
-        3. Permission to Use the Service
-
-        You may access the Service for personal use only, provided that you are in compliance with all provisions of this TOS. By using or accessing this Service you agree to comply with the copyright, trademark, service mark, and all other applicable laws that protect the Service. You agree not to copy, distribute, transmit, publicly display, publicly perform, modify, rent, sell, or create derivative works of any portion of the Service without the permission of the copyright holder of that material.
-
-        You are welcome to link to the Site from your website, provided that your website does not imply any endorsement by or association with Graboid. You acknowledge that Graboid may, in its sole discretion and at any time, discontinue providing any part of the Service without notice.
-        4. Reasonable Use
-
-        Graboid may cancel or restrict usage of accounts in order to maintain quality of service levels for all of its customers. If Graboid, in its sole discretion, determines that usage of an account (either in form, or in volume) exceeds what it deems reasonable, Graboid may cancel, suspend, or decline to renew service for that account without notice.
-        5. User Conduct.
-
-        Through your use of the Service, you agree that you will not violate any applicable laws, the rights of others, or the operational and security mechanisms of the Service. Examples of such prohibited behavior include, but are not limited to:
-
-        Using the Service to promote, conduct, or contribute to fraudulent, obscene, or illegal activities, including deceptive impersonation or activities involving the exploitation of children.
-        Using the Service to violate anyone’s privacy rights (e.g. distributing unwanted commercial solicitations), to infringe on intellectual property rights (including copyrights and trademark rights), to harass or defame others, or to promote hatred towards any group of people.
-        Disrupting, circumventing, or interfering with any part of the Service; forging or modifying any data processed or distributed by the Service; or using an automated process to cause greater demand on the Service than a single person could produce.
-        Altering, modifying, deleting, or otherwise interfering with or in any manner compromising any content, programming, advertising,   services and/or features contained on or through the Service, including, without limitation, the Service’s advertising and/or content delivery and display functionality.
-
-        Additionally, portions of the Service, including specifically, certain content available via the Service, have restrictions regarding the suitability of content or programming for those under age 18. By using the Service and/or the Site, you acknowledge and agree that you will not access or view any content and programming that you are not legally of age to access or view.
-        6. User ID.
-
-        Some functions of this Service require registration by selecting a unique user identification (“User ID”) and password, and by providing certain personal information. If you select a User ID that Graboid, in its sole discretion, finds offensive or inappropriate, Graboid has the right to suspend or terminate your account.
-
-        You agree to (a) keep your password confidential, and (b) immediately notify Graboid of any unauthorized use of your User ID and/or password. You are fully responsible for all activities that occur under your User ID. Graboid will not be liable for any loss or damage arising from unauthorized use of your password or your failure to comply with this Section.
-
-        You agree that Graboid may for any reason, in its sole discretion and without notice or liability to you or any third party, immediately terminate your account and your User ID, and remove or discard from the Service any Content associated with your account and User ID. Grounds for such termination may include, but are not limited to, extended periods of inactivity or violation of the letter or spirit of this TOS.
-        7. Contributions to Graboid or the Service.
-
-        Graboid does not host any content on the service, other than user-provided commentary, “Contributions”, and related indexing information.
-
-        Graboid has the right to remove any Contribution that violates this TOS or any other written policy or terms of use published by Graboid from time to time, or is otherwise objectionable, as determined solely by Graboid. By submitting Contributions for inclusion on the Service, you represent and warrant that you have all necessary permissions to grant the following license to Graboid. You further acknowledge and agree that you are solely responsible for anything you post or otherwise make available on or through the Service, including, without limitation, the accuracy, reliability, nature, rights clearance, compliance with law and legal restrictions associated with any Contribution.
-
-        You hereby grant Graboid and its successors a worldwide, non-exclusive, royalty-free, sublicensable and transferable license to use, copy, reproduce, distribute, transmit, prepare derivative works of, communicate to the public, publicly display, and publicly perform such Contribution on, through or in connection with the Service in any media formats and through any media channels, including without limitation, for promoting and redistributing all or in part of the Service (and its derivative works). This license terminates once you or Graboid removes your Contribution from the Service. You understand that your Contribution may be transmitted over various networks and changed to conform and adapt to technical requirements.
-
-        Any material, information or idea you post on or through the Service, or otherwise transmit to Graboid by any means, is not considered  confidential by Graboid and may be disseminated or used by Graboid or its affiliates without compensation or liability to you for any purpose whatsoever, including, but not limited to, developing, manufacturing and marketing products. This provision does not apply to personal information that is subject to our Privacy Policy except to the extent that you make such personal information publicly available on or through the Service.
-        8. Privacy Policy.
-
-        Graboid agrees to protect your personal information as described in the Privacy Policy published on the Site. You agree that Graboid can export your information to any country as operationally necessary, even if that country’s privacy laws are weaker or different from the privacy laws of your country and that Graboid can use and transfer your personal information to the extent provided in the Privacy Policy.
-        9. Third-Party Content
-
-        Each contributor to the Service of data, text, images, sounds, video, software and Contributions is solely responsible for the accuracy, reliability, nature, rights clearance, compliance with law and legal restrictions associated with their contribution. As such, Graboid is not responsible to, and shall not, regularly monitor or check for the accuracy, reliability, nature, rights clearance, compliance with law and legal restrictions associated with any Contribution. You will not hold Graboid responsible for any user’s actions or inactions, including things they post or otherwise make available via the Service.
-
-        In addition, the Service may contain links to third party websites and offers, or links to download third party software applications. These third party links and applications are not owned or controlled by Graboid. Graboid assumes no responsibility for the content, functionality, services, privacy policies, or other practices of these third-parties. You are encouraged to read the terms and other policies published by such third parties on their websites or otherwise. By using the Service, you agree that Graboid shall not be liable in any manner due to your use of any third-party website or applications.
-        10. DISCLAIMER OF WARRANTIES.
-
-        *READ THIS CAREFULLY* You understand and agree that your use of the Service is at your sole risk. The Service is provided on an “as is” and “as available” basis and to the fullest extent permitted by law, Graboid expressly disclaims all warranties, express or implied, in connection with the Service and your use thereof, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, accuracy, and non-infringement. Graboid makes no representations or warranties about the accuracy or completeness of the Content made available through the Service or the content of any websites linked to the Site. Graboid does not warrant, endorse, guarantee, or assume responsibility for any product, application or service advertised or offered by a third party through the Service or any hyperlinked website or featured in any banner or other advertising, and Graboid will not be a party to or in any way be responsible for monitoring any transaction between you and third-party providers of products, applications or services. As with the purchase of a product or service, or installation or download of any application, through any medium or in any environment, you should use your best judgment and exercise caution where appropriate. No advice or information, whether oral or written, obtained by you from Graboid or through the Service shall create any warranty not expressly stated in this TOS.
-        11. LIMITATION ON LIABILITY.
-
-        *READ THIS CAREFULLY* You understand and agree that Graboid shall not be liable to you for any direct, indirect, incidental, special, consequential or exemplary damages, including without limitation damages for loss of profits, goodwill, use, data or other intangible losses (even if Graboid has been advised of the possibility of such damages), resulting from: (a) the use or the inability to use the Service; (b) the cost of procurement of substitute services resulting from any services obtained through or from the Service; (c) unauthorized access to or alteration of your transmissions or data; (d) statements or conduct of any third party on the Service; (e) inaccuracies, mistakes, or errors of content; (f) personal injury or property damage of any nature whatsoever resulting from your access to and use of the Service; (g) any bugs viruses, Trojan horses, or the like, which may be transmitted to or though the Service by a third party; or (h) any other matter relating to the Service, whether based on warranty, contract, tort, or any other legal theory. In the event this limitation of liability shall be for any reason held unenforceable or inapplicable, you agree that the aggregate liability of Graboid shall not exceed the amount of one hundred (100) Canadian Dollars.
-        12. Indemnification.
-
-        You agree, at your own expense, to indemnify, defend, and hold harmless Graboid, its employees, agents, and representatives against any claim, alleged claim, suit, action, or administrative proceeding arising out of, or related to use of or access to the Service, or violation of this TOS by you or by someone else using your User ID.
-        13. Waiver and Severability.
-
-        The failure of either party to exercise or enforce any right or provision of the TOS shall not constitute a waiver of such right or provision. If any of the TOS provisions, including the Disclaimer of Warranty or Limitation of Liability, are held invalid, unenforceable, or void by a court, the parties nevertheless agree that the court should endeavor to give effect to the parties’ intentions as reflected in the provision, and the other provisions of the TOS remain in full force and effect.
-        14. Governing Law.
-
-        This TOS shall be governed by and construed in accordance with the laws of the country of Barbados, without regard to conflict of law rules thereof. Any action brought by you against Graboid arising out of this TOS shall be brought exclusively in the courts located in Barbados, and any action brought by Graboid against you arising out of this TOS shall, at the election of Graboid, be brought in either the courts located in Barbados, or the applicable courts of the jurisdiction in which you reside. You and Graboid hereby consent to, and irrevocably submit yourselves to, the exclusive personal jurisdiction and venue of such courts. You further agree not to bring claims on a representative, class member basis, or as a private attorney general.
-        15. Statute of Limitations.
-
-        You agree that regardless of any statute or law to the contrary, any claim or cause of action arising out of or related to use of the Service or the TOS must be filed within one (1) year after such claim or cause of action arose or be forever barred.
-        16. Assignment
-
-        This TOS and the rights and licenses it grants or receives may be assigned or transferred by Webrip.com without restriction.
-
-        Copyright Policy
-
-        Privacy Policy
-
-        Terms of Service
-      </p>
-    </div>
+        <p><i>..already a member ?</i></p>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-danger btn-small" %>
+      </div>
   </div>
 </html>
 
