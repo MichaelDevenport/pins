@@ -1,5 +1,9 @@
 <%= render 'pages/home' unless user_signed_in? %>
 
+<div id= "background">
+  <%= image_tag("robocop.jpg", alt: "Robocop 2014") %>
+</div>     
+
 <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
     <div class="box panel panel-default">
@@ -20,7 +24,6 @@
             <% end %>
           </div>
         <% end %>
-        
       </div>
     </div>
   <% end %>
@@ -29,3 +32,4 @@
 <div class="center">
   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 </div>
+
