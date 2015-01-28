@@ -9,7 +9,7 @@
     <div class="box panel panel-default">
       <%= link_to image_tag(pin.image.url(:medium)), pin %>
       <div class="panel-body">
-        <p><%= pin.description %></p>
+        <p><%= pin.title %></p>
         <p><strong><%= pin.user.name if pin.user %></strong></p>
         
         <% if current_user && pin.user == current_user %>

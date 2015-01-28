@@ -7,6 +7,7 @@
       <%= image_tag @pin.image.url(:medium) %>
     </div>
     <div class="panel-body">
+    <p><%= @pin.title %></p>  
     <p><%= @pin.description %></p>
     <p><strong><%= @pin.user.name if @pin.user %></strong></p>
 
