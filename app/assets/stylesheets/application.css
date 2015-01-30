@@ -14,3 +14,6 @@
  *= require 'masonry/transitions'
  *= require_tree .
  */
+body {
+  padding-top: 90px;
+}
