@@ -12,6 +12,10 @@ $jumbotron-bg: white;
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+body {
+  padding-top: 90px;
+}
+
 .panel-heading {
 	text-align: center;
 }
