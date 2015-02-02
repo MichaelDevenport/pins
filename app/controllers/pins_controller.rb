@@ -8,6 +8,7 @@ class PinsController < ApplicationController
   end
 
   def show
+    @random_pin = Pin.where.not(id: @pin).order("RANDOM()").first
   end
 
   def new
@@ -52,6 +53,6 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:description, :title, :image) 
+      params.require(:pin).permit(:link, :description, :title, :image) 
     end
 end

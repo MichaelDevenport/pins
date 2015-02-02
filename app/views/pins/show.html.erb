@@ -1,23 +1,68 @@
-<%= link_to 'Back', pins_path %>
-
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
-    <div class="panel-heading center">
-      <%= image_tag @pin.image.url(:medium) %>
+      <div class="panel-heading center">
+        <%= image_tag @pin.image.url(:medium) %>
+      </div>
+      <div class="panel-body">
+        <p><strong><%= @pin.title %></strong></p>  
+        <p><%= @pin.description %></p>
+        <p><%= link_to "Visit link", @pin.link, target: "none", class: "btn btn-primary" %></p> 
+        <h6><%= @pin.user.name if @pin.user %></h6>
+
+        <% if @pin.user == current_user %>
+          <%= link_to edit_pin_path(@pin) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+
+  <!-- START THE FEATURETTES -->
+
+  <hr class="featurette-divider">
+
+  <div class="featurette">
+    <div class="featurette-image img-thumbnail pull-right">
+      <%= link_to (image_tag @random_pin.image.url(:medium)), pin_path(@random_pin) %>
+    </div> 
+    <h2 class="featurette-heading">Random. <span class="text-muted">Video.</span></h2>
+    <p class="lead">Click this Video to view its, title description and get the link. We have thousands of the latest Videos and lots added every day. Go ahead give the Video to your right a click to start browsing our mega collection.</p>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- /END THE FEATURETTES -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">
+        <h3>New Upcoming Movies 2015 - 11 Offical Trailers HD</h3>
+      </div>
     </div>
     <div class="panel-body">
-    <p><%= @pin.title %></p>  
-    <p><%= @pin.description %></p>
-    <p><strong><%= @pin.user.name if @pin.user %></strong></p>
-
-    <% if @pin.user == current_user %>
-      <%= link_to edit_pin_path(@pin) do %>
-        <span class="glyphicon glyphicon-edit"></span>
-        Edit
-      <% end %>
-    <% end %>
+      <iframe width="100%" height="480" src="http://www.youtube.com/embed/BaGmXiN1PQ8" frameborder="1"></iframe>
+    </div>
+    <div class="panel-footer">
+      <p class="pull-right"><a href="#"></a></p>
+      <h6>YouTube Movies..<a><%= link_to image_tag("youtube.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q' %></a></h6>
     </div>
   </div>
 
-</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>This Bootstrap layout is compliments of Bootply. · <a href="http://www.bootply.com/62603">Edit on Bootply.com</a></p>
+  </footer>
+</div><!-- /.container -->
