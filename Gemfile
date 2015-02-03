@@ -16,6 +16,7 @@ gem 'aws-sdk', '~> 1.61.0'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap'
+gem 'searchkick', '~> 0.8.5'
 
 
 group :development, :test do
