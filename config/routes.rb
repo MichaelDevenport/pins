@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
+
   resources :pins do
     collection do
       get 'search'
     end
+    resources :reviews, except: [:show, :index]
   end
 
-  devise_for :users
   root "pins#index"
 
   get "about" => "pages#about"

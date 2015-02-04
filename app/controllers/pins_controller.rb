@@ -17,6 +17,13 @@ class PinsController < ApplicationController
 
   def show
     @random_pin = Pin.where.not(id: @pin).order("RANDOM()").first
+    @reviews = Review.where(pin_id: @pin.id).order("created_at DESC")
+
+    if @reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @reviews.average(:rating).round(2)
+    end
   end
 
   def new
