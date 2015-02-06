@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 
-$body-bg: #ecf0f1;
+$boby-bg: #F5F5F5;
 $font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $navbar-height: 45px;
 $navbar-default-bg: white;
@@ -12,37 +12,79 @@ $jumbotron-bg: white;
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-.panel-heading {
-	text-align: center;
+.landing {
+  font-family: 'Lato', serif;
+  line-height: 1.5;
+  color: white;
+  /* Full Page Background Receipe */
+  background:url(http://media.giphy.com/media/rFzFVrBDitpv2/giphy.gif);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container-landing {
+  text-align: center;
+  max-width: 610px;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0,0,0,0.5);
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.landing-h1 {
+  font-family: 'Impact';
+  font-size: 80px;
+  margin-bottom: -28px;
+}
+
+.landing-h2 {
+  font-size: 30px;
+}
+
+.btn-block {
+  margin-top: 20px;
+}
+
+
+
+/* End of landing page
+-------------------------------------------------- */
+
+.navbar-brand {
+  font-weight: bold;
 }
 
 .center { 
 	text-align: center;
 	color: white;
-	background: #29527A;
+	background-image:url("http://i360.photobucket.com/albums/oo47/perez048/black-gradient-background.png") ;
   border-radius: 4px;
 }
 
-.navbar-brand {
-	font-weight: bold;
+.center-show {
+  background-image:url("http://ccbaps.com.au/Portals/_default/skins/Minimalist-Black-Glass/backgrounds/Blue/11_image.jpg") ;
 }
 
-#background {
-  position: fixed; 
-  top: -50%; 
-  left: -50%; 
-  width: 200%; 
-  height: 200%;
+.panel-heading {
+  text-align: center;
 }
-#background img {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
-  min-width: 50%;
-  min-height: 50%;
+
+.show {
+  background: #F5F5F5;
+}
+
+.review_title {
+  margin: 0 0 20px 0;
+}
+.reviews {
+  padding: 15px 0;
+  border-bottom: 1px solid #EAEAEA;
+  .star-rating {
+    padding-bottom: 8px;
+  }
 }
 
 /* BOOTSTRAP 3.x GLOBAL STYLES
@@ -50,13 +92,8 @@ $jumbotron-bg: white;
 body {
   padding-top: 90px;
   padding-bottom: 60px;
-  color: #5a5a5a;
+  
 }
-
-footer {
-  padding-top: 20px;
-}
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */

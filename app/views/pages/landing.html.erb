@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>WEBrip Video</title>
+      <link href='http://fonts.googleapis.com/css?family=Impact' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	</head>
+
+	<body class="landing">
+
+		<div class="container-landing">
+			<!-- START HERE --> 
+			<h1 class="landing-h1">WEBrip Video</h1>
+			<h2 class ="landing-h2">The best links to the best Videos</h2>
+
+			<hr class="featurette-divider">
+			
+			<%= link_to "Latest Videos", root_path, class: "btn btn-warning btn-lg btn-block" %>
+			<%= link_to "Members Sign in", new_user_session_path, class: "btn btn-danger btn-lg btn-block" %>
+
+			<hr class="featurette-divider">
+
+			<p>
+				<a href="https://www.facebook.com" target="_blank">
+   				<%= image_tag("facebook.png", alt: "Facebook") %> 
+				</a>
+				<a href="https://twitter.com/WEBrip" target="_blank">
+   				<%= image_tag("twitter.png", alt: "Twitter") %>  
+				</a>
+				<a href="https://github.com/MichaelDevenport/pins" target="_blank">
+   				<%= image_tag("github.png", alt: "Github") %> 
+				</a>
+			</p>
+			<!-- END HERE --> 
+		</div><!-- .container --> 
+
+	</body>
+</html>

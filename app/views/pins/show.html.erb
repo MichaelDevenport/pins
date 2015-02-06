@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
-      <div class="panel-heading center">
+      <div class="panel-heading center-show">
+        <p><strong><%= @pin.title %></strong></p>
         <%= image_tag @pin.image.url(:medium) %>
         <div class="star-rating" data-score= <%= @avg_review %> ></div>
         <em><%= "#{@reviews.length} reviews" %></em>
       </div>
-      <div class="panel-body">
-        <p><strong><%= @pin.title %></strong></p>  
+      <div class="panel-body show">  
         <p><%= link_to "Visit link", @pin.link, target: "none", class: "btn btn-primary" %></p> 
-        <h6><%= @pin.user.name if @pin.user %></h6>
-        <p><%= link_to "Write a Review", new_pin_review_path(@pin) %></p>
+        <h6>Provided by : <%= @pin.user.name if @pin.user %></h6>
 
         <h1 class="review_title"><%= @pin.title %></h1>
         <p><%= @pin.description %></p>
+        <p><%= link_to "Write a Review", new_pin_review_path(@pin) %></p>
 
         <% if @reviews.blank? %>
           <h3>No reviews just yet, would you like to be the first ?</h3>
@@ -85,7 +85,8 @@
     </div>
   </div>
 
-
+  <hr class="featurette-divider">
+  
   <!-- FOOTER -->
   <footer>
     <p class="pull-right"><a href="#">Back to top</a></p>
