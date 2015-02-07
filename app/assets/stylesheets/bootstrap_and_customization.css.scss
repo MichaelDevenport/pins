@@ -13,7 +13,7 @@ $jumbotron-bg: white;
 @import 'bootstrap';
 
 .landing {
-  font-family: 'Lato', serif;
+  font-family: 'Droid Sans', sans-serif;
   line-height: 1.5;
   color: white;
   /* Full Page Background Receipe */
@@ -35,17 +35,22 @@ $jumbotron-bg: white;
 }
 
 .landing-h1 {
-  font-family: 'Impact';
+  font-family: 'Marvel', sans-serif;
   font-size: 80px;
-  margin-bottom: -28px;
+  margin-bottom: -15px;
 }
 
 .landing-h2 {
   font-size: 30px;
+  color: #777;
 }
 
 .btn-block {
   margin-top: 20px;
+}
+
+.img-thumbnail {
+  background-color: #777;
 }
 
 
