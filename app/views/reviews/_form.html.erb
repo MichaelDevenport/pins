@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <div id="star-rating"></div>
+    <div class="star-rating"></div>
   </div>
   <div class="field">
     <%= f.label :comment %><br>
@@ -24,7 +24,7 @@
 <% end %>
 
 <script>
-  $('#star-rating').raty({
+  $('.star-rating').raty({
     path: '/assets/',
     scoreName: 'review[rating]'
   });

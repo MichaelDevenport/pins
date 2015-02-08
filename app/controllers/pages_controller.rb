@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+	before_filter :disable_nav, only: [:landing]
 
   def home
   end
