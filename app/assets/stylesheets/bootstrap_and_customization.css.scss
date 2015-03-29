@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 
-$boby-bg: #F5F5F5;
+
 $font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $navbar-height: 45px;
 $navbar-default-bg: white;
@@ -16,11 +16,6 @@ $jumbotron-bg: white;
   font-family: 'Droid Sans', sans-serif;
   line-height: 1.5;
   color: white;
-  /* Full Page Background Receipe */
-  background:url(http://media.giphy.com/media/rFzFVrBDitpv2/giphy.gif);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 
 .container-landing {
@@ -86,7 +81,7 @@ $jumbotron-bg: white;
 body {
   padding-top: 90px;
   padding-bottom: 60px;
-  
+  background: rgb(212,201,166);  
 }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -103,14 +98,14 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 400px;
+  height: 315px;
   background-color:#555;
 }
 .carousel img {
   position: absolute;
   top: 0;
   left: 0;
-  min-height: 400px;
+  min-height: 315px;
 }
 
 

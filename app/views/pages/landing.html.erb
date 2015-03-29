@@ -28,6 +28,56 @@
     		<h2 class="featurette-heading">Random <span class="text-muted">Video</span></h2>
     		<p class="lead">Click this movie to see more..</p>
   		</div>
+
+  		<hr class="featurette-divider">
+
+  		<!-- Carousel
+			================================================== -->
+			<div id="myCarousel" class="carousel slide">
+  			<!-- Indicators -->
+  			<ol class="carousel-indicators">
+    			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    			<li data-target="#myCarousel" data-slide-to="1"></li>
+    			<li data-target="#myCarousel" data-slide-to="2"></li>
+  			</ol>
+  			<div class="carousel-inner">
+    			<div class="item active">
+      			<%= image_tag("batman.jpg", alt: "Batman") %>
+      			<div class="container">
+        			<div class="carousel-caption">
+          			<h1>Browse our top movies</h1>
+          			<p></p>			
+        			</div>
+      			</div>
+    			</div>
+    			<div class="item">
+      			<%= image_tag("robocop.jpg", alt: "Robocop") %>
+      			<div class="container">
+        			<div class="carousel-caption">
+          			<h1>Best rated this month</h1>
+         			 	<p>Get me click <a>here</a></p>
+        			</div>
+      			</div>
+    			</div>
+    			<div class="item">
+      			<%= image_tag("hobbit.jpg", alt: "The Hobbit") %>
+      			<div class="container">
+        			<div class="carousel-caption">
+          			<h1>Most popular</h1>
+          			<p>download</p>
+        			</div>
+      			</div>
+    			</div>
+  			</div>
+  			<!-- Controls -->
+  			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    			<span class="icon-prev"></span>
+  			</a>
+  			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+    			<span class="icon-next"></span>
+  			</a>  
+			</div>
+			<!-- /.carousel -->
 			
 			<hr class="featurette-divider">
 
