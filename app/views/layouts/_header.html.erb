@@ -30,10 +30,10 @@
         <% end %>
       </ul>
       <%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
-        <p>
+        <span class="nav-search">
           <%= text_field_tag :search, params[:search], class: "form-control" %>
           <%= submit_tag "search", name: nil, class: "btn btn-default" %>
-        </p>
+        </span>
       <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

@@ -3,18 +3,19 @@
     <div class="panel panel-default">
       <div class="panel-heading center-show">
         <p><strong><%= @pin.title %></strong></p>
-        <%= image_tag @pin.image.url(:medium) %>
+        <div class="show-img">
+          <%= image_tag @pin.image.url(:medium) %>
+        </div>
         <div class="star-rating" data-score= <%= @avg_review %> ></div>
-        <em><%= "#{@reviews.length} reviews" %></em>
+        <p><i>all reviews average</i></p>
       </div>
       <div class="panel-body show">  
-        <p><%= link_to "Visit link", @pin.link, target: "none", class: "btn btn-primary" %></p> 
+        <p><%= link_to "Visit link", @pin.link, target: "none", class: "btn btn-danger" %></p> 
         <h6>Provided by : <%= @pin.user.name if @pin.user %></h6>
 
         <h1 class="review_title"><%= @pin.title %></h1>
         <p><%= @pin.description %></p>
-        <p><%= link_to "Write a Review", new_pin_review_path(@pin) %></p>
-
+        <h4 class="reviews-title"><strong>Latest reviews</strong></h4>
         <% if @reviews.blank? %>
           <h3>No reviews just yet, would you like to be the first ?</h3>
         <% else %>
@@ -25,12 +26,12 @@
             </div>
           <% end %>
         <% end %>
-
+        <p class="review-footer"><%= link_to "Write a Review", new_pin_review_path(@pin), class: "btn btn-default" %>
         <% if @pin.user == current_user %>
           <%= link_to edit_pin_path(@pin) do %>
             <span class="glyphicon glyphicon-edit"></span>
             Edit
-          <% end %>
+          <% end %></p>
         <% end %>
       </div>
     </div>
@@ -46,7 +47,6 @@
     }
   });
 </script>
-
 
 <!-- Marketing messaging and featurettes
 ================================================== -->

@@ -60,7 +60,6 @@ $jumbotron-bg: white;
 .center { 
 	text-align: center;
 	color: white;
-	background-image:url("http://i360.photobucket.com/albums/oo47/perez048/black-gradient-background.png") ;
   border-radius: 4px;
 }
 
@@ -68,13 +67,35 @@ $jumbotron-bg: white;
   background-image:url("http://ccbaps.com.au/Portals/_default/skins/Minimalist-Black-Glass/backgrounds/Blue/11_image.jpg") ;
 }
 
+.show-img {
+  margin-bottom: 2px;
+}
+
 .panel-heading {
   text-align: center;
+}
+
+.reviews-title {
+  margin-top: 20px;
+}
+
+.review-footer {
+  padding-top: 10px;
+}
+
+.btn-default {
+  margin-right: 10px;
 }
 
 .show {
   background: #F5F5F5;
 }
+
+.pagination .active span {
+  background-color: rgb(157,157,157) !important;
+  border-color: rgba(34,34,34,0.4) !important;
+}
+
 
 /* BOOTSTRAP 3.x GLOBAL STYLES
 -------------------------------------------------- */

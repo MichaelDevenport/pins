@@ -12,13 +12,12 @@ class PinsController < ApplicationController
   end
 
   def index
-    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
     @random_pin = Pin.where.not(id: @pin).order("RANDOM()").first
-    @reviews = Review.where(pin_id: @pin.id).order("created_at DESC")
-
+    @reviews = Review.where(pin_id: @pin.id).order("created_at DESC").limit(10)
     if @reviews.blank?
       @avg_review = 0
     else
