@@ -9,8 +9,25 @@ $brand-primary: #29527A;
 $brand-danger: #c0392b;
 $jumbotron-bg: white;
 
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.dropdown-menu {
+  background: rgba(32,32,32,0.7);
+  li a {
+  color: #FFFFFF;
+  } 
+  .divider {
+    background-color: #B81D1D;
+  }
+}
+
+ul.nav li.dropdown:hover ul.dropdown-menu {
+  display: block;    
+}
+
 
 .landing {
   font-family: 'Droid Sans', sans-serif;

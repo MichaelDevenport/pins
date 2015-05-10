@@ -1,4 +1,5 @@
 class PinsController < ApplicationController
+  before_action :find_pin, only: [:show, :edit, :update, :destroy]
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
@@ -12,7 +13,12 @@ class PinsController < ApplicationController
   end
 
   def index
-    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+    if params[:catergory].blank?
+      @pins = Pin.all.order("created_at DESC").paginate(page: params[:page], per_page: 50)
+    else
+      @catergory_id = Catergory.find_by(name: params[:catergory]).id
+      @pins = Pin.where(catergory_id: @catergory_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+    end 
   end
 
   def show
@@ -67,6 +73,10 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:link, :description, :title, :image) 
+      params.require(:pin).permit(:link, :description, :title, :image, :catergory_id) 
+    end
+
+    def find_pin
+      @pin = Pin.find(params[:id])
     end
 end
