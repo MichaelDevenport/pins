@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <div class="form-group select">
     <%= f.collection_select :catergory_id, Catergory.all, :id, :name, {prompt: "Select category"} %>
   </div>
 

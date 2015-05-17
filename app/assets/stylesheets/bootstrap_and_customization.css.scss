@@ -12,6 +12,30 @@ $navbar-default-brand-color: #c0392b;
 $brand-primary: #29527A;
 $brand-danger: #c0392b;
 
+body {
+  color: white;
+   /* Full Page Background Receipe */
+  background:url(http://talesoftheroad.direct.gov.uk/images/bg_main.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 90px;
+  padding-bottom: 60px;
+}
+
+
+ul, li{
+  list-style:none;
+  list-style-type:none;
+}
+
+.select {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.form {
+  background-image:url("http://g2g.fm/themes/notorious_floating/images/noisy/vb5.png");
+}
 
 .dropdown-menu {
   background: rgba(32,32,32,0.7);
@@ -62,6 +86,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 
 .img-thumbnail {
   background-color: #777;
+  border: 1px solid rgb(191, 15, 15);
 }
 
 
@@ -77,6 +102,29 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 	text-align: center;
 }
 
+.green {
+  color: rgb(129,129,130);
+}
+
+.orange {
+  color: rgb(250,52,13);
+}
+
+.btn-danger {
+  color: #000000;
+  background: #379DCC;
+  border-color: rgb(34,34,34);
+  &:hover {
+    color: #000000;
+    background-color: rgba(177,241,21,0.9);
+    border-color: rgba(32,32,32,0.9);
+  }
+}
+
+.title-link-btn.center {
+  text-align: center;
+}
+
 .center-show {
   background-image:url("http://www.digital-polyphony.com/MOVIE_THEATER_MARQUEE1web.jpg") ;
 }
@@ -86,14 +134,35 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 }
 
 .movie-box {
+  color: rgba(0, 0, 0, 0.75);
   background-image:url("http://g2g.fm/themes/notorious_floating/images/noisy/vb5.png");
   display: inline-block;
   padding: 10px;
   border-radius: 2px;
 }
 
-.panel-heading {
+.padding {
+  padding-right: 12px;
+  font-size: 16px;
+}
+
+.panel-default {
+  background-color: rgba(25,25,25,0.5) !important;
+  border-color: #BF0F0F;
+}
+
+.panel-default .panel-heading {
+  background-color: rgba(25,25,25,0.5) !important;
+  color: white;
   text-align: center;
+}
+
+.panel-body {
+  background-color: rgba(25,25,25,0.5) !important;
+}
+
+.panel-footer {
+  background-color: rgba(25,25,25,0.5) !important;
 }
 
 .reviews-title {
@@ -108,23 +177,12 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
   margin-right: 10px;
 }
 
-.show {
-  background: #F5F5F5;
-}
 
 .pagination .active span {
   background-color: rgb(157,157,157) !important;
   border-color: rgba(34,34,34,0.4) !important;
 }
 
-
-/* BOOTSTRAP 3.x GLOBAL STYLES
--------------------------------------------------- */
-body {
-  padding-top: 90px;
-  padding-bottom: 60px;
-  background: rgb(212,201,166);  
-}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */

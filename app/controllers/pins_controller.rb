@@ -66,6 +66,10 @@ class PinsController < ApplicationController
       @pin = Pin.find(params[:id])
     end
 
+    def catergory_params
+      params.require(:catergory).permit(:name)
+    end 
+
     def correct_user
       @pin = current_user.pins.find_by(id: params[:id])
       redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
