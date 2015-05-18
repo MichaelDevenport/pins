@@ -1,103 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>WEBrip Video</title>
-      <link href='http://fonts.googleapis.com/css?family=Marvel:700' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-	</head>
+<div class="landing">
+  <div class="container-landing">
+    
+    <h1 class="landing-h1">WEBrip Video</h1>
+    <h2 class ="landing-h2">The best links to the best Videos</h2>
 
-	<body class="landing">
+    <hr class="featurette-divider">
+    <%= link_to "Members Sign in", new_user_session_path, class: "btn btn-success btn-lg btn-block" %> 
+    <%= link_to "Latest Videos", root_path, class: "btn btn-warning btn-lg btn-block" %>
+    <%= link_to "Adult R18", "#", class: "btn btn-danger btn-lg btn-block" %>
 
-		<div class="container-landing">
-			<!-- START HERE --> 
-			<h1 class="landing-h1">WEBrip Video</h1>
-			<h2 class ="landing-h2">The best links to the best Videos</h2>
+    <hr class="featurette-divider">
 
-			<hr class="featurette-divider">
-			
-			<%= link_to "Latest Videos", root_path, class: "btn btn-warning btn-lg btn-block" %>
-			<%= link_to "Members Sign in", new_user_session_path, class: "btn btn-danger btn-lg btn-block" %>
+    <div class="featurette">
+      <div class="featurette-image img-thumbnail pull-right">
+        <%= link_to (image_tag @random_pin.image.url(:medium)), pin_path(@random_pin) %>
+      </div> 
+      <h2 class="featurette-heading">Random <span class="text-muted">Video</span></h2>
+      <p class="lead">Click this movie to see more..</p>
+    </div>
 
-			<hr class="featurette-divider">
+    <hr class="featurette-divider">
+  </div><!-- .container-landing -->
+</div>  
 
-			<div class="featurette">
-    		<div class="featurette-image img-thumbnail pull-right">
-      		<%= link_to (image_tag @random_pin.image.url(:medium)), pin_path(@random_pin) %>
-    		</div> 
-    		<h2 class="featurette-heading">Random <span class="text-muted">Video</span></h2>
-    		<p class="lead">Click this movie to see more..</p>
-  		</div>
-
-  		<hr class="featurette-divider">
-
-  		<!-- Carousel
-			================================================== -->
-			<div id="myCarousel" class="carousel slide">
-  			<!-- Indicators -->
-  			<ol class="carousel-indicators">
-    			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    			<li data-target="#myCarousel" data-slide-to="1"></li>
-    			<li data-target="#myCarousel" data-slide-to="2"></li>
-  			</ol>
-  			<div class="carousel-inner">
-    			<div class="item active">
-      			<%= image_tag("batman.jpg", alt: "Batman") %>
-      			<div class="container">
-        			<div class="carousel-caption">
-          			<h1>Browse our top movies</h1>
-          			<p></p>			
-        			</div>
-      			</div>
-    			</div>
-    			<div class="item">
-      			<%= image_tag("robocop.jpg", alt: "Robocop") %>
-      			<div class="container">
-        			<div class="carousel-caption">
-          			<h1>Best rated this month</h1>
-         			 	<p>Get me click <a>here</a></p>
-        			</div>
-      			</div>
-    			</div>
-    			<div class="item">
-      			<%= image_tag("hobbit.jpg", alt: "The Hobbit") %>
-      			<div class="container">
-        			<div class="carousel-caption">
-          			<h1>Most popular</h1>
-          			<p>download</p>
-        			</div>
-      			</div>
-    			</div>
-  			</div>
-  			<!-- Controls -->
-  			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    			<span class="icon-prev"></span>
-  			</a>
-  			<a class="right carousel-control" href="#myCarousel" data-slide="next">
-    			<span class="icon-next"></span>
-  			</a>  
-			</div>
-			<!-- /.carousel -->
-			
-			<hr class="featurette-divider">
-
-			<h2 class ="landing-h2">Coming Soon at WEBrip Video</h2>
-			<iframe width="100%" height="315" src="https://www.youtube.com/embed/BaGmXiN1PQ8?controls=0" frameborder="0" allowfullscreen></iframe>
-
-			<hr class="featurette-divider">
-
-			<p>
-				<a href="https://www.facebook.com" target="_blank">
-   				<%= image_tag("facebook.png", alt: "Facebook") %> 
-				</a>
-				<a href="https://twitter.com/WEBrip" target="_blank">
-   				<%= image_tag("twitter.png", alt: "Twitter") %>  
-				</a>
-				<a href="https://github.com/MichaelDevenport/pins" target="_blank">
-   				<%= image_tag("github.png", alt: "Github") %> 
-				</a>
-			</p>
-			<!-- END HERE --> 
-		</div><!-- .container-landing -->
-	</body>
-</html>
+	

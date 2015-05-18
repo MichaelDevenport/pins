@@ -7,20 +7,20 @@
           <div class="show-img">
             <%= image_tag @pin.image.url(:large) %>
           </div>
-          <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding">Score total</i></strong></div>
+          <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding">Rated Score</i></strong></div>
         </div>
       </div>
       <div class="panel-body">
         <div class="title-link-btn center">
           <h1 class="review_title center"><%= @pin.title %></h1>
-          <span class:="center"> <%= link_to " link", @pin.link, target: "none", class: "btn btn-danger fa fa-external-link" %> <i class="fa fa-hand-o-left"> Click Me !</i></span>
+          <span class:="center"> <%= link_to " link", @pin.link, target: "none", class: "btn btn-primary fa fa-external-link" %> <i class="fa fa-hand-o-left"> Click Me !</i></span>
         </div>
         <hr>
         <span><h4><%= @pin.catergory.name if @pin.catergory %></h4></span>    
         <h5>Movie Description</h5>
         <p><%= @pin.description %></p>
         <h6>Provided by : <%= @pin.user.name if @pin.user %></h6>
-        <h4 class="reviews-title"><strong>Latest reviews</strong></h4>
+        <h4 class="reviews-title"><strong>Latest ratings & reviews</strong></h4>
         <% if @reviews.blank? %>
           <h3>No reviews just yet, would you like to be the first ?</h3>
         <% else %>
@@ -78,7 +78,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <div class="panel-title">
-        <h3>New Upcoming Movies 2015 - 11 Offical Trailers HD</h3>
+        <h3 class="fa fa-2x fa-youtube"> New Upcoming Movies 2015 - 11 Offical Trailers HD</h3>
       </div>
     </div>
     <div class="panel-body">
@@ -86,15 +86,10 @@
     </div>
     <div class="panel-footer">
       <p class="pull-right"><a href="#"></a></p>
-      <h6>YouTube Movies..<a><%= link_to image_tag("youtube.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q' %></a></h6>
+      <p><a> <%= link_to image_tag("youtube-icon.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q' %></a>  <i class="fa fa-hand-o-left"> Click Me ! i'm a link to the Youtube movie channel.</i></p>
     </div>
   </div>
 
   <hr class="featurette-divider">
-  
-  <!-- FOOTER -->
-  <footer>
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>This Bootstrap layout is compliments of Bootply. · <a href="http://www.bootply.com/62603">Edit on Bootply.com</a></p>
-  </footer>
 </div><!-- /.container -->
+<!-- FOOTER -->
