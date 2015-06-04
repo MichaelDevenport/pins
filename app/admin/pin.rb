@@ -1,5 +1,10 @@
 ActiveAdmin.register Pin do
 
+	controller do
+	  def permitted_params
+	    params.permit pin: [ :title, :description, :link, :yt_uid, :catergory_id ]
+	  end
+	end
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
