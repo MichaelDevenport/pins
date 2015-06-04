@@ -78,11 +78,19 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <div class="panel-title player">
-        <h3><%= image_tag("youtube-copy.png", alt: "Youtube movies", :size => "100x70", class: "yt-img") %> New Upcoming Movies 2015 - 11 Offical Trailers HD</h3> 
+        <% if @pin.yt_uid.blank? %> 
+          <h3><%= image_tag("youtube-copy.png", alt: "Youtube movies", :size => "100x70", class: "yt-img") %> New Upcoming Movies 2015 - 11 Offical Trailers HD</h3>
+        <% else %>
+          <h3><%= @pin.user.name if @pin.user %> <%= image_tag("youtube-copy.png", alt: "Youtube movies", :size => "100x70", class: "yt-img") %> Media Player HD</h3>
+        <% end %> 
       </div>
     </div>
     <div class="panel-body">
-      <iframe width="100%" height="480" src="//www.youtube.com/embed/BaGmXiN1PQ8" frameborder="0"></iframe>
+      <% if @pin.yt_uid.blank? %>
+        <iframe width="100%" height="490" src="https://www.youtube.com/embed/BaGmXiN1PQ8" frameborder="0" allowfullscreen></iframe>
+      <% else %>
+        <iframe width="100%" height="490" src="//www.youtube.com/embed/<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>
+      <% end %>
     </div>
     <div class="panel-footer">
       <p class="pull-right"><a href="#"></a></p>
