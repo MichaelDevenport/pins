@@ -25,7 +25,7 @@
           <% end %>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-th"></span> Categories<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-qrcode"></span> Categories<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <% Catergory.all.each do |catergory| %>
               <li><%= link_to catergory.name, pins_path(catergory: catergory.name) %></li>
