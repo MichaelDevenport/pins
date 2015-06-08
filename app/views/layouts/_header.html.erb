@@ -33,16 +33,28 @@
           </ul>
         </li>
         <% if user_signed_in? %>
+          
           <li>
             <%= link_to new_pin_path do %>
               <span class="fa fa-film"></span> New Movie
             <% end %>
           </li>
-          <li>
-            <%= link_to edit_user_registration_path do %>
-              <span class="fa fa-cogs"></span> Account Settings
-            <% end %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user-secret"></span> Users<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to users_path do %>
+                  <span class="fa fa-users"></span> All Users
+                <% end %>
+              </li>
+              <li>
+                <%= link_to edit_user_registration_path do %>
+                  <span class="fa fa-cogs"></span> Account Settings
+                <% end %>
+              </li>  
+            </ul>
           </li>
+          
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
               <span class="fa fa-sign-out"></span> Sign Out

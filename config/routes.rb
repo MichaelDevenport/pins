@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   end
 
   root "pins#index"
-
+  get "users/:id/pins" => "users#pins", :as => :user_pins
+  get "users" => "users#index"
   get "about" => "pages#about"
-
   get "landing" => "pages#landing"
 
   # The priority is based upon order of creation: first created -> highest priority.

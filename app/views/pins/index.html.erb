@@ -17,8 +17,8 @@
               <li><%= link_to catergory.name, pins_path(catergory: catergory.name) %></li>
             <% end %>
           </ul>
-        </li> 
-        <h6><%= pin.user.name if pin.user %></h6>  
+        </li>
+        <h6><%= link_to pin.user.name, user_pins_path(pin.user) %></h6>  
         <% if current_user && pin.user == current_user %>
           <div class="actions">
             <%= link_to edit_pin_path(pin) do %>
