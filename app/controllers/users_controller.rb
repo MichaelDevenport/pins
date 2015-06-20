@@ -18,4 +18,17 @@ class UsersController < ApplicationController
     @pins = @user.pins.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
   end
 
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
 end

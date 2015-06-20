@@ -7,6 +7,10 @@
     </p>
   </div> 
 <% else %>
+  <section class="stats">
+    <%= render 'shared/stats' %>
+  </section>
+  <%= render 'follow_form' %>
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>
       <div class="box panel panel-default">

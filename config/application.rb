@@ -20,6 +20,8 @@ module Pins
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # Include the authenticity token in remote forms.
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     #For deploying on Heroku 3.2 only. Have run code as a safe measure.
     config.assets.initialize_on_precompile = false
   end
