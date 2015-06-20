@@ -1,0 +1,41 @@
+<% if @pins.blank? %>
+  <div class="jumbotron center">
+    <h2>Sorry you don't have any pins just yet, would you like to create one ?</h2>
+    <p>
+      <%= link_to "Home", root_path, class: "btn btn-default btn-lg" %>
+      <%= link_to "Back to Users ?", users_path, class: "btn btn-primary btn-lg" %>
+    </p>
+  </div> 
+<% else %>
+  <section class="stats">
+    <%= render 'shared/stats' %>
+  </section>
+  <div id="pins" class="transitions-enabled">
+    <% @pins.each do |pin| %>
+      <div class="box panel panel-default">
+        <%= link_to image_tag(pin.image.url(:medium)), pin %>
+        <div class="panel-body">
+          
+          <p><%= pin.description %></p>
+          <p><strong><%= pin.user.name if pin.user %></strong></p>
+          
+          <% if current_user && pin.user == current_user %>
+            <div class="actions">
+              <%= link_to edit_pin_path(pin) do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit
+              <% end %>
+              <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash"></span>
+                Delete
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<div class="center">
+  <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
+</div>

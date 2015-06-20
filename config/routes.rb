@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get "landing" => "pages#landing"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -12,11 +14,16 @@ Rails.application.routes.draw do
   end
 
   root "pins#index"
-  get "users/:id/pins" => "users#pins", :as => :user_pins
-  get "users" => "users#index"
   get "about" => "pages#about"
-  get "landing" => "pages#landing"
-
+  get "following_feed" => "feed#index"
+  get "dock" => "users#dock"
+  get "users" => "users#index"
+  get "users/:id/pins" => "users#pins", :as => :user_pins
+  get "users/:id/following" => "users#following", :as => :following_user
+  get "users/:id/followers" => "users#followers", :as => :followers_user
+  resources :relationships, only: [:create, :destroy]
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
