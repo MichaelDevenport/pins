@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :pins, dependent: :destroy
   has_many :reviews, dependent: :destroy
   validates :name, presence: true
-
+ 
   has_many :subscribed, class_name: "Relationship", foreign_key: "follower_id"
   has_many :followed_users, class_name: "Relationship", foreign_key: "followed_id"
 

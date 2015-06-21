@@ -8,7 +8,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "WEBrip Video", root_path, class: "navbar-brand" %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">WEBrip search <b class="fa fa-caret-right"></b></a>
+        <ul class="dropdown-menu position">
+          <%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
+            <span class="nav-search">
+                <%= text_field_tag :search, params[:search], class: "form-control search-field" %>
+                <%= submit_tag "Search all movies", name: nil, class: "btn btn-default search-btn" %>
+            </span>
+          <% end %> 
+        </ul>
+      </li>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,8 +52,16 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user-secret"></span> Users<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to current_user.name, dock_path %></li>
-              <li><%= link_to "Following", following_feed_path %></li>
+              <li>
+                <%= link_to dock_path do %>
+                  <span class="fa fa-user"></span> <%= current_user.name %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to following_feed_path do %>
+                  <span class="fa fa-sitemap"></span> Following
+                <% end %>
+              </li>
               <li>
                 <%= link_to users_path do %>
                   <span class="fa fa-users"></span> All Users
@@ -75,12 +93,7 @@
           </li>
         <% end %>
       </ul>
-      <%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
-        <span class="nav-search">
-          <%= text_field_tag :search, params[:search], class: "form-control" %>
-          <%= submit_tag "search", name: nil, class: "btn btn-default" %>
-        </span>
-      <% end %>
+      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>

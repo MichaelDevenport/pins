@@ -12,7 +12,36 @@ $navbar-default-brand-color: #c0392b;
 $brand-primary: #29527A;
 $brand-danger: #c0392b;
  
+.search-btn {
+  margin-top: 8px;
+  margin-left: 10px;
+}
 
+.position {
+  margin-left: 135px;
+}
+
+.search-field {
+  margin-top: -5px;
+}
+
+.user-table-title {
+  font-family: "Marvel",sans-serif;
+  font-size: 80px;
+  color: rgb(157, 157, 157);
+  margin-bottom: 50px;
+}
+
+.table-users {
+  width: 30%;
+  a, a:link, a:visited {
+    color: #FFF;
+  }
+}
+
+.gravatar-table {
+  padding-bottom: 12px;
+}
 
 a, a:link, a:visited {
   color: rgba(67, 249, 0, 0.9);
