@@ -1,25 +1,30 @@
-<center><h1 class="user-table-title"><%= current_user.name %> Dock</h1></center>
 <% if @pins.blank? %>
   <div class="jumbotron center">
     <h2>Sorry you don't have any pins just yet, would you like to create one ?</h2>
     <p>
-      <%= link_to "Home", root_path, class: "btn btn-default btn-lg" %>
+      <%= link_to "Create", new_pin_path, class: "btn btn-default btn-lg" %>
       <%= link_to "Back to Users ?", users_path, class: "btn btn-primary btn-lg" %>
     </p>
   </div> 
 <% else %>
-  <section class="stats">
-    <%= render 'shared/stats' %>
-  </section>
+
+  <div class="panel dock form panel-heading center green">
+    <section class="dock-title">
+      <%= image_tag avatar_url(current_user) %>
+      <h2><%= current_user.name %> Dock</h2>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </div>
+  
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>
       <div class="box panel panel-default">
         <%= link_to image_tag(pin.image.url(:medium)), pin %>
         <div class="panel-body">
-          
           <p><%= pin.description %></p>
           <p><strong><%= pin.user.name if pin.user %></strong></p>
-          
           <% if current_user && pin.user == current_user %>
             <div class="actions">
               <%= link_to edit_pin_path(pin) do %>
@@ -37,6 +42,7 @@
     <% end %>
   </div>
 <% end %>
+
 <div class="center">
   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
