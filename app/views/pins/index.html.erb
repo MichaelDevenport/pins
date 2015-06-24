@@ -1,5 +1,17 @@
 <%= render 'pages/home' unless user_signed_in? %>
-
+<% if user_signed_in? %>
+  <center>
+    <h2 class="index-pins-user-heading"> You are signed in as <%= current_user.name %></h2>
+  </center>
+  <div class="panel dock form panel-heading center green">
+    <section class="stats"> Your Social Status 
+      <%= render 'shared/stats' %> 
+    </section>
+  </div>
+<% end %>
+<center>
+  <h2 class="follow-show">All Movies</h2>
+</center>
 <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
     <div class="box panel panel-default">

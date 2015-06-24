@@ -1,16 +1,23 @@
-<div class="row">
-  <aside class="span4">
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="span8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users">
-        <%= render @users %>
-      </ul>
-      <%= will_paginate %>
-    <% end %>
-  </div>
+<center>
+  <h2 class="follow-show"><%= @user.name %></h2>
+</center>
+<div class="panel dock form panel-heading center green">
+  <section class="stats"> Users Status
+    <%= render 'shared/stats' %> 
+  </section>
 </div>
+<center>
+  <section>
+    <h1 class="follow-show"><%= @title %></h1>                               
+  </section>
+  <table class="table-users">
+    <% @users.each do |user| %>
+      <tr>
+        <td class="gravatar-table"><%= image_tag avatar_url(user) %></td>
+        <td><h2><%= render (user) %></h2></td>
+      </tr>
+    <% end %>
+  </table>
+</center>
+
+

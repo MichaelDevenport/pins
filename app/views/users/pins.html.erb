@@ -7,9 +7,14 @@
     </p>
   </div> 
 <% else %>
-  <section class="stats">
-    <%= render 'shared/stats' %>
-  </section>
+  <center>
+    <h2 class="follow-show"><%= @user.name %></h2>
+  </center>
+  <div class="panel dock form panel-heading center green">
+    <section class="stats"> Users Status
+      <%= render 'shared/stats' %> 
+    </section>
+  </div>
   <%= render 'follow_form' %>
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-
+  
   resources :pins do
     collection do
       get 'search'
@@ -13,7 +13,14 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
   end
 
-  root "pins#index"
+  authenticated :user do
+    root "users#dock" 
+  end
+  unauthenticated :user do
+    get "/" => "pins#index"
+  end
+  
+  get "all_movies" => "pins#index"
   get "about" => "pages#about"
   get "following_feed" => "feed#index"
   get "dock" => "users#dock"

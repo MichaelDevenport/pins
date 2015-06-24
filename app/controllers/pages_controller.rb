@@ -14,4 +14,7 @@ class PagesController < ApplicationController
 
   def following_feed
   end 
+
+  def all_movies
+  end
 end

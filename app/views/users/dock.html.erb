@@ -10,14 +10,16 @@
 
   <div class="panel dock form panel-heading center green">
     <section class="dock-title">
+      <h2>Welcome to your dock <%= current_user.name %></h2>
       <%= image_tag avatar_url(current_user) %>
-      <h2><%= current_user.name %> Dock</h2>
     </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
+    <section class="stats"> <span class="dock-relationship-status-title">Social Status</span>
+      <%= render 'shared/stats' %> 
     </section>
   </div>
-  
+  <center>
+    <h2 class="follow-show">Your Movies</h2>
+  </center>
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>
       <div class="box panel panel-default">

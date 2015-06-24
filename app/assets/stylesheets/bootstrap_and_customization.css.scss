@@ -11,6 +11,46 @@ $navbar-default-bg: white;
 $navbar-default-brand-color: #c0392b;
 $brand-primary: #29527A;
 $brand-danger: #c0392b;
+
+.dock-relationship-status-title {
+  font-size: 19px;
+}
+
+.index-pins-user-heading {
+  color: rgb(129,129,130);
+  font-family: "Marvel",sans-serif;
+  font-size: 60px;
+  margin-bottom: 50px;
+}
+
+.status {
+  display: block;
+}
+
+.follow-show {
+  color: rgb(129,129,130);
+  font-family: "Marvel",sans-serif;
+  font-size: 80px;
+  margin-bottom: 50px;
+}
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid white;
+    color: #c0392b;
+    &:first-child {
+      margin-left: 430px;
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
  
 .search-btn {
   margin-top: 8px;
@@ -28,7 +68,7 @@ $brand-danger: #c0392b;
 .user-table-title {
   font-family: "Marvel",sans-serif;
   font-size: 80px;
-  color: rgb(157, 157, 157);
+  color: rgb(129,129,130);
   margin-bottom: 50px;
 }
 
