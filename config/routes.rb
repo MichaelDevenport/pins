@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :pins do
+    member do
+      get "like", to: "pins#upvote"
+      get "dislike", to: "pins#downvote"
+    end
     collection do
       get 'search'
     end

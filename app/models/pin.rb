@@ -1,4 +1,5 @@
 class Pin < ActiveRecord::Base
+	acts_as_votable
 	searchkick
 	belongs_to :user
 	scope :subscribed, ->(followed_users) { where user_id: followed_users }

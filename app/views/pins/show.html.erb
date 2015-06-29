@@ -11,6 +11,7 @@
         </div>
       </div>
       <div class="panel-body">
+        
         <div class="title-link-btn center">
           <h1 class="review_title center"><%= @pin.title %></h1>
           <span class:="center"> <%= link_to " link", @pin.link, target: "none", class: "btn btn-primary fa fa-external-link" %> <i class="fa fa-hand-o-left"> Click Me !</i></span>
@@ -20,6 +21,19 @@
         <h5>Movie Description</h5>
         <p><%= @pin.description %></p>
         <h6>Provided by : <%= @pin.user.name if @pin.user %></h6>
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(@pin.created_at) %> ago.
+        </span>
+        <div class="votable">
+          <%= link_to like_pin_path(@pin), method: :get, class: "vote-up" do %>
+            <span class="fa fa-thumbs-o-up fa-2x"></span>
+          <% end %>
+          <%= pluralize(@pin.get_upvotes.size, "Like") %>
+          <%= link_to dislike_pin_path(@pin), method: :get, class: "vote-down" do %>
+            <span class="fa fa-thumbs-o-down fa-2x"></span>
+          <% end %>  
+            <%= pluralize(@pin.get_downvotes.size, "Dislike") %>
+        </div>
         <h4 class="reviews-title"><strong>Latest ratings & reviews</strong></h4>
         <% if @reviews.blank? %>
           <h3>No reviews just yet, would you like to be the first ?</h3>
@@ -101,3 +115,5 @@
   <hr class="featurette-divider">
 </div><!-- /.container -->
 <!-- FOOTER -->
+
+

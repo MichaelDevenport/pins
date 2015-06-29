@@ -12,6 +12,30 @@ $navbar-default-brand-color: #c0392b;
 $brand-primary: #29527A;
 $brand-danger: #c0392b;
 
+.timestamp {
+  font-size: 0.8em;
+}
+
+.votable {
+ margin-top: 20px;
+ font-size: 11px;
+ color: #D43F3A;
+ letter-spacing: 1px;
+}
+
+.fa-2x {
+  font-size: 1.5em;
+}
+
+.vote-up {
+  padding: 1px;
+}
+
+.vote-down {
+  margin-left: 8px;
+  padding: 1px;
+}
+
 .dock-relationship-status-title {
   font-size: 19px;
 }
@@ -331,36 +355,6 @@ textarea {
   background-color: rgb(157,157,157) !important;
   border-color: rgba(34,34,34,0.4) !important;
 }
-
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  margin-bottom: 60px;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 1;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 315px;
-  background-color:#555;
-}
-.carousel img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-height: 315px;
-}
-
-
-
-/* MARKETING CONTENT
--------------------------------------------------- */
 
 /* Pad the edges of the mobile views a bit */
 .marketing {
