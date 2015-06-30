@@ -25,13 +25,8 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to all_movies_path do %>
-            <span class="fa fa-film"></span> All Movies
-          <% end %>
-        </li>
-        <li>
           <%= link_to about_path do %>
-            <span class="fa fa-info"></span> About
+            <span class="fa fa-info"></span> Q & A
           <% end %>
         </li>
         <li class="dropdown">
@@ -43,12 +38,22 @@
           </ul>
         </li>
         <% if user_signed_in? %>
-          
-          <li>
-            <%= link_to new_pin_path do %>
-              <span class="fa fa-film"></span> New Movie
-            <% end %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-youtube-play"></span> Movies<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to all_movies_path do %>
+                  <span class="fa fa-film"></span> All Movies
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_pin_path do %>
+                  <span class="fa fa-upload"></span> New Movie
+                <% end %>
+              </li>
+            </ul>
           </li>
+          
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user-secret"></span> Users<b class="caret"></b></a>
             <ul class="dropdown-menu">

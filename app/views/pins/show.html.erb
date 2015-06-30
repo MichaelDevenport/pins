@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
+  <div>
+    <div class="panel panel-default show-container">
       <div class="panel-heading center-show">
         <div class="movie-box">
           <p><strong><i>Star Rating Score Box</i></strong></p>
@@ -14,7 +14,7 @@
         
         <div class="title-link-btn center">
           <h1 class="review_title center"><%= @pin.title %></h1>
-          <span class:="center"> <%= link_to " link", @pin.link, target: "none", class: "btn btn-primary fa fa-external-link" %> <i class="fa fa-hand-o-left"> Click Me !</i></span>
+          <span class:="center"><a class="btn btn-primary" href="#random-movie" role="button">Random Movie</a> <%= link_to "I want this Movie", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">Media Player</a></span>
         </div>
         <hr>
         <span><h4><%= @pin.catergory.name if @pin.catergory %></h4></span>    
@@ -56,7 +56,7 @@
     </div>
   </div>
 </div>
-
+<a name="random-movie"></a>
 <script>
   $('.star-rating').raty({
       path: '/assets/',
@@ -76,6 +76,7 @@
   <!-- START THE FEATURETTES -->
 
   <hr class="featurette-divider">
+
 
   <div class="featurette">
     <div class="featurette-image img-thumbnail pull-right">
@@ -111,7 +112,7 @@
       <p><a> <%= link_to image_tag("youtube-icon.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q' %></a>  <i class="fa fa-hand-o-left"> Click Me ! i'm a link to the Youtube movie channel.</i></p>
     </div>
   </div>
-
+  <a name="Media-Player"></a>
   <hr class="featurette-divider">
 </div><!-- /.container -->
 <!-- FOOTER -->
