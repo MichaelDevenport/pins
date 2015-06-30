@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
     resources :reviews, except: [:show, :index]
   end
-
+  resources :charges
   authenticated :user do
     root "users#dock" 
   end
