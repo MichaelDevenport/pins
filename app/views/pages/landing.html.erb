@@ -23,18 +23,31 @@
 
     <hr class="featurette-divider">
     
-    <%= form_tag charges_path do %>
-      <article>
-        <label class="amount">
-          <span>Join Up: $5.00</span>
-        </label>
-      </article>
-
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="A month's subscription"
-              data-amount="500"></script>
+    <%= form_tag charges_path, id: 'chargeForm' do %>
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+      <%= hidden_field_tag 'stripeToken' %>
+      <%= hidden_field_tag 'stripeEmail' %> 
+      <button id="btn-buy" type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span> Create my subscription plan!</button>
+      <script>
+        var handler = StripeCheckout.configure({
+          key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+          token: function(token, arg) {
+            document.getElementById("stripeToken").value = token.id;
+            document.getElementById("stripeEmail").value = token.email;
+            document.getElementById("chargeForm").submit();
+          }
+        });
+        document.getElementById('btn-buy').addEventListener('click', function(e) {
+          handler.open({
+            name: 'WEBrip.tv Subscription',
+            description: 'Get unlimited access to WEBrip.tv',
+            amount: 499
+          });
+          e.preventDefault();
+        })
+      </script>
     <% end %>
+
   </div><!-- .container-landing -->
 </div>  
 
