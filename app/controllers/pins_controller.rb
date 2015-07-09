@@ -62,12 +62,18 @@ class PinsController < ApplicationController
 
   def upvote
     @pin.upvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render 'vote' }
+    end
   end
 
   def downvote
     @pin.downvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js  { render 'vote' }
+    end 
   end
 
   private

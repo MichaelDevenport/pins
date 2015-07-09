@@ -26,7 +26,8 @@
     <%= form_tag charges_path, id: 'chargeForm' do %>
       <script src="https://checkout.stripe.com/checkout.js"></script>
       <%= hidden_field_tag 'stripeToken' %>
-      <%= hidden_field_tag 'stripeEmail' %> 
+      <%= hidden_field_tag 'stripeEmail' %>
+      <%= hidden_field_tag 'amount', 499 %> 
       <button id="btn-buy" type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span> Create my subscription plan!</button>
       <script>
         var handler = StripeCheckout.configure({
@@ -41,7 +42,7 @@
           handler.open({
             name: 'WEBrip.tv Subscription',
             description: 'Get unlimited access to WEBrip.tv',
-            amount: 499
+            amount: document.getElementById("amount").value
           });
           e.preventDefault();
         })

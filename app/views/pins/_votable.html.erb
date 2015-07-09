@@ -1,0 +1,13 @@
+<div class="votable">
+  <%= link_to like_pin_path(@pin), class: "vote-up", method: :put, data: { remote: true } do %>
+    
+    <span class ="upvote-size"><%= pluralize(@pin.get_upvotes.size, "Like") %></span> 
+
+  <% end %> 
+          
+  <%= link_to dislike_pin_path(@pin), class: "vote-down", method: :put, data: { remote: true } do %>
+    
+    <span class="downvote-size"><%= pluralize(@pin.get_downvotes.size, "Dislike") %></span> 
+
+  <% end %> 
+</div>

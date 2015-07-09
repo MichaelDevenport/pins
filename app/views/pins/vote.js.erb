@@ -1,0 +1,4 @@
+$('.vote-up').html("<%= pluralize(@pin.get_upvotes.size, 'Like') %>");
+$('.vote-down').html("<%= pluralize(@pin.get_downvotes.size, 'Dislike') %>"); 
+
+

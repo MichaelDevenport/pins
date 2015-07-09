@@ -12,6 +12,25 @@ $navbar-default-brand-color: #c0392b;
 $brand-primary: #29527A;
 $brand-danger: #c0392b;
 
+a {
+  text-decoration: none !important;
+}
+
+#votable-pin {
+  display: block;
+  .glyphicons-up-down {
+    padding: 3px;
+  }
+  .pin-thumb-up {
+    color: #D43F3A;
+    padding: 0px 30px 0px 10px;
+  }
+  .pin-thumb-down {
+    color: #D43F3A;
+    padding: 0px 10px 0px 23px;
+  }
+}
+
 .subscription-btn {
   float: right;
 }
@@ -37,7 +56,8 @@ $brand-danger: #c0392b;
 
 .vote-down {
   margin-left: 8px;
-  padding: 1px;
+  padding: 0px 13px;
+  border-left: 1px solid white;
 }
 
 .dock-relationship-status-title {
@@ -206,11 +226,6 @@ textarea {
   border: 1px solid rgb(191, 15, 15);
 }
 
-
-
-/* End of landing page
--------------------------------------------------- */
-
 .navbar {
   font-family: 'Marvel', sans-serif;
   font-size: 18px;
@@ -287,6 +302,21 @@ textarea {
     background-color: #242020;
     border-color: rgba(67, 249, 0, 0.9) !important;
   }
+}
+
+.btn-info {
+  color: rgba(67, 249, 0, 0.9) !important;
+  background-color: #242020 !important;
+  border-color: #D43F3A;
+  &:hover {
+    color: rgba(67, 249, 0, 0.9) !important;
+    background-color: #242020 !important;
+    border-color: rgba(67, 249, 0, 0.9) !important;
+  }
+}
+
+.vote-button {
+  margin-top: 5px;
 }
 
 .title-link-btn.center {

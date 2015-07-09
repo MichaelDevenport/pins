@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   
   resources :pins do
     member do
-      get "like", to: "pins#upvote"
-      get "dislike", to: "pins#downvote"
+      put "like", to: "pins#upvote"
+      put "dislike", to: "pins#downvote"
     end
     collection do
       get 'search'
