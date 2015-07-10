@@ -91,4 +91,7 @@ Pins::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  # Google Analytics tracking ID
+  config.ga_tracking_id = ENV['GA_TRACKING_ID']
 end
