@@ -23,7 +23,7 @@ class PinsController < ApplicationController
 
   def show
     @random_pin = Pin.where.not(id: @pin).order("RANDOM()").first
-    @reviews = Review.where(pin_id: @pin.id).order("created_at DESC").limit(10)
+    @reviews = Review.where(pin_id: @pin.id).order("created_at DESC").limit(5)
     if @reviews.blank?
       @avg_review = 0
     else

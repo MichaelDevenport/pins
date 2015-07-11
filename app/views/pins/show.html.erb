@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="panel-body">
-        
+       
         <div class="title-link-btn center">
           <h1 class="review_title center"><%= @pin.title %></h1>
           <span class:="center"><a class="btn btn-primary" href="#random-movie" role="button">Random Movie</a> <%= link_to "I want this Movie", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">Media Player</a></span>
@@ -28,7 +28,7 @@
         
         <%= render 'pins/voting' %>
        
-        <h4 class="reviews-title"><strong>Latest ratings & reviews</strong></h4>
+        <h4 class="reviews-title"><strong>Latest rates & reviews</strong></h4>
         <% if @reviews.blank? %>
           <h3>No reviews just yet, would you like to be the first ?</h3>
         <% else %>
@@ -39,7 +39,7 @@
             </div>
           <% end %>
         <% end %>
-        <p class="review-footer"><%= link_to "Write a Review", new_pin_review_path(@pin), class: "btn btn-default" %>
+        <p class="review-footer"><%= link_to "Rate & Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
         <% if @pin.user == current_user %>
           <%= link_to edit_pin_path(@pin) do %>
             <span class="glyphicon glyphicon-edit"></span>

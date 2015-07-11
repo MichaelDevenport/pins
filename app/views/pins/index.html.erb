@@ -19,14 +19,7 @@
       <%= link_to image_tag(pin.image.url(:medium)), pin %>
 
       <div class="panel-body show">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-filter"></span> <%= pin.catergory.name if pin.catergory %></a>
-          <ul class="dropdown-menu">
-            <% Catergory.all.each do |catergory| %>
-              <li><%= link_to catergory.name, pins_path(catergory: catergory.name) %></li>
-            <% end %>
-          </ul>
-        </li>
+        <span class="fa fa-filter"></span> <%= link_to pin.catergory.name, pins_path(catergory: pin.catergory.name) if pin.catergory %>
         <h6><%= link_to pin.user.name, user_pins_path(pin.user) %></h6>  
         <% if current_user && pin.user == current_user %>
           <div class="actions">

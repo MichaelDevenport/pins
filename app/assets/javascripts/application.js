@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require social_buttons.js
 //= require jquery.turbolinks
 //= require turbolinks
 //= require masonry/jquery.masonry

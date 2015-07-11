@@ -18,6 +18,7 @@ a {
 
 #votable-pin {
   display: block;
+  margin: 12px 0px 29px;
   .glyphicons-up-down {
     padding: 3px;
   }
@@ -29,6 +30,19 @@ a {
     color: #D43F3A;
     padding: 0px 10px 0px 23px;
   }
+  .votable {
+   font-size: 11px;
+   color: #D43F3A;
+   letter-spacing: 1px;
+  }
+  .vote-up {
+    padding: 1px;
+  }
+  .vote-down {
+    margin-left: 8px;
+    padding: 0px 13px;
+    border-left: 1px solid white;
+  }
 }
 
 .subscription-btn {
@@ -39,25 +53,8 @@ a {
   font-size: 0.8em;
 }
 
-.votable {
- margin-top: 20px;
- font-size: 11px;
- color: #D43F3A;
- letter-spacing: 1px;
-}
-
 .fa-2x {
   font-size: 1.5em;
-}
-
-.vote-up {
-  padding: 1px;
-}
-
-.vote-down {
-  margin-left: 8px;
-  padding: 0px 13px;
-  border-left: 1px solid white;
 }
 
 .dock-relationship-status-title {
@@ -305,13 +302,11 @@ textarea {
 }
 
 .btn-info {
-  color: rgba(67, 249, 0, 0.9) !important;
-  background-color: #242020 !important;
-  border-color: #D43F3A;
+  background: rgba(32,32,32,0.7);
+  border-color: rgb(34,34,34);
   &:hover {
-    color: rgba(67, 249, 0, 0.9) !important;
-    background-color: #242020 !important;
-    border-color: rgba(67, 249, 0, 0.9) !important;
+    background-color: rgb(34,34,34) !important;
+    border-color: rgba(32,32,32,0.7) !important;
   }
 }
 
