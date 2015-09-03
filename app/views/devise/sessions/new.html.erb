@@ -1,39 +1,41 @@
-<div class="panel form">
-  <div class="panel-heading center green">
-    <div class="panel-title">
-      <h1>Sign in here</h1>
-      <h3>WEBrip is the best links to all the best video online</h3>
+<div id="primary-content">
+  <div class="panel form">
+    <div class="panel-heading center green">
+      <div class="panel-title">
+        <h1>Sign in here</h1>
+        <h3>WEBrip is the best links to all the best video online</h3>
+      </div>
     </div>
-  </div>
-  <div class="panel-body">
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div class="panel-body">
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-      <div class="form-group">
-        <%= f.label :email %><i> - Type your email, example: you@gmail.com</i>
-        <%= f.email_field :email, class: "form-control", :autofocus => true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password %><i> - Type your WEBrip Video password here.</i>
-        <%= f.password_field :password, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <div class="check-box">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+        <div class="form-group">
+          <%= f.label :email %><i> - Type your email, example: you@gmail.com</i>
+          <%= f.email_field :email, class: "form-control", :autofocus => true %>
         </div>
-      </div>
 
-      <div class="form-group">
-        <%= f.submit "Sign in", class: "btn btn-primary" %><i> - Thank's for signing in to WEBrip Video.</i>
-      </div>
-      
-    <% end %>
-  </div> 
+        <div class="form-group">
+          <%= f.label :password %><i> - Type your WEBrip Video password here.</i>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
 
-  <div class="panel-footer">
-    <p><i>Not a member </i></p>
-    <%= link_to "Sign up", new_user_registration_path %>
+        <div class="form-group">
+          <div class="check-box">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Sign in", class: "btn btn-primary" %><i> - Thank's for signing in to WEBrip Video.</i>
+        </div>
+        
+      <% end %>
+    </div> 
+
+    <div class="panel-footer">
+      <p><i>Not a member </i></p>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </div>
   </div>
 </div>

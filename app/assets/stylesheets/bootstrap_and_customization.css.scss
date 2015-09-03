@@ -2,6 +2,8 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-social";
+@import "jasny-bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -11,6 +13,187 @@ $navbar-default-bg: white;
 $navbar-default-brand-color: #c0392b;
 $brand-primary: #29527A;
 $brand-danger: #c0392b;
+
+.container-share {
+  text-align: center;
+}
+
+.animated {
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  box-animation-duration: 3s;
+}
+
+.animated.bounceInDown {
+  -webkit-animation-duration: 8s;
+  -moz-animation-duration: 8s;
+}
+
+.animated.flip {
+  -webkit-animation-delay: 7s;
+  -moz-animation-delay: 7s;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+}
+
+.animated.zoomIn {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;  
+}
+
+.animated.hinge {
+  -webkit-animation-delay: 7s;
+  -moz-animation-delay: 7s;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+}
+
+.animated.lightSpeedIn {
+  -webkit-animation-delay: 10s;
+  -moz-animation-delay: 10s;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+}
+
+.sidebar {
+  padding: 15px;
+}
+
+.sidebar-profile {
+  background-color: rgba(138, 138, 138, 0.25);
+  padding: 10px;
+  border-radius: 2px;
+
+}
+
+.sidebar-profile-image {
+  background: rgba(254, 254, 254, 0.9) none repeat scroll 0% 0%;
+  border-radius: 2px;
+  padding: 2px;
+  display: inline-block;
+  margin: 0px 5px 5px 0px;
+}
+
+.search-btn {
+    margin-top: -5px !important;
+    margin-left: 0px !important;
+    border-radius: 3px !important;
+}
+
+// NAVBAR
+
+.navmenu-default, .navbar-default .navbar-offcanvas {
+  background-color: #282828;
+}
+
+.navmenu-nav li.active a i {
+  border: 2px solid $brand-primary;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  color: white;
+  line-height: 36px;
+  margin-right: 5px;
+  font-size: 16px;
+  color: $brand-primary;
+}
+
+.navmenu-nav li.active a {
+  color: $brand-primary !important;
+  background-color: transparent !important;
+}
+
+//////////
+.navmenu-nav li.active2 a i {
+  border: 2px solid $brand-primary;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  color: white;
+  line-height: 36px;
+  margin-right: 5px;
+  font-size: 16px;
+  color: $brand-primary;
+}
+
+.navmenu-nav li.active2 a {
+  color: $brand-primary !important;
+  background-color: transparent !important;
+}
+////////////
+
+.navmenu-nav li a i {
+  border: 2px solid white;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  color: white;
+  line-height: 36px;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.manual-sign {
+  color: white !important;
+}
+
+.navmenu-nav li a {
+  color: white !important;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: initial;
+  color: $brand-primary;
+  transition: all 0.3s ease-out;
+}
+
+.navbar-nav {
+  margin: 20px;
+    }
+
+.navbar-toggle {
+  display: block;
+  float: left;
+  border: none;
+}
+
+.navbar-right {
+  margin-right: 20px;
+}
+
+.navbar-brand
+{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: auto;
+  float: initial;
+  padding: 0;
+  line-height: 0px;
+  height: 0px;
+  z-index: 5;
+}
+
+.navbar-brand > img {
+  height: 36px;
+  margin-top: 17px;
+  display: inline-block;
+}
+
+.button-nav {
+  font-size: 36px;
+  color: #cccccc;
+  margin: 4px;
+}
+
+.navbar-default {
+  background-color: white;
+}
 
 a {
   text-decoration: none !important;

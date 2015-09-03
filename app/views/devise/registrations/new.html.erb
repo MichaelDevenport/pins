@@ -1,40 +1,40 @@
-<div class="panel form">
-  <div class="panel-heading center green">
-    <h1>Sign up here</h1>
-    <h3>WEBrip Video the best links to all the best video online</h3>
-    <p>Caution by siging up you agree to our Terms and Conditions</p>
-  </div>
+<div id="primary-content">
+  <div class="panel form">
+    <div class="panel-heading center green">
+      <h1>Sign up here</h1>
+      <h3>WEBrip Video the best links to all the best video online</h3>
+      <p>Caution by siging up you agree to our Terms and Conditions</p>
+    </div>
 
-  <div class="panel-body">
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <div class="panel-body">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-      <div class="form-group">
-        <%= f.label :name %><i> - Type a User Name in this field, example: 'Mr Rails'</i>
-        <%= f.text_field :name, autofocus: true, class: "form-control" %>
-      </div>
+        <div class="form-group">
+          <%= f.label :name %><i> - Type a User Name in this field, example: 'Mr Rails'</i>
+          <%= f.text_field :name, autofocus: true, class: "form-control" %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :email %><i> - Type a current email here, your email address is only needed for site fuctionality, it is not of public record.</i>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
-      </div>
+        <div class="form-group">
+          <%= f.label :email %><i> - Type a current email here, your email address is only needed for site fuctionality, it is not of public record.</i>
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :password %><i> - Pick a random password, see below intructions.</i>
-        <%= f.password_field :password, class: "form-control" %>
-      </div>
+        <div class="form-group">
+          <%= f.label :password %><i> - Pick a random password, see below intructions.</i>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
 
-      <div class="form-group">
-        <%= f.submit "Sign up", class: "btn btn-primary" %><i> - I agree to the Terms and Conditions.</i>
-      </div>
-    <% end %>
-  </div>
+        <div class="form-group">
+          <%= f.submit "Sign up", class: "btn btn-primary" %><i> - I agree to the Terms and Conditions.</i>
+        </div>
+      <% end %>
+    </div>
 
-    
-
-  <div class="panel-footer">
-    <p><i>..already a member ?</i></p>
-    <%= link_to "Log in", new_user_session_path %>
+    <div class="panel-footer">
+      <p><i>..already a member ?</i></p>
+      <%= link_to "Log in", new_user_session_path %>
+    </div>
   </div>
 </div>
 <!-- FOOTER -->

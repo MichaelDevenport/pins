@@ -2,3 +2,18 @@
   <p class="pull-right"><a href="#">Back to top</a></p>
   <p>This website is a production of WEBrip Developments Inc. All rights reserved 2015.<a href="https://russellyates.wordpress.com/"> Terms and Conditions</a></p>
 </div>
+
+<div class="navbar-wrapper">
+  <div class="container">
+    <!-- fixed navbar footer -->
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+    	<div class="container-share">
+	      <a><span href="#" aria-hidden="true"></span></a>
+	      <button type="button" class="btn btn-info" aria-label="Left Align" 
+	              data-toggle="tooltip" data-placement="top" title="Thanks for sharing">
+	              <%= render_shareable :buttons=> [ 'facebook','twitter','linkedin','google_plus' ] %>
+	      </button>
+      </div>
+  	</div>
+	</div>
+</div>

@@ -61,6 +61,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     acts_as_votable (0.10.0)
+    animate-rails (1.0.7)
+      rails
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
@@ -213,6 +215,9 @@ GEM
       activemodel
       elasticsearch (>= 1)
       hashie
+    shareable (1.1.4)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -248,6 +253,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   acts_as_votable (~> 0.10.0)
+  animate-rails
   aws-sdk (~> 1.61.0)
   bootstrap-sass!
   coffee-rails (~> 4.0.0)
@@ -265,6 +271,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc
   searchkick (~> 0.8.5)
+  shareable
   sqlite3
   stripe!
   turbolinks

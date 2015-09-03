@@ -90,9 +90,14 @@
     <a name="Media-Player"></a>
     <div class="panel-body">
       <% if @pin.yt_uid.blank? %>
-        <iframe width="100%" height="580" src="https://www.youtube.com/embed/BaGmXiN1PQ8" frameborder="0" allowfullscreen></iframe>
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/BaGmXiN1PQ8" allowfullscreen></iframe>
+        </div>
       <% else %>
-        <iframe width="100%" height="580" src="//www.youtube.com/embed/<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="//www.youtube.com/embed/<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>
+        </div>
       <% end %>
     </div>
     <div class="panel-footer">

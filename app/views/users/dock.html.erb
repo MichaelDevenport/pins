@@ -8,15 +8,6 @@
   </div> 
 <% else %>
 
-  <div class="panel dock form panel-heading center green">
-    <section class="dock-title">
-      <h2>Welcome to your dock <%= current_user.name %></h2>
-      <%= image_tag avatar_url(current_user) %>
-    </section>
-    <section> <span class="dock-relationship-status-title">Social Status</span>
-      <%= render 'shared/stats' %> 
-    </section>
-  </div>
   <center>
     <h2 class="follow-show">Your Movies</h2>
   </center>

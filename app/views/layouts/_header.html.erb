@@ -1,108 +1,91 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">WEBrip search <b class="fa fa-caret-right"></b></a>
-        <ul class="dropdown-menu position">
-          <%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
-            <span class="nav-search">
-                <%= text_field_tag :search, params[:search], class: "form-control search-field" %>
-                <%= submit_tag "Search all movies", name: nil, class: "btn btn-default search-btn" %>
-            </span>
-          <% end %> 
-        </ul>
-      </li>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to about_path do %>
-            <span class="fa fa-info"></span> Q & A
-          <% end %>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-qrcode"></span> Categories<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <% Catergory.all.each do |catergory| %>
-              <li><%= link_to catergory.name, pins_path(catergory: catergory.name) %></li>
-            <% end %>
-          </ul>
-        </li>
-        <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-youtube-play"></span> Movies<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to all_movies_path do %>
-                  <span class="fa fa-film"></span> All Movies
-                <% end %>
-              </li>
-              <li>
-                <%= link_to new_pin_path do %>
-                  <span class="fa fa-upload"></span> New Movie
-                <% end %>
-              </li>
-            </ul>
-          </li>
-          
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user-secret"></span> Users<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to dock_path do %>
-                  <span class="fa fa-user"></span> <%= current_user.name %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to users_path do %>
-                  <span class="fa fa-users"></span> All Users
-                <% end %>
-              </li>
-              <li>
-                <%= link_to following_feed_path do %>
-                  <span class="fa fa-sitemap"></span> Following Feed
-                <% end %>
-              </li>
-              <li>
-                <%= link_to edit_user_registration_path do %>
-                  <span class="fa fa-cogs"></span> Account Settings
-                <% end %>
-              </li>  
-            </ul>
-          </li>
-          <li>
-            <%= link_to root_path do %>
-              <span class="fa fa-home"></span> Home
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <span class="fa fa-sign-out"></span> Sign Out
-            <% end %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to new_user_session_path do %>
-              <span class="fa fa-sign-in"></span> Sign In
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_user_registration_path do %>
-              <span class="fa fa-user"></span> Sign Up
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
       
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container -->
+<nav id="myNavmenu" class="sidebar navmenu navmenu-inverse navmenu-fixed-left offcanvas" role="navigation">
+  <% if user_signed_in? %>
+    <div class="sidebar-profile">
+      <div class="sidebar-profile-image">
+        <%= image_tag avatar_url(current_user) %>
+      </div>
+      <%= current_user.name %>
+    </div> 
+  <% end %>
+  <% if user_signed_in? %>
+    <%= render 'shared/stats' %>
+  <% end %>
+  <br>
+  <span class="fa fa-youtube-play fa-2x"></span> Movies
+  <li>
+    <%= link_to "Upload Video", new_pin_path %>
+  </li>
+  <br>
+  <span class="fa fa-qrcode fa-2x"></span> Categories
+  <% Catergory.all.each do |catergory| %>
+    <li><%= link_to catergory.name, pins_path(catergory: catergory.name) %></li>
+  <% end %>
+  <br>
+  <% if user_signed_in? %>
+    <span class="fa fa-user-secret fa-2x"></span> Users
+    <li>
+      <%= link_to "All Users", users_path %>
+    </li>
+    <li>
+      <%= link_to "Videos of People you Follow", following_feed_path %>
+    </li>
+    <li>
+      <%= link_to "Account Settings", edit_user_registration_path %>
+    </li>
+    <br>
+    <li>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <span class="fa fa-sign-out"></span> Sign Out
+      <% end %>
+    </li>  
+  <% end %>
+  <br>
+  <li>
+      <%= link_to "F.Q.A", about_path %>
+  </li>  
 </nav>
+
+    
+    
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+
+  <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+    <i class="fa fa-cog fa-spin"></i>
+  </button>
+
+  <ul class="nav navbar-nav navbar-right">
+    <%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
+      <span class="nav-search">
+          <%= text_field_tag :search, params[:search], class: "form-control search-field" %>
+          <%= submit_tag "Search", name: nil, class: "btn btn-default search-btn" %>
+      </span>
+    <% end %>
+      <li>
+      <%= link_to all_movies_path do %>
+        <span class="fa fa-youtube-play"></span> All Movies
+      <% end %>
+    </li>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to root_path do %>
+          <span class="fa fa-home"></span> Home
+        <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to new_user_session_path do %>
+          <span class="fa fa-sign-in"></span> Sign In
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_registration_path do %>
+          <span class="fa fa-user"></span> Sign Up
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+      
