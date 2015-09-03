@@ -18,6 +18,51 @@ $brand-danger: #c0392b;
   text-align: center;
 }
 
+.hidden {
+ display: none; 
+}
+/* shareable's nav tag */
+nav.share {
+  display:inline-block;
+}
+
+nav.share div {
+  float:left;
+}
+/* if using medium sized buttons */
+nav.share iframe {
+  border:0; margin-top:0; padding-top:0;
+}
+
+#___plusone_0 {
+  font-size: default !important;
+}
+
+.fb_iframe_widget span { 
+  vertical-align: bottom;
+  width: 85px !important;
+  height: 26px !important; 
+}
+
+.fb_edge_widget_with_comment { 
+  vertical-align: top;
+}
+
+.fb-like {
+  display:inline-block
+}
+
+/* ie6 inline block fix*/
+* html .fb-like {
+  display:inline
+}
+/* ie7 inline block fix*/
+*+html .fb-like {
+  display:inline
+}
+
+
+
 .animated {
   -webkit-animation-duration: 3s;
   -moz-animation-duration: 3s;
