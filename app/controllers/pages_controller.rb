@@ -17,4 +17,7 @@ class PagesController < ApplicationController
 
   def all_movies
   end
+
+  def facebook
+  end
 end

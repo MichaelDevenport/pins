@@ -6,11 +6,11 @@
       <div class="sidebar-profile-image">
         <%= image_tag avatar_url(current_user) %>
       </div>
-      <%= current_user.name %>
+      Hey, <%= current_user.name %>
+      <div class="current_user_stats">
+        <%= render 'shared/stats' %>
+      </div>
     </div> 
-  <% end %>
-  <% if user_signed_in? %>
-    <%= render 'shared/stats' %>
   <% end %>
   <br>
   <span class="fa fa-youtube-play fa-2x"></span> Movies

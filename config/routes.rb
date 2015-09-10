@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get "/" => "pins#index"
   end
   
+  get "facebook" => "pages#facebook"
   get "all_movies" => "pins#index"
   get "about" => "pages#about"
   get "following_feed" => "feed#index"

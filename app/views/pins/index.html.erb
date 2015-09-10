@@ -1,11 +1,11 @@
 <%= render 'pages/home' unless user_signed_in? %>
 
 <center>
-  <div id="flip-element">
+  <div id="lightspeed">
     <h2 class="follow-show">All Video</h2>
   </div>
 </center>
-<div id="bounce-content">
+<div id="primary-content">
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>
       <div class="box panel panel-default">

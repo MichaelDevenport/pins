@@ -7,8 +7,14 @@
     </p>
   </div> 
 <% else %>
-  <br>
-  <%= render 'follow_form' %>
+  <div class="status-user-pg">
+    <div class="details">
+      <%= render 'shared/stats_user' %>
+    </div>
+    <div class="relationship-btn">
+      <%= render 'follow_form' %>
+    </div>
+  </div>
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>
       <div class="box panel panel-default">
