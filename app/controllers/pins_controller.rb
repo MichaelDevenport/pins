@@ -14,7 +14,7 @@ class PinsController < ApplicationController
 
   def index
     if params[:catergory].blank?
-      @pins = Pin.all.order("created_at DESC").paginate(page: params[:page], per_page: 50)
+      @pins = Pin.all.order("created_at DESC").paginate(page: params[:page], per_page: 20)
     else
       @catergory_id = Catergory.find_by(name: params[:catergory]).id
       @pins = Pin.where(catergory_id: @catergory_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)

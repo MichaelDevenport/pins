@@ -7,35 +7,43 @@
     </p>
   </div> 
 <% else %>
-
+  
   <center>
-    <h2 class="follow-show">Your Movies</h2>
+    <div id="flip-element">
+      <h2 class="follow-show">Your Video</h2>
+    </div>
   </center>
-  <div id="pins" class="transitions-enabled">
-    <% @pins.each do |pin| %>
-      <div class="box panel panel-default">
-        <%= link_to image_tag(pin.image.url(:medium)), pin %>
-        <div class="panel-body">
-          <p><%= pin.description %></p>
-          <p><strong><%= pin.user.name if pin.user %></strong></p>
-          <% if current_user && pin.user == current_user %>
-            <div class="actions">
-              <%= link_to edit_pin_path(pin) do %>
-                <span class="glyphicon glyphicon-edit"></span>
-                Edit
-              <% end %>
-              <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <span class="glyphicon glyphicon-trash"></span>
-                Delete
-              <% end %>
-            </div>
-          <% end %>
+
+  <hr class="featurette-divider">
+
+  <div id="zoom-content">
+    <div id="pins" class="transitions-enabled">
+      <% @pins.each do |pin| %>
+        <div class="box panel panel-default">
+          <%= link_to image_tag(pin.image.url(:medium)), pin %>
+          <div class="panel-body">
+            <p><%= pin.description %></p>
+            <p><strong><%= pin.user.name if pin.user %></strong></p>
+            <% if current_user && pin.user == current_user %>
+              <div class="actions">
+                <%= link_to edit_pin_path(pin) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                  Edit
+                <% end %>
+                <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                  Delete
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 <% end %>
 
 <div class="center">
   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
+<hr class="featurette-divider">

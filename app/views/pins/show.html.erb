@@ -1,51 +1,53 @@
 <div class="row">
   <div>
-    <div class="panel panel-default show-container">
-      <div class="panel-heading center-show">
-        <div class="movie-box">
-          <p><strong><i>Star Rating Score Box</i></strong></p>
-          <div class="show-img">
-            <%= image_tag @pin.image.url(:large) %>
-          </div>
-          <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding">Rated Score</i></strong></div>
-        </div>
-      </div>
-      <div class="panel-body">
-       
-        <div class="title-link-btn center">
-          <h1 class="review_title center"><%= @pin.title %></h1>
-          <span class:="center"><a class="btn btn-primary" href="#random-movie" role="button">Random Movie</a> <%= link_to "I want this Movie", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">Media Player</a></span>
-        </div>
-        <hr>
-        <span><h4><%= @pin.catergory.name if @pin.catergory %></h4></span>    
-        <h5>Movie Description</h5>
-        <p><%= @pin.description %></p>
-        <h6>Provided by : <%= @pin.user.name if @pin.user %></h6>
-        <span class="timestamp">
-          Posted <%= time_ago_in_words(@pin.created_at) %> ago.
-        </span>
-        <!-- Vote buttons and count display below ======== -->
-        
-        <%= render 'pins/voting' %>
-       
-        <h4 class="reviews-title"><strong>Latest rates & reviews</strong></h4>
-        <% if @reviews.blank? %>
-          <h3>No reviews just yet, would you like to be the first ?</h3>
-        <% else %>
-          <% @reviews.each do |review| %>
-            <div class="reviews">
-              <div class="star-rating" data-score= <%= review.rating %> ></div>
-              <p><%= review.comment %></p>
+    <div id="zoom-content">
+      <div class="panel panel-default show-container">
+        <div class="panel-heading center-show">
+          <div class="movie-box">
+            <p><strong><i>Star Rating Score Box</i></strong></p>
+            <div class="show-img">
+              <%= image_tag @pin.image.url(:large) %>
             </div>
+            <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding">Rated Score</i></strong></div>
+          </div>
+        </div>
+        <div class="panel-body">
+         
+          <div class="title-link-btn center">
+            <h1 class="review_title center"><%= @pin.title %></h1>
+            <span class:="center"><a class="btn btn-primary" href="#random-movie" role="button">Random Movie</a> <%= link_to "I want this Movie", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">Media Player</a></span>
+          </div>
+          <hr>
+          <span><h4><%= @pin.catergory.name if @pin.catergory %></h4></span>    
+          <h5>Movie Description</h5>
+          <p><%= @pin.description %></p>
+          <h6>Provided by : <%= @pin.user.name if @pin.user %></h6>
+          <span class="timestamp">
+            Posted <%= time_ago_in_words(@pin.created_at) %> ago.
+          </span>
+          <!-- Vote buttons and count display below ======== -->
+          
+          <%= render 'pins/voting' %>
+         
+          <h4 class="reviews-title"><strong>Latest rates & reviews</strong></h4>
+          <% if @reviews.blank? %>
+            <h3>No reviews just yet, would you like to be the first ?</h3>
+          <% else %>
+            <% @reviews.each do |review| %>
+              <div class="reviews">
+                <div class="star-rating" data-score= <%= review.rating %> ></div>
+                <p><%= review.comment %></p>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-        <p class="review-footer"><%= link_to "Rate & Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
-        <% if @pin.user == current_user %>
-          <%= link_to edit_pin_path(@pin) do %>
-            <span class="glyphicon glyphicon-edit"></span>
-            Edit
-          <% end %></p>
-        <% end %>
+          <p class="review-footer"><%= link_to "Rate & Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
+          <% if @pin.user == current_user %>
+            <%= link_to edit_pin_path(@pin) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %></p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

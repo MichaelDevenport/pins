@@ -9,13 +9,13 @@ class UsersController < ApplicationController
   end
 
   def dock
-		@pins = current_user.pins.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
+		@pins = current_user.pins.order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
 	end
 
 
   def pins
     @user = User.find(params[:id])
-    @pins = @user.pins.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
+    @pins = @user.pins.order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
   end
 
   def following

@@ -1,11 +1,12 @@
 <%= render 'pages/home' unless user_signed_in? %>
 
 <center>
-  <div id="lightspeed">
+  <div id="flip-element">
     <h2 class="follow-show">All Video</h2>
   </div>
 </center>
-<div id="primary-content">
+<hr class="featurette-divider">
+<div id="zoom-content">
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>
       <div class="box panel panel-default">
@@ -35,10 +36,11 @@
     <% end %>
   </div>
 </div>
+
 <div class="center">
   <%= will_paginate @pins , renderer: BootstrapPagination::Rails %>
 </div>
-
+<hr class="featurette-divider">
 <!-- FOOTER -->
 
 
