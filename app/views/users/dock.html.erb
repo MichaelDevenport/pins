@@ -2,24 +2,18 @@
   <div class="jumbotron center">
     <h2>Sorry you don't have any pins just yet, would you like to create one ?</h2>
     <p>
-      <%= link_to "Create", new_pin_path, class: "btn btn-default btn-lg" %>
-      <%= link_to "Back to Users ?", users_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Create", new_pin_path, class: "btn btn-default btn-lg audioButton" %>
+      <%= link_to "Back to Users ?", users_path, class: "btn btn-primary btn-lg audioButton" %>
     </p>
   </div> 
 <% else %>
-  
-  <center>
-    <div id="flip-element">
-      <h2 class="follow-show">Your Video</h2>
-    </div>
-  </center>
-
+  <% provide(:title, "Your Video Uploads") %>
   <hr class="featurette-divider">
 
   <div id="zoom-content">
     <div id="pins" class="transitions-enabled">
       <% @pins.each do |pin| %>
-        <div class="box panel panel-default">
+        <div class="box panel panel-default audioButton">
           <%= link_to image_tag(pin.image.url(:medium)), pin %>
           <div class="panel-body">
             <p><%= pin.description %></p>

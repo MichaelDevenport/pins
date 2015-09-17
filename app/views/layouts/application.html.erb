@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<%= favicon_link_tag("dreams.png", alt: "WEBrip.tv Videos Downloads Movies Streaming") %>	
-  	<title>WEBrip.tv</title>
+  	<title><%= full_title(yield(:title)) %></title>
   	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   	<link href='https://fonts.googleapis.com/css?family=Marvel:700' rel='stylesheet' type='text/css'>
@@ -12,8 +12,15 @@
 	</head>
 	<body>
 		<%= render 'layouts/header' unless @disable_nav %>
-		
-		
+		<%= audio_tag "button-16.mp3", class: "audio-play" %>
+		<script type="text/javascript">
+			$(document).on("ready page:change", function() {
+			  $(".audioButton").on("click", function() {
+				  $(".audio-play")[0].currentTime = 0;
+				  return $(".audio-play")[0].play();
+				});
+			})
+		</script>
 		<div class="container">
 			<% flash.each do |name, msg| %>
 			<%= content_tag(:div, msg, class: "alert alert-info") %>

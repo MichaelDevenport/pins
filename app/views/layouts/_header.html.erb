@@ -13,7 +13,7 @@
     </div> 
   <% end %>
   <br>
-  <span class="fa fa-youtube-play fa-2x"></span> Movies
+  <span class="fa fa-youtube-play fa-2x"></span> New Content
   <li>
     <%= link_to "Upload Video", new_pin_path %>
   </li>
@@ -50,9 +50,9 @@
     
     
 <!-- Collect the nav links, forms, and other content for toggling -->
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top audioButton">
 
-  <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+  <button type="button" class="navbar-toggle button-nav audioButton" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
     <i class="fa fa-cog fa-spin"></i>
   </button>
 
@@ -66,7 +66,7 @@
     <% end %>
       <li>
       <%= link_to all_movies_path do %>
-        <span class="fa fa-youtube-play"></span> All Movies
+        <span class="fa fa-youtube-play"></span> All Video
       <% end %>
     </li>
     <% if user_signed_in? %>

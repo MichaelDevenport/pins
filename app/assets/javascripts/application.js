@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jasny-bootstrap
+// require audio_buttons
 //= require social_buttons.js
 //= require turbolinks
 //= require jquery.turbolinks

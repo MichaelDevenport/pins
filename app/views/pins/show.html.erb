@@ -1,10 +1,11 @@
+<% provide(:title, "Show") %>
 <div class="row">
   <div>
     <div id="zoom-content">
       <div class="panel panel-default show-container">
         <div class="panel-heading center-show">
           <div class="movie-box">
-            <p><%= render_shareable :buttons=> [ 'pinterest','facebook' ] %></p>
+            <p><%= render_shareable :buttons=> [ 'pinterest' ] %></p>
             <div class="show-img">
               <%= image_tag @pin.image.url(:large) %>
             </div>
@@ -15,7 +16,9 @@
          
           <div class="title-link-btn center">
             <h1 class="review_title center"><%= @pin.title %></h1>
-            <span class:="center"><a class="btn btn-primary" href="#random-movie" role="button">Random Movie</a> <%= link_to "I want this Movie", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">Media Player</a></span>
+            <span class:="center"><a class="btn btn-primary audioButton" href="#random-movie" role="button">Random Movie</a>
+                                 <%= link_to "I want this Movie", @pin.link, target: "none", class: "btn btn-primary audioButton" %> 
+                                 <a class="btn btn-primary audioButton" href="#Media-Player" role="button">Media Player</a></span>
           </div>
           <hr>
           <span><h4><%= @pin.catergory.name if @pin.catergory %></h4></span>    
@@ -26,9 +29,9 @@
             Posted <%= time_ago_in_words(@pin.created_at) %> ago.
           </span>
           <!-- Vote buttons and count display below ======== -->
-          
-          <%= render 'pins/voting' %>
-         
+          <div class="audioButton">
+            <%= render 'pins/voting' %>
+          </div>
           <h4 class="reviews-title"><strong>Latest rates & reviews</strong></h4>
           <% if @reviews.blank? %>
             <h3>No reviews just yet, would you like to be the first ?</h3>
@@ -40,7 +43,7 @@
               </div>
             <% end %>
           <% end %>
-          <p class="review-footer"><%= link_to "Rate & Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
+          <p class="review-footer"><%= link_to "Rate & Review", new_pin_review_path(@pin), class: "btn btn-default audioButton" %> 
           <% if @pin.user == current_user %>
             <%= link_to edit_pin_path(@pin) do %>
               <span class="glyphicon glyphicon-edit"></span>
@@ -70,11 +73,13 @@
   <hr class="featurette-divider">
 
   <div class="featurette">
-    <div class="featurette-image img-thumbnail pull-right">
+    <div class="featurette-image img-thumbnail pull-right audioButton">
       <%= link_to (image_tag @random_pin.image.url(:medium)), pin_path(@random_pin) %>
     </div> 
     <h2 class="featurette-heading">Random. <span class="text-muted">Video.</span></h2>
-    <p class="lead">Click this Video to view its, title description and get the link. We have thousands of the latest Videos and lots added every day. Go ahead give the Video to your right a click to start browsing our mega collection.</p>
+    <p class="lead">Click this Video to view its, title description and get the link. 
+                    We have thousands of the latest Videos and lots added every day. 
+                    Go ahead give the Video to your right a click to start browsing our mega collection.</p>
   </div>
 
   <hr class="featurette-divider">
@@ -83,9 +88,11 @@
     <div class="panel-heading">
       <div class="panel-title player">
         <% if @pin.yt_uid.blank? %> 
-          <h3><%= image_tag("youtube-copy.png", alt: "Youtube movies", :size => "100x70", class: "yt-img") %> New Upcoming Movies 2015 - 11 Offical Trailers HD</h3>
+          <h3><%= image_tag("youtube-copy.png", alt: "Youtube movies", :size => "100x70", class: "yt-img") %>
+                                           Video 2015 <%= render_shareable :buttons=> [ 'facebook' ] %></h3> 
         <% else %>
-          <h3><%= @pin.user.name if @pin.user %> <%= image_tag("youtube-copy.png", alt: "Youtube movies", :size => "100x70", class: "yt-img") %> Media Player HD</h3>
+          <h3><%= @pin.user.name if @pin.user %> <%= image_tag("youtube-copy.png", alt: "Youtube movies", :size => "100x70", class: "yt-img") %>
+                                                                                         <%= render_shareable :buttons=> [ 'facebook' ] %></h3> 
         <% end %> 
       </div>
     </div>
@@ -104,7 +111,8 @@
     </div>
     <div class="panel-footer">
       <p class="pull-right"><a href="#"></a></p>
-      <p><a> <%= link_to image_tag("youtube-icon.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q' %></a>  <i class="fa fa-hand-o-left"> Click Me ! i'm a link to the Youtube movie channel.</i></p>
+      <p><a> <%= link_to image_tag("youtube-icon.png", class: "audioButton", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q', target: "none" %></a>
+                                                                                            <i class="fa fa-hand-o-left"> Click Me ! i'm a link to the Youtube movie channel.</i></p>
     </div>
   </div>
  
