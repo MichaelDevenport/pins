@@ -13,6 +13,7 @@
 	<body>
 		<%= render 'layouts/header' unless @disable_nav %>
 		<%= audio_tag "button-16.mp3", class: "audio-play" %>
+		
 		<script type="text/javascript">
 			$(document).on("ready page:change", function() {
 			  $(".audioButton").on("click", function() {
@@ -30,3 +31,5 @@
 		</div>
 	</body>
 </html>
+
+
