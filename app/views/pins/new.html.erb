@@ -1,3 +1,4 @@
+<%= render 'shared/form_audio' %>
 <div class="audioForm">
   <div id="primary-content">
     <div class="panel form">
@@ -20,10 +21,3 @@
 </div>
 <!-- FOOTER -->
 
-<%= audio_tag "Cassette_Load_01.mp3", autoplay: true, class: "audio-form" %>
-<script type="text/javascript">
-  $(document).ready( function() {
-    $(".audio-form")[0].currentTime = 0;
-    return $(".audio-form")[0].play();
-  })
-</script>

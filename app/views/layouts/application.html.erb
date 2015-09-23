@@ -13,7 +13,6 @@
 	<body>
 		<%= render 'layouts/header' unless @disable_nav %>
 		<%= audio_tag "button-16.mp3", class: "audio-play" %>
-		
 		<script type="text/javascript">
 			$(document).on("ready page:change", function() {
 			  $(".audioButton").on("click", function() {
@@ -22,14 +21,32 @@
 				});
 			})
 		</script>
+
+		<!-- alert fadeOut -->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				setTimeout(function() {
+					$('#notice_wrapper').fadeOut("slow", function() {
+						$(this).remove();
+					})
+				}, 4500);
+			});
+		</script>
+
 		<div class="container">
-			<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-info") %>
+			<!-- alert -->
+			<% if notice %>
+				<div id="notice_wrapper">
+					<p class="notice"><%= notice %></p>
+				</div>
+			<% elsif alert %>
+				<div id="notice_wrapper">
+					<p class="alert"><%= alert %></p>
+				</div>
 			<% end %>
+
 			<%= yield %>
 			<%= render 'layouts/footer' %>
 		</div>
 	</body>
 </html>
-
-

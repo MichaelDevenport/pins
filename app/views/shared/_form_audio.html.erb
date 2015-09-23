@@ -1,0 +1,7 @@
+<%= audio_tag "Cassette_Load_01.mp3", autoplay: true, class: "audio-form" %>
+<script>
+	$(document).ready( function() {
+	  $(".audio-form")[0].currentTime = 0;
+	  return $(".audio-form")[0].play();
+	})
+</script>
