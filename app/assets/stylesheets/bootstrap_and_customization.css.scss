@@ -32,7 +32,6 @@ $brand-danger: #c0392b;
   }
 }
 
-
 .status-user-pg {
   display: block;
   background-color: rgba(138, 138, 138, 0.25);
@@ -436,7 +435,7 @@ ul, li {
 }
 
 .form {
-  background-image:url("http://g2g.fm/themes/notorious_floating/images/noisy/vb5.png");
+  background-image:url("showBox.png");
 }
 
 .dropdown-menu {
@@ -521,44 +520,44 @@ textarea {
 
 .btn-primary {
   color: rgba(67, 249, 0, 0.9) !important;
-  background-color: #242020;
-  border-color: #D43F3A;
+  background-color: #242020 !important;
+  border-color: #D43F3A !important;
   &:hover {
     color: rgba(67, 249, 0, 0.9) !important;
-    background-color: #242020;
+    background-color: #242020 !important;
     border-color: rgba(67, 249, 0, 0.9) !important;
   }
 }
 
 .btn-success {
   color: rgba(67, 249, 0, 0.9) !important;
-  background-color: #242020;
-  border-color: #D43F3A;
+  background-color: #242020 !important;
+  border-color: #D43F3A !important;
   &:hover {
     color: rgba(67, 249, 0, 0.9) !important;
-    background-color: #242020;
+    background-color: #242020 !important;
     border-color: rgba(67, 249, 0, 0.9) !important;
   }
 }
 
 .btn-default {
   color: rgba(67, 249, 0, 0.9) !important;
-  background-color: #242020;
-  border-color: #D43F3A;
+  background-color: #242020 !important;
+  border-color: #D43F3A !important;
   &:hover {
     color: rgba(67, 249, 0, 0.9) !important;
-    background-color: #242020;
+    background-color: #242020 !important;
     border-color: rgba(67, 249, 0, 0.9) !important;
   }
 }
 
 .btn-danger {
   color: rgba(67, 249, 0, 0.9) !important;
-  background-color: #242020;
-  border-color: #D43F3A;
+  background-color: #242020 !important;
+  border-color: #D43F3A !important;
   &:hover {
     color: rgba(67, 249, 0, 0.9) !important;
-    background-color: #242020;
+    background-color: #242020 !important;
     border-color: rgba(67, 249, 0, 0.9) !important;
   }
 }
@@ -566,18 +565,18 @@ textarea {
 
 .btn-warning {
   color: rgba(67, 249, 0, 0.9) !important;
-  background-color: #242020;
-  border-color: #D43F3A;
+  background-color: #242020 !important;
+  border-color: #D43F3A !important;
   &:hover {
     color: rgba(67, 249, 0, 0.9) !important;
-    background-color: #242020;
+    background-color: #242020 !important;
     border-color: rgba(67, 249, 0, 0.9) !important;
   }
 }
 
 .btn-info {
-  background: rgba(32,32,32,0.7);
-  border-color: rgb(34,34,34);
+  background: rgba(32,32,32,0.7) !important;
+  border-color: rgb(34,34,34) !important;
   &:hover {
     background-color: rgb(34,34,34) !important;
     border-color: rgba(32,32,32,0.7) !important;
