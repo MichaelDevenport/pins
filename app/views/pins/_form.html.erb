@@ -25,22 +25,22 @@
 
     <div class="form-group">
       <%= f.label :title %>
-      <%= f.text_field :title, class: "form-control" %>
+      <%= f.text_field :title, class: "form-control", placeholder: "required" %>
     </div>
 
     <div class="form-group">
       <%= f.label :description %>
-      <%= f.text_field :description, class: "form-control" %>
+      <%= f.text_field :description, class: "form-control", placeholder: "required" %>
     </div>
 
     <div class="form-group">
       <%= f.label :link %>
-      <%= f.text_field :link, class: "form-control" %>
+      <%= f.text_field :link, class: "form-control", placeholder: "required" %>
     </div>
 
     <div class="form-group">
       <%= f.label :youtube_uid_link %>
-      <%= f.text_field :yt_uid, class: "form-control" %>
+      <%= f.text_field :yt_uid, class: "form-control", placeholder: "Copie & Paste the last 11 characters of the Youtube trailer or full video" %>
     </div>
     <div class="form-group">
       <%= f.submit class: "btn" %>

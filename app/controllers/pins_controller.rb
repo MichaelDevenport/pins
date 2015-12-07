@@ -3,6 +3,7 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
+  before_action :scrape, only: [:new]
 
   def search
     if params[:search].present?
@@ -32,14 +33,25 @@ class PinsController < ApplicationController
   end
 
   def new
-    @pin = current_user.pins.build
+    if @pin_data.failure == nil
+      @pin = Pin.new(
+        title: @pin_data.title,
+        description: @pin_data.description,
+        link: @pin_data.link
+        )
+    else
+      @pin = current_user.pins.new
+      if params[:search]
+        @failure = @pin_data.failure
+      end
+    end
   end
 
   def edit
   end
 
   def create
-    @pin = current_user.pins.build(pin_params)
+    @pin = current_user.pins.new(pin_params)
     if @pin.save
       redirect_to @pin, notice: 'Pin was successfully created.'
     else
@@ -94,6 +106,12 @@ class PinsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
       params.require(:pin).permit(:link, :description, :title, :image, :catergory_id, :yt_uid, :name) 
+    end
+
+    def scrape
+      s = Scrape.new
+      s.scrape_new_pin(params[:search].to_s)
+      @pin_data = s
     end
 
     def find_pin

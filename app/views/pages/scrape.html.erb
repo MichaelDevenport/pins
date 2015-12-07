@@ -1,0 +1,23 @@
+<div class="panel form">
+  <div class="panel-heading center">
+    <h1 class="green">Scrape URL</h1>
+  </div>
+
+  <div class="panel-body">
+  	<% if current_user %>
+	  <%= form_tag new_pin_path, :method => 'get', class: "scraper" do %>
+	    <%= text_field_tag :search, params[:pin_url], class: "form-control scrape", placeholder: "Paste dayt.se URL of the video you want to add here" %>
+	    <%= submit_tag "Scrape", :name => nil, class: "btn btn-default scrape-btn" %>
+	  <% end %>
+	<% end %>  
+  </div>
+
+  <div class="panel-footer">
+    | <%= link_to image_tag("g2g.png", alt: "videos"), 'http://dayt.se/', target: "none" %> 
+    <%= link_to image_tag("youtube.png", alt: "Youtube movies"), 
+                          'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q', target: "none" %> 
+    <%= link_to image_tag("imdb.png", alt: "Imdb video review"), 'http://www.imdb.com/', target: "none" %> |                   
+    <p class="pull-right"><%= link_to 'back', pins_path %></p>
+  </div>
+</div>
+<!-- FOOTER -->

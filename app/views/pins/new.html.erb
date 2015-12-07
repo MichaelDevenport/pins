@@ -11,9 +11,11 @@
       </div>
 
       <div class="panel-footer">
-        <%= link_to image_tag("imdb.png", alt: "Imdb video review"), 'http://www.imdb.com/', target: "none" %> |
-        <%= link_to image_tag("g2g.png", alt: "G2g.fm videos"), 'http://g2g.fm/', target: "none" %> |
-        <%= link_to image_tag("youtube.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q', target: "none" %>
+        | <%= link_to image_tag("g2g.png", alt: "videos"), 'http://dayt.se/', target: "none" %> 
+        <%= link_to "Scrape?", scrape_path, class: "btn btn-info" %> |
+        <%= link_to image_tag("youtube.png", alt: "Youtube movies"), 
+                              'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q', target: "none" %> 
+        <%= link_to image_tag("imdb.png", alt: "Imdb video review"), 'http://www.imdb.com/', target: "none" %> |                   
         <p class="pull-right"><%= link_to 'back', pins_path %></p>
       </div>
     </div>
