@@ -2,7 +2,7 @@
 <% provide(:title, "All Video") %>
 
 <hr class="featurette-divider">
-<div id="zoom-content">
+
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>
       <div class="box panel panel-default audioButton">
@@ -29,7 +29,7 @@
       </div>
     <% end %>
   </div>
-</div>
+
 
 <div class="center">
   <%= will_paginate @pins , renderer: BootstrapPagination::Rails %>
