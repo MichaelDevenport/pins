@@ -20,8 +20,8 @@
   </li>
   <br>
   <span class="fa fa-qrcode fa-2x"></span> Categories
-  <% Catergory.all.each do |catergory| %>
-    <li><%= link_to catergory.name, pins_path(catergory: catergory.name) %></li>
+  <% Category.all.each do |category| %>
+    <li><%= link_to category.name, pins_path(category: category.name) %></li>
   <% end %>
   <br>
   <% if user_signed_in? %>
@@ -56,7 +56,7 @@
   <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
     <i class="fa fa-cog fa-spin"></i>
   </button>
-
+  
   <ul class="nav navbar-nav navbar-right">
     
     <%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>

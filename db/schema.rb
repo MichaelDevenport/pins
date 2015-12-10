@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150910071326) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
-  create_table "catergories", force: true do |t|
+  create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(version: 20150910071326) do
     t.datetime "image_updated_at"
     t.string   "title"
     t.string   "link"
-    t.integer  "catergory_id"
     t.string   "yt_uid"
     t.string   "name"
+    t.integer  "category_id"
   end
 
   add_index "pins", ["name"], name: "index_pins_on_name"

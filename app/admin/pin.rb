@@ -2,7 +2,7 @@ ActiveAdmin.register Pin do
 
 	controller do
 	  def permitted_params
-	    params.permit pin: [ :title, :description, :link, :yt_uid, :catergory_id ]
+	    params.permit pin: [ :title, :description, :link, :yt_uid, :category_id ]
 	  end
 	end
 # See permitted parameters documentation:

@@ -14,11 +14,11 @@ class PinsController < ApplicationController
   end
 
   def index
-    if params[:catergory].blank?
+    if params[:category].blank?
       @pins = Pin.all.order("created_at DESC").paginate(page: params[:page], per_page: 20)
     else
-      @catergory_id = Catergory.find_by(name: params[:catergory]).id
-      @pins = Pin.where(catergory_id: @catergory_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+      @category_id = Category.find_by(name: params[:category]).id
+      @pins = Pin.where(category_id: @category_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
     end 
   end
 
@@ -95,7 +95,7 @@ class PinsController < ApplicationController
     end
 
     def catergory_params
-      params.require(:catergory).permit(:name)
+      params.require(:category).permit(:name)
     end 
 
     def correct_user
@@ -105,7 +105,7 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:link, :description, :title, :image, :catergory_id, :yt_uid, :name) 
+      params.require(:pin).permit(:link, :description, :title, :image, :category_id, :yt_uid, :name) 
     end
 
     def scrape
