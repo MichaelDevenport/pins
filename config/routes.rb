@@ -24,17 +24,16 @@ Rails.application.routes.draw do
   end
   resources :charges
   authenticated :user do
-    root "users#dock" 
+    root "pins#index" 
   end
   unauthenticated :user do
     get "/" => "pins#index"
   end
   
   get "scrape" => "pages#scrape"
-  get "all_movies" => "pins#index"
+  get "your_pins" => "users#dock"
   get "about" => "pages#about"
   get "following_feed" => "feed#index"
-  get "dock" => "users#dock"
   get "users" => "users#index"
   get "users/:id/pins" => "users#pins", :as => :user_pins
   get "users/:id/following" => "users#following", :as => :following_user

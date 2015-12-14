@@ -15,7 +15,7 @@
   <br>
   <span class="fa fa-youtube-play fa-2x"></span> New Content
   <li>
-    <%= link_to "Upload Video", new_pin_path %> |
+    <%= link_to "Upload pin", new_pin_path %> |
     <%= link_to "Scrape dayt.se?", scrape_path %>
   </li>
   <br>
@@ -27,10 +27,10 @@
   <% if user_signed_in? %>
     <span class="fa fa-user-secret fa-2x"></span> Users
     <li>
-      <%= link_to "All Users", users_path %>
+      <%= link_to "All users", users_path %>
     </li>
     <li>
-      <%= link_to "Videos of People you Follow", following_feed_path %>
+      <%= link_to "Pins from people you follow", following_feed_path %>
     </li>
     <li>
       <%= link_to "Account Settings", edit_user_registration_path %>
@@ -61,19 +61,19 @@
     
     <%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
       <span class="nav-search">
-          <%= text_field_tag :search, params[:search], class: "form-control search-field", placeholder: "find video by title" %>
+          <%= text_field_tag :search, params[:search], class: "form-control search-field", placeholder: "by pin title or username" %>
           <%= submit_tag "Search", name: nil, class: "btn btn-default search-btn" %>
       </span>
     <% end %>
       <li>
-      <%= link_to all_movies_path do %>
-        <span class="fa fa-youtube-play"></span> All Video
-      <% end %>
-    </li>
+        <%= link_to root_path do %>
+          <span class="fa fa-home"></span> All pins
+        <% end %>
+      </li>
     <% if user_signed_in? %>
       <li>
-        <%= link_to root_path do %>
-          <span class="fa fa-home"></span> Home
+        <%= link_to your_pins_path do %>
+          <span class="fa fa-user-secret"></span> Your pins
         <% end %>
       </li>
     <% else %>

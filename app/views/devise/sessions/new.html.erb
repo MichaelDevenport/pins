@@ -1,10 +1,12 @@
+<% provide(:title, "sign in") %>
+
 <%= render 'shared/form_audio' %>
 <div id="primary-content">
-  <div class="panel form">
+  <div class="panel form audioButton">
     <div class="panel-heading center green">
       <div class="panel-title">
         <h1>Sign in here</h1>
-        <h3>WEBrip is the best links to all the best video online</h3>
+        <h3>Youmix.me is the best links to all the best video online</h3>
       </div>
     </div>
     <div class="panel-body">
@@ -16,7 +18,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :password %><i> - Type your WEBrip Video password here.</i>
+          <%= f.label :password %><i> - Type your Youmix.me password here.</i>
           <%= f.password_field :password, class: "form-control" %>
         </div>
 
@@ -28,7 +30,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.submit "Sign in", class: "btn" %><i> - Thank's for signing in to WEBrip Video.</i>
+          <%= f.submit "Sign in", class: "btn" %><i> - Thank's for signing in to Youmix.me.</i>
         </div>
         
       <% end %>

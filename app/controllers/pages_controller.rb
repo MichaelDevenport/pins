@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, only: [:scrape]
 	before_filter :disable_nav, only: [:landing]
 
   def home
@@ -15,7 +16,7 @@ class PagesController < ApplicationController
   def following_feed
   end 
 
-  def all_movies
+  def your_pins
   end
 
   def scrape

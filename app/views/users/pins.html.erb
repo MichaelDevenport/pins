@@ -1,3 +1,5 @@
+<% provide(:title, "A users pins") %>
+
 <% if @pins.blank? %>
   <div class="jumbotron center">
     <h2>Sorry no pins here just yet, try again soon.</h2>
@@ -17,10 +19,11 @@
   </div>
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>
-      <div class="box panel panel-default">
+      <div class="box panel panel-default audioButton">
         <%= link_to image_tag(pin.image.url(:medium)), pin %>
         <div class="panel-body">
-          <p><strong><%= pin.title %></strong></p>
+          <h5><strong><%= pin.title %></strong></h5>
+          <p><span class="fa fa-filter"></span> <%= link_to pin.category.name, pins_path(category: pin.category.name) if pin.category %></p>
           <p><%= pin.description %></p>
           <p><strong><%= pin.user.name if pin.user %></strong></p>
           

@@ -7,11 +7,11 @@
       <div class="col-md-6"> 
         <div class="panel-heading center-show">
           <div class="movie-box">
-            <p><strong><h6>Provided by | <%= @pin.user.name if @pin.user %></h6></strong></p>
+            <p><strong><h6>Provided by <%= @pin.user.name if @pin.user %></h6></strong></p>
             <div class="show-img">
               <%= image_tag @pin.image.url(:large) %>
             </div>
-            <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding">youMix score</i></strong></div>
+            <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding">Youmix score</i></strong></div>
           </div>
         </div>
         <hr class="featurette-divider">
@@ -28,15 +28,15 @@
       <div class="panel-body">
         <div class="col-md-6">
           <div class="title-link-btn center">
-            <h2 class="featurette-heading center"><%= @pin.title %></h2>
-            <span class:="center"><%= link_to "Download", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">Media Player</a></span>
+            <h1 class="reviews-title center"><%= @pin.title %></h1>
+            <span class:="center"><%= link_to "Visit site", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">Media player</a></span>
           </div>
           <hr>
           <div><h4 class="reviews-title"><strong><%= link_to @pin.category.name, pins_path(category: @pin.category.name) if @pin.category %></h4></strong></div>    
-          <h2 class="featurette-heading">Movie <span class="text-muted">description</span></h2>
+          <h2 class="featurette-heading"><span class="text-muted">Description</span></h2>
           <p class="lead"><%= @pin.description %></p>
           <span class="timestamp">
-            Posted <%= time_ago_in_words(@pin.created_at) %> ago.
+            Pinned <%= time_ago_in_words(@pin.created_at) %> ago.
           </span>
           <!-- Vote buttons and count display below ======== -->
           
