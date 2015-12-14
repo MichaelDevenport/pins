@@ -1,12 +1,26 @@
 <% provide(:title, "All users") %>
+<%= render 'shared/form_audio' %>
+<div id="primary-content">
+	<div class="panel center form audioButton">
+		<div class="panel-heading green">
+      <div class="panel-title">
+        <h3>Youmix.me Subscribers</h3>
+      </div>
+    </div>
+		<div class="panel-body ">
+			<table class="table-users">
+				<% @users.each do |user| %>
+					<div class="reviews">
+					  <span class="gravatar-table"><%= image_tag avatar_url(user) %>
+					  <h2><%= link_to user.name, user_pins_path(user) %></h2></span>
+					</div>
+				<% end %>
+			</table>
+		</div>
+		<div class="center">
+		  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+		</div>
+	</div>
+</div>
 
-<center>
-	<table class="table-users">
-		<% @users.each do |user| %>
-		  <tr>
-		  	<td class="gravatar-table"><%= image_tag avatar_url(user) %></td>
-		  	<td><h2><%= link_to user.name, user_pins_path(user) %></h2></td>
-		  </tr>
-		<% end %>
-	</table>
-</center>
+<hr class="featurette-divider">

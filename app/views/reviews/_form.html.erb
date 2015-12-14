@@ -1,4 +1,4 @@
-<div class="panel-body center green">
+
   <%= form_for([@pin, @review]) do |f| %>
     <% if @review.errors.any? %>
       <div id="error_explanation">
@@ -17,13 +17,13 @@
     </div>
     <div class="form-group">
       <%= f.label :comment %><br>
-      <%= f.text_area :comment, class: "form-control" %>
+      <%= f.text_area :comment, class: "form-control", placeholder: "Hover your mouse over the stars, select how many stars you want to give the pin your reviewing and click to rate, then if you like write a comment here. Youmix.me" %>
     </div>
     <div class="actions">
       <%= f.submit %>
     </div>
   <% end %>
-</div>
+
 <script>
   $('#star-rating').raty({
     path: '/assets/',

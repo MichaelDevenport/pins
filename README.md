@@ -5,4 +5,4 @@ This is Michaels Pinteresting sample application for
 
 by [Mattan Griffel](http://mattangriffel.com)
 
-Developer [Michael Devenport](http://russellyates.com)
+Developer [Michael Devenport](https://twitter.com/WEBrip)

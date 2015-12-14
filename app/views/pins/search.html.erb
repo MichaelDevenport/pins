@@ -1,4 +1,6 @@
-<% provide(:title, "Search") %>
+<% provide(:title, "search") %>
+
+<hr class="featurette-divider">
 
 <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
@@ -27,8 +29,5 @@
   <% end %>
 </div>
 
-<div class="center">
-  <%= will_paginate @pins , renderer: BootstrapPagination::Rails %>
-</div>
 <hr class="featurette-divider">
 <!-- FOOTER -->

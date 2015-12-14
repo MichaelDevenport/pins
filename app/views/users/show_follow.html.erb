@@ -1,16 +1,43 @@
-  
-<center>
-  <section>
-    <h1 class="follow-show"><%= @title %></h1>                               
-  </section>
-  <table class="table-users">
-    <% @users.each do |user| %>
-      <tr>
-        <td class="gravatar-table"><%= image_tag avatar_url(user) %></td>
-        <td><h2><%= render (user) %></h2></td>
-      </tr>
-    <% end %>
-  </table>
-</center>
+<% provide(:title, "relationships") %>  
+
+<% if @users.blank? %> <!-- TODO FIX this is not the correct method. UPDATE @users.blank? not @user is correct Yay! -->
+  <div class="jumbotron center panel form green audioButton">
+    <h2>Sorry no relationships here yet..</h2>
+    <p>
+      <%= link_to "all pins", root_path, class: "btn btn-default" %>
+      <%= link_to "create a pin ?", new_pin_path, class: "btn btn-default" %>
+      <button type="button" class="btn btn-default" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+        <i class="fa fa-cog fa-spin"></i>
+      </button>
+    </p>
+  </div> 
+<% else %>
+  <%= render 'shared/form_audio' %>
+
+  <div id="primary-content">
+    <div class="panel center form audioButton">
+      <div class="panel-heading green">
+        <div class="panel-title">
+          <h3><%= @title %></h3>
+        </div>
+      </div>
+      <div class="panel-body ">
+        <table class="table-users">
+          <% @users.each do |user| %>
+            <div class="reviews">
+              <span class="gravatar-table"><%= image_tag avatar_url(user) %>
+              <h2><%= render (user) %></h2></span>
+            </div>
+          <% end %>
+        </table>
+      </div>
+      <div class="center">
+        <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<hr class="featurette-divider">
+
 
 

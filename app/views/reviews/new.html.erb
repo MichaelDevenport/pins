@@ -1,10 +1,20 @@
-<div class="panel review form">
-	<div class="panel-heading center green">
-		<h1>New review</h1>
+<% provide(:title, "review") %>
+
+<%= render 'shared/form_audio' %>
+<div id="primary-content">
+	<div class="panel center form audioButton">
+		<div class="panel-heading green">
+      <div class="panel-title">
+        <h3>New review</h3>
+      </div>
+    </div>
+		<div class="panel-body ">
+			<%= render 'form' %>
+		</div>
+		<div class="panel-footer">
+			<%= link_to 'Back', pin_path(@pin) %>
+		</div>
 	</div>
 </div>
-<%= render 'form' %> 
 
-<div class="panel-footer">
-	<%= link_to 'Back', pin_path(@pin) %>
-</div>
+<hr class="featurette-divider">
