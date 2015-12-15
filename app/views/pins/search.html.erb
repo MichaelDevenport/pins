@@ -5,7 +5,7 @@
 <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
     <div class="box panel panel-default audioButton">
-      <%= link_to image_tag(pin.image.url(:medium)), pin, alt: "Youmix.me" %>
+      <%= link_to image_tag(pin.image.url(:medium)), pin, alt: "www.youmix.me youmix.me youmix you mix free downloads movies video pins streaming" %>
       <div class="panel-body">
         <h5><strong><%= pin.title %></strong></h5>
         <p><span class="fa fa-filter"></span> <%= link_to pin.category.name, pins_path(category: pin.category.name) if pin.category %></p>
