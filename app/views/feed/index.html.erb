@@ -1,25 +1,46 @@
-<center><h1 class="user-table-title">Hey <%= current_user.name %>, Your Following-Feed</h1></center>
-<div id="pins" class="transitions-enabled">
-  <% @pins.each do |pin| %>
-    <div class="box panel panel-default">
-      <%= link_to image_tag(pin.image.url(:medium)), pin %>
-      <div class="panel-body">
-        <p><%= pin.description %></p>
-        <p><strong><%= pin.user.name if pin.user %></strong></p>
-        
-        <% if current_user && pin.user == current_user %>
-          <div class="actions">
-            <%= link_to edit_pin_path(pin) do %>
-              <span class="glyphicon glyphicon-edit"></span>
-              Edit
-            <% end %>
-            <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <span class="glyphicon glyphicon-trash"></span>
-              Delete
-            <% end %>
-          </div>
-        <% end %>
+<% provide(:title, "following feed") %>
+
+<hr class="featurette-divider">
+
+  <div id="pins" class="transitions-enabled">
+    <% @pins.each do |pin| %>
+      <div class="box panel panel-default audioButton">
+        <%= link_to image_tag(pin.image.url(:medium)), pin, alt: "Youmix.me" %>
+        <div class="panel-body">
+          <h5><strong><%= pin.title %></strong></h5>
+          <p><span class="fa fa-filter"></span> <%= link_to pin.category.name, pins_path(category: pin.category.name) if pin.category %></p>
+          <p><%= pin.description %></p>
+          <p><%= link_to pin.user.name, user_pins_path(pin.user) %></p>
+
+          <% if current_user && pin.user == current_user %>
+            <div class="actions">
+              <%= link_to edit_pin_path(pin) do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit
+              <% end %>
+              <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash"></span>
+                Delete
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+
+
+
+<hr class="featurette-divider">
+<!-- FOOTER -->
+
+
+
+
+
+
+
+
+
+
+

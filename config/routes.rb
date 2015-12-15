@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get "scrape" => "pages#scrape"
   get "your_pins" => "users#dock"
   get "about" => "pages#about"
-  get "following_feed" => "feed#index"
+  get "feed" => "feed#index"
   get "users" => "users#index"
   get "users/:id/pins" => "users#pins", :as => :user_pins
   get "users/:id/following" => "users#following", :as => :following_user

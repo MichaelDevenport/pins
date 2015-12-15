@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   	@random_pin = Pin.where.not(id: @pin).order("RANDOM()").first
   end
 
-  def following_feed
+  def feed
   end 
 
   def your_pins
