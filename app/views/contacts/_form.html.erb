@@ -1,0 +1,34 @@
+<%= form_for @contact, html: { multipart: true } do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+        <% @pin.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :nickname, :hint => 'Leave this field blank!' %>
+
+  <div class="form-group">
+    <%= f.label :name, :required => true %>
+    <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "your name here" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, :required => true %>
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "your email here" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :message, :as => :text, :required => true %>
+    <%= f.text_area :message, autofocus: true, class: "form-control", placeholder: "type your message here" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Send message", class: "btn" %>
+  </div>
+<% end %>

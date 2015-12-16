@@ -8,6 +8,10 @@ class PagesController < ApplicationController
   def about
   end
 
+  def contact
+  end
+
+
   def landing
   	@disable_navbar = true
   	@random_pin = Pin.where.not(id: @pin).order("RANDOM()").first

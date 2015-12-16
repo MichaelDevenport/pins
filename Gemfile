@@ -26,9 +26,11 @@ gem 'font-awesome-sass', '~> 4.3.2.1'
 gem 'acts_as_votable', '~> 0.10.0'
 gem "nokogiri"
 gem "utf8_utils"
+gem 'mail_form'
 
 group :development, :test do
 	gem 'sqlite3'
+	gem 'foreman'
 end
 
 group :production do

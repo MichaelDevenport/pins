@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
 
-  #resources :users do
-  #  collection do
-  #    get 'search'
-  #  end
-  #end
+  resources "contacts", only: [:new, :create]
+  get 'contact' => 'contacts#new'
+  post 'contact' => 'contacts#create'
+
   
   resources :pins do
     member do
@@ -33,6 +32,7 @@ Rails.application.routes.draw do
   get "scrape" => "pages#scrape"
   get "your_pins" => "users#dock"
   get "about" => "pages#about"
+  get "contact" => "pages#contact"
   get "feed" => "feed#index"
   get "users" => "users#index"
   get "users/:id/pins" => "users#pins", :as => :user_pins
