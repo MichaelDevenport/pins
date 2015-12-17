@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   unauthenticated :user do
     get "/" => "pins#index"
   end
-  
+
+  get "sitemap" => "pages#sitemap"
   get "scrape" => "pages#scrape"
   get "your_pins" => "users#dock"
   get "about" => "pages#about"

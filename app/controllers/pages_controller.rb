@@ -25,4 +25,7 @@ class PagesController < ApplicationController
 
   def scrape
   end
+
+  def sitemap
+  end
 end
