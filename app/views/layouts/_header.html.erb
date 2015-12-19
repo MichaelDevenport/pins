@@ -6,7 +6,7 @@
       <div class="sidebar-profile-image">
         <%= image_tag avatar_url(current_user) %>
       </div>
-      Hey, <%= current_user.name %>
+      Hi, <%= current_user.name %>
       <div class="current_user_stats">
         <%= render 'shared/stats' %>
       </div>
@@ -44,7 +44,7 @@
   <% end %>
   <br>
   <li>
-      <%= link_to "F.Q.A", about_path %>
+      <%= link_to "About us", about_path %>
   </li>
   <li>
     <%= link_to "Contact us", contact_path %>
@@ -76,7 +76,7 @@
     <% if user_signed_in? %>
       <li>
         <%= link_to your_pins_path do %>
-          <span class="fa fa-user-secret"></span> Your pins
+          <span class="fa fa-user-secret"></span> <%= current_user.name %>
         <% end %>
       </li>
     <% else %>
