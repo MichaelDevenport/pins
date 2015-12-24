@@ -6,8 +6,8 @@ class PinsController < ApplicationController
   before_action :scrape, only: [:new]
 
   def search
-    if params[:search].present?
-      @pins = Pin.search(params[:search])
+    if params[:search_pin].present?
+      @pins = Pin.search(params[:search_pin])
     else
       @pins = Pin.all
     end
@@ -23,6 +23,7 @@ class PinsController < ApplicationController
   end
 
   def show
+    @pin.increment_view_count
     @random_pin = Pin.where.not(id: @pin).order("RANDOM()").first
     @reviews = Review.where(pin_id: @pin.id).order("created_at DESC").limit(5)
     if @reviews.blank?

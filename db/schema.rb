@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220081749) do
+ActiveRecord::Schema.define(version: 20151224050701) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20151220081749) do
     t.string   "yt_uid"
     t.string   "name"
     t.integer  "category_id"
+    t.integer  "view_count"
   end
 
   add_index "pins", ["name"], name: "index_pins_on_name"

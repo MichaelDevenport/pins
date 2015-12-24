@@ -39,7 +39,10 @@
           <h2 class="featurette-heading"><span class="text-muted">Description</span></h2>
           <p class="lead"><%= @pin.description %></p>
           <span class="timestamp">
-            Pinned <%= time_ago_in_words(@pin.created_at) %> ago.
+            Pinned <%= time_ago_in_words(@pin.created_at) %> ago,
+          </span>
+          <span class="timestamp">
+            viewed <%= pluralize(@pin.view_count, 'time') %>
           </span>
           <!-- Vote buttons and count display below ======== -->
           

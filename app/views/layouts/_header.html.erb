@@ -64,7 +64,7 @@
     
     <%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
       <span class="nav-search">
-          <%= text_field_tag :search, params[:search], class: "form-control search-field", placeholder: "pins by title or username" %>
+          <%= text_field_tag :search_pin, params[:search_pin], class: "form-control search-field", placeholder: "pins by title or username" %>
           <%= submit_tag "Search", name: nil, class: "btn btn-default search-btn" %>
       </span>
     <% end %>

@@ -13,4 +13,9 @@ class Pin < ActiveRecord::Base
 	validates :title, presence: true
 	validates :description, presence: true
 	validates_length_of :yt_uid, :minimum => 11, :maximum => 11, :allow_blank => true
+
+	def increment_view_count
+		self.view_count ? self.view_count += 1 : self.view_count = 1
+		self.save
+	end
 end
