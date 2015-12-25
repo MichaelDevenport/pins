@@ -24,7 +24,7 @@
         </div>
         <hr class="featurette-divider">
         <div class="share-btns">
-          <%= render_shareable :buttons=> [ 'facebook', 'pinterest', 'twitter'] %>
+          <%= render_shareable :buttons=> [ 'twitter', 'facebook', 'pinterest'] %>
         </div>
       </div><!-- col-md-6 -->
 
@@ -63,12 +63,17 @@
             <% end %>
           <% end %>
           <p class="review-footer"><%= link_to "Rate & Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
-          <% if @pin.user == current_user %>
-            <%= link_to edit_pin_path(@pin) do %>
-              <span class="glyphicon glyphicon-edit"></span>
-              Edit
-            <% end %></p>
-          <% end %>
+            <% if @pin.user == current_user %>
+              <%= link_to edit_pin_path(@pin) do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit
+              <% end %>
+              <%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash"></span>
+                Delete
+              <% end %>
+            <% end %>
+          </p>
         </div><!-- col-md-6 -->
       </div>
       <div class="panel-body">

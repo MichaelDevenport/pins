@@ -3,10 +3,17 @@
 <nav id="myNavmenu" class="sidebar navmenu navmenu-inverse navmenu-fixed-left offcanvas audioButton" role="navigation">
   <% if user_signed_in? %>
     <div class="sidebar-profile">
-      <div class="sidebar-profile-image">
-        <%= image_tag avatar_url(current_user) %>
-      </div>
-      Hi, <%= current_user.name %>
+      <h4 class= "center">Welcome 
+        <%= link_to your_pins_path do %>
+          <span class="fa fa-user-secret"></span> <%= current_user.name %>
+        <% end %>
+      </h4>
+      <p class="center">You currently have <%= current_user.pins.count %> pins.</p> 
+      <center>
+        <div class="sidebar-profile-image">
+          <%= image_tag avatar_url(current_user) %>
+        </div>
+      </center>
       <div class="current_user_stats">
         <%= render 'shared/stats' %>
       </div>
@@ -15,7 +22,7 @@
   <br>
   <span class="fa fa-cloud-upload fa-2x"></span> New content
   <li>
-    <%= link_to "Upload pin", new_pin_path %> |
+    <%= link_to "Create pin", new_pin_path %> |
     <%= link_to "Scrape?", scrape_path %>
   </li>
   <br>

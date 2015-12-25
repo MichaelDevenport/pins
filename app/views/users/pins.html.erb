@@ -1,4 +1,4 @@
-<% provide(:title, "A users pins") %>
+<% provide(:title, "a users pins") %>
 
 <% if @pins.blank? %>
   <div class="jumbotron center panel form green audioButton">
@@ -35,10 +35,6 @@
               <%= link_to edit_pin_path(pin) do %>
                 <span class="glyphicon glyphicon-edit"></span>
                 Edit
-              <% end %>
-              <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <span class="glyphicon glyphicon-trash"></span>
-                Delete
               <% end %>
             </div>
           <% end %>
