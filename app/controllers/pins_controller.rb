@@ -107,7 +107,7 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:link, :description, :title, :image, :category_id, :yt_uid, :name) 
+      params.require(:pin).permit(:link, :description, :title, :image, :category_id, :yt_uid, :name, :tag_list) 
     end
 
     def scrape

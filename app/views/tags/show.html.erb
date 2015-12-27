@@ -1,0 +1,30 @@
+<% provide(:title, "tag") %>
+
+<%= render 'shared/form_audio' %>
+<div id="primary-content">
+	<div class="panel center form audioButton">
+		<div class="panel-heading green">
+      <div class="panel-title">
+        <h3>Pins Tagged with <%= @tag.name %></h3>
+      </div>
+    </div>
+		<div class="panel-body ">
+			<table class="table-users">
+				<% @tag.pins.each do |pin| %>
+					<p>
+					  <%= link_to pin.title, pin_path(pin) %> pinned 
+      			<%= time_ago_in_words(pin.created_at) %>
+					</p>
+				<% end %>
+			</table>
+		</div>
+		<p>
+		  <%= link_to '<< Back to Pins', pins_path, class: "btn btn-default btn-xs" %>
+		  <button type="button" class="btn btn-default btn-xs" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+	      <i class="fa fa-toggle-on"></i>
+	    </button>
+		</p>
+	</div>
+</div>
+
+<hr class="featurette-divider">

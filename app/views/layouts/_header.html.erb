@@ -31,6 +31,11 @@
     <li><%= link_to category.name, pins_path(category: category.name) %></li>
   <% end %>
   <br>
+  <span class="fa fa-tags fa-2x"></span> Tags
+  <li>
+    <%= link_to "All tags", tags_path %>
+  </li>
+  <br>
   <% if user_signed_in? %>
     <span class="fa fa-user-secret fa-2x"></span> Users
     <li>
@@ -64,7 +69,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top audioButton">
 
   <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-    <i class="fa fa-cog fa-spin"></i>
+    <i class="fa fa-toggle-on"></i> Youmix.me
   </button>
   
   <ul class="nav navbar-nav navbar-right">
@@ -72,12 +77,14 @@
     <%= form_tag search_pins_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
       <span class="nav-search">
           <%= text_field_tag :search_pin, params[:search_pin], class: "form-control search-field", placeholder: "pins by title or username" %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default search-btn" %>
+          <button type="submit" class="btn btn-default search-btn">
+            <i class="fa fa-search"></i>
+          </button>
       </span>
     <% end %>
       <li>
         <%= link_to root_path do %>
-          <span class="fa fa-home"></span> All pins
+          <span class="fa fa-thumb-tack"></span> All pins
         <% end %>
       </li>
     <% if user_signed_in? %>

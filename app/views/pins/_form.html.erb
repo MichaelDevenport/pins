@@ -17,6 +17,11 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :tag_list %>
+      <%= f.text_field :tag_list, class: "form-control", placeholder: "add a comma ',' and a space between tags examlple: spectre, 007, James Bond, download" %>
+    </div>
+
+    <div class="form-group">
       <%= f.label :image %>
       <%= f.file_field :image %>
     </div>

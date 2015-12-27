@@ -11,7 +11,7 @@
             <div class="show-img">
               <%= image_tag @pin.image.url(:large), alt: "www.youmix.me youmix.me youmix you mix free downloads movies video pins streaming" %>
             </div>
-            <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding">Youmix score</i></strong></div>
+            <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding"><%= link_to "Rate me !", new_pin_review_path(@pin), class: "btn btn-default btn-xs" %></i></strong></div>
           </div>
         </div>
         <hr class="featurette-divider">
@@ -35,7 +35,17 @@
             <span class:="center"><%= link_to "Visit site", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">Media player</a></span>
           </div>
           <hr>
-          <div><h4 class="reviews-title"><strong><%= link_to @pin.category.name, pins_path(category: @pin.category.name) if @pin.category %></h4></strong></div>    
+          <div>
+            <h4 class="reviews-title text-muted">Category<strong> <%= link_to @pin.category.name, pins_path(category: @pin.category.name) if @pin.category %></h4></strong>
+          </div>
+
+          <p>
+            <span class="text-muted">Tags</span>
+            <% @pin.tags.each do | tag | %>
+              <%= link_to tag.name, tag_path(tag) if tag.name %>
+            <% end %>
+          </p>
+
           <h2 class="featurette-heading"><span class="text-muted">Description</span></h2>
           <p class="lead"><%= @pin.description %></p>
           <span class="timestamp">
@@ -43,14 +53,21 @@
           </span>
           <span class="timestamp">
             viewed <%= pluralize(@pin.view_count, 'time') %>
-          </span>
+          </span><br>
           <!-- Vote buttons and count display below ======== -->
-          
-          <%= render 'pins/voting' %>
+          <% if user_signed_in? %>
+            <h4><span class="text-muted">Click to vote..</span></h4>
+            <%= render 'pins/voting' %>
+          <% else %>
+            <div class="vote-prompt">
+              <h4><span class="text-muted">Sign in to vote..</span></h4>
+              <%= render 'pins/voting' %>  
+            </div>
+          <% end %>
          
-          <h4 class="reviews-title"><strong>Latest rates & reviews</strong></h4>
+          <h4 class="reviews-title"><strong>Latest reviews</strong></h4>
           <% if @reviews.blank? %>
-            <h3>No reviews yet, would you like to be the first ?</h3>
+            <h3><%= link_to "No reviews yet, would you like to be the first ?", new_pin_review_path(@pin) %></h3>
           <% else %>
             <% @reviews.each do |review| %>
               <div class="reviews">
@@ -62,7 +79,7 @@
               </div>
             <% end %>
           <% end %>
-          <p class="review-footer"><%= link_to "Rate & Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
+          <p class="review-footer"><%= link_to "Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
             <% if @pin.user == current_user %>
               <%= link_to edit_pin_path(@pin) do %>
                 <span class="glyphicon glyphicon-edit"></span>

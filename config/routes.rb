@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
     resources :reviews, except: [:show, :index]
   end
+  resources :tags
   resources :charges
   authenticated :user do
     root "pins#index" 
