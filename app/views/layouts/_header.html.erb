@@ -22,8 +22,14 @@
   <br>
   <span class="fa fa-cloud-upload fa-2x"></span> New content
   <li>
-    <%= link_to "Create pin", new_pin_path %> |
-    <%= link_to "Scrape?", scrape_path %>
+    <%= link_to "Create pin", new_pin_path %>
+  </li>
+  <br>
+  <span class="fa fa-html5 fa-2x"></span> Scrape
+  <li>
+    <%= link_to "M3", scrape_m3_path, class: "btn btn-default btn-xs" %>
+    <%= link_to "M4", scrape_m4_path, class: "btn btn-default btn-xs" %>
+    <%= link_to "M6", scrape_m6_path, class: "btn btn-default btn-xs" %>
   </li>
   <br>
   <span class="fa fa-qrcode fa-2x"></span> Categories

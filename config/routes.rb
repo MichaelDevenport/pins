@@ -31,8 +31,10 @@ Rails.application.routes.draw do
   end
 
   get "sitemap" => "pages#sitemap"
-  get "scrape" => "pages#scrape"
-  get "your_pins" => "users#dock"
+  get "scrape-m3" => "pages#scrape_m3"
+  get "scrape-m4" => "pages#scrape_m4"
+  get "scrape-m6" => "pages#scrape_m6"
+  get "your-pins" => "users#dock"
   get "about" => "pages#about"
   get "contact" => "pages#contact"
   get "feed" => "feed#index"

@@ -42,7 +42,11 @@ class PinsController < ApplicationController
         )
     else
       @pin = current_user.pins.new
-      if params[:search]
+      if params[:search_m3]
+        @failure = @pin_data.failure
+      elsif params[:search_m4]
+        @failure = @pin_data.failure
+      else params[:search_m6]
         @failure = @pin_data.failure
       end
     end
@@ -111,9 +115,21 @@ class PinsController < ApplicationController
     end
 
     def scrape
-      s = Scrape.new
-      s.scrape_new_pin(params[:search].to_s)
-      @pin_data = s
+      if params[:search_m3]
+        s = Scrape_m3.new
+        s.scrape_new_pin(params[:search_m3].to_s)
+        @pin_data = s
+      end
+      if params[:search_m4]
+        s = Scrape_m4.new
+        s.scrape_new_pin(params[:search_m4].to_s)
+        @pin_data = s
+      end
+      if params[:search_m6]
+        s = Scrape_m6.new
+        s.scrape_new_pin(params[:search_m6].to_s)
+        @pin_data = s
+      end
     end
 
     def find_pin

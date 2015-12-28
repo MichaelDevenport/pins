@@ -23,7 +23,13 @@ class PagesController < ApplicationController
   def your_pins
   end
 
-  def scrape
+  def scrape_m3
+  end
+
+  def scrape_m4
+  end
+
+  def scrape_m6
   end
 
   def sitemap
