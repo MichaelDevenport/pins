@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, only: [:scrape]
+  before_action :authenticate_user!, only: [:scrape_m3, :scrape_m4, :scrape_m6, :feed]
 	before_filter :disable_nav, only: [:landing]
 
   def home
