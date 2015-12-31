@@ -34,7 +34,7 @@ class PinsController < ApplicationController
   end
 
   def new
-    if @pin_data.failure == nil
+    if @pin_data.present?
       @pin = Pin.new(
         title: @pin_data.title,
         description: @pin_data.description,
@@ -42,13 +42,6 @@ class PinsController < ApplicationController
         )
     else
       @pin = current_user.pins.new
-      if params[:search_m3]
-        @failure = @pin_data.failure
-      elsif params[:search_m4]
-        @failure = @pin_data.failure
-      else params[:search_m6]
-        @failure = @pin_data.failure
-      end
     end
   end
 

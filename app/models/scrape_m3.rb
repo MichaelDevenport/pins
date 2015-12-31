@@ -12,7 +12,7 @@ class Scrape_m3
 
 			return true
 		rescue Exception => e
-			self.failure = "Something went wrong with the scrape"
+		 	self.failure = 'Something went wrong with the scrape'
 		end
 	end
 end
