@@ -14,6 +14,14 @@ $navbar-default-brand-color: #c0392b;
 $brand-primary: #29527A;
 $brand-danger: #c0392b;
 
+/*------ css-rotate ------*/
+i.fa-thumb-tack {
+  -ms-transform: rotate(30deg); /* IE 9 */
+  -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+  transform: rotate(30deg);
+} 
+/*------ css-rotate-end ------*/
+
 /*------ css-tricks ------*/
 div.css-trick {
   font-size: 45px;
