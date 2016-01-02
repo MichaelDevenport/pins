@@ -17,14 +17,48 @@
         <%= render 'shared/stats' %>
       </div>
     </div> 
+  <% else %>
+    <div class="sidebar-profile">
+      <h4 class= "center">Welcome 
+        <%= link_to new_user_registration_path do %>
+          <span class="fa fa-user-secret"></span> Guest User
+        <% end %>
+      </h4>
+      <p class="center">You currently have 0 pins.</p> 
+      <center>
+        <div class="sidebar-profile-image">
+          <%= image_tag("hack.jpg", :size => '80x80', alt: "Youmix.me") %>
+        </div>
+      </center>
+      <div class="current_user_stats">
+        following 0 | 0 followers
+      </div>
+    </div>
+    <div class="sidebar-prompt">
+      <div class="css-trick-2">
+        <strong><p id="error">Sign up to <span> create pins</span>, scrape websites</p></strong>
+        <p id="code">and<span> get</span><span> followers</span></p> 
+      </div>
+    </div>
+    <br>
+    <span class="fa fa-users fa-2x"></span> Join us !
+    <li>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </li>
   <% end %>
+   
+  <br>
+  <span class="fa fa-thumb-tack fa-2x"></span> Browse pins
+  <li>
+    <%= link_to "All pins", root_path %>
+  </li>
   <br>
   <span class="fa fa-cloud-upload fa-2x"></span> New content
   <li>
     <%= link_to "Create pin", new_pin_path %>
   </li>
   <br>
-  <span class="fa fa-html5 fa-2x"></span> Scrape
+  <span class="fa fa-html5 fa-2x"></span> Scrape a website
   <li>
     <%= link_to "M3", scrape_m3_path, class: "btn btn-default btn-xs" %>
     <%= link_to "M4", scrape_m4_path, class: "btn btn-default btn-xs" %>
@@ -42,7 +76,7 @@
   </li>
   <br>
   <% if user_signed_in? %>
-    <span class="fa fa-user-secret fa-2x"></span> Users
+    <span class="fa fa-users fa-2x"></span> Users
     <li>
       <%= link_to "All users", users_path %>
     </li>
@@ -74,7 +108,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top audioButton">
 
   <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-    <i class="fa fa-thumb-tack"></i> Youmix.me
+    <i class="fa fa-thumb-tack"></i> Youmix.me movies
   </button>
   
   <ul class="nav navbar-nav navbar-right">
