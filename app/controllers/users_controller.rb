@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, except: [:index]
   before_action :authenticate_user!
 
   def index
@@ -6,30 +7,29 @@ class UsersController < ApplicationController
   end
 
   def show
+    @pins = current_user.pins.order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
   end
 
-  def dock
-		@pins = current_user.pins.order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
-	end
-
-
   def pins
-    @user = User.find(params[:id])
     @pins = @user.pins.order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
   end
 
   def following
     @title = "Following"
-    @user = User.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
-    @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
+
+  private
+
+    def set_user
+      @user = User.find_by(name: params[:id])
+    end
 end
   

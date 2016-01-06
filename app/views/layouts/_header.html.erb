@@ -3,7 +3,7 @@
   <% if user_signed_in? %>
     <div class="sidebar-profile">
       <h4 class= "center">Welcome 
-        <%= link_to your_pins_path do %>
+        <%= link_to user_path(current_user.name) do %>
           <span class="fa fa-user-secret"></span> <%= current_user.name %>
         <% end %>
       </h4>
@@ -65,9 +65,14 @@
     <%= link_to "M6", scrape_m6_path, class: "btn btn-default btn-xs" %>
   </li>
   <br>
-  <span class="fa fa-qrcode fa-2x"></span> Categories
+  <span class="fa fa-qrcode fa-2x"></span> Main Categories
   <% Category.all.each do |category| %>
     <li><%= link_to category.name, pins_path(category: category.name) %></li>
+  <% end %>
+  <br>
+  <span class="fa fa-qrcode fa-2x"></span> Adult Categories
+  <% Adult.all.each do |adult| %>
+    <li><%= link_to adult.name, pins_path(adult: adult.name) %></li>
   <% end %>
   <br>
   <span class="fa fa-tags fa-2x"></span> Tags
@@ -128,7 +133,7 @@
       </li>
     <% if user_signed_in? %>
       <li>
-        <%= link_to your_pins_path do %>
+        <%= link_to user_path(current_user.name) do %>
           <span class="fa fa-user-secret"></span> <%= current_user.name %>
         <% end %>
       </li>

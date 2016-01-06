@@ -13,7 +13,11 @@
     <% end %>
 
     <div class="form-group select">
-      <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Select category"} %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Main categories ?"} %>
+    </div>
+
+    <div class="form-group select">
+      <%= f.collection_select :adult_id, Adult.all, :id, :name, {prompt: "Adult category ?"} %>
     </div>
 
     <div class="form-group">

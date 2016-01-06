@@ -4,6 +4,7 @@ class Pin < ActiveRecord::Base
 	belongs_to :user
 	scope :subscribed, ->(followed_users) { where user_id: followed_users }
 	belongs_to :category
+	belongs_to :adult
 	has_many :reviews
 	has_many :taggings
 	has_many :tags, through: :taggings

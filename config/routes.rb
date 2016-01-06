@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
   resources :tags
   resources :charges
+  
   authenticated :user do
     root "pins#index" 
   end
@@ -34,10 +35,10 @@ Rails.application.routes.draw do
   get "scrape-m3" => "pages#scrape_m3"
   get "scrape-m4" => "pages#scrape_m4"
   get "scrape-m6" => "pages#scrape_m6"
-  get "your-pins" => "users#dock"
   get "about" => "pages#about"
   get "contact" => "pages#contact"
   get "feed" => "feed#index"
+  get "users/:id" => "users#show", :as => :user
   get "users" => "users#index"
   get "users/:id/pins" => "users#pins", :as => :user_pins
   get "users/:id/following" => "users#following", :as => :following_user

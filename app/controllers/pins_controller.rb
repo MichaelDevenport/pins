@@ -1,8 +1,8 @@
 class PinsController < ApplicationController
-  before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_pin, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_pin, only: [:show, :edit, :update, :destroy]
+  before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :scrape, only: [:new]
 
   def search
@@ -14,17 +14,30 @@ class PinsController < ApplicationController
   end
 
   def index
-    if params[:category].blank?
-      @pins = Pin.all.order("created_at DESC").paginate(page: params[:page], per_page: 20)
-    else
+    if params[:category].present?
       @category_id = Category.find_by(name: params[:category]).id
       @pins = Pin.where(category_id: @category_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+    elsif params[:adult].present?
+      @adult_id = Adult.find_by(name: params[:adult]).id
+      @pins = Pin.where(adult_id: @adult_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+    else
+      @permited = Category.find(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+      @pins = Pin.where(category: @permited).all.order("created_at DESC").paginate(page: params[:page], per_page: 20)
     end 
   end
 
   def show
     @pin.increment_view_count
-    @random_pin = Pin.where.not(id: @pin).order("RANDOM()").first
+
+    if @pin.category([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]).to_s.present?
+      @permited = Category.find(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+      @random_pin = Pin.where(category: @permited).where.not(id: @pin).order("RANDOM()").first
+    end
+    if @pin.adult([1, 2, 3, 4]).to_s.present?
+      @permited = Adult.find(1, 2, 3, 4)
+      @random_pin = Pin.where(adult: @permited).where.not(id: @pin).order("RANDOM()").first
+    end
+    
     @reviews = Review.where(pin_id: @pin.id).order("created_at DESC").limit(5)
     if @reviews.blank?
       @avg_review = 0
@@ -93,21 +106,24 @@ class PinsController < ApplicationController
       @pin = Pin.find(params[:id])
     end
 
-    def catergory_params
-      params.require(:category).permit(:name)
-    end 
+    def find_pin
+      @pin = Pin.find(params[:id])
+    end
 
     def correct_user
       @pin = current_user.pins.find_by(id: params[:id])
       redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:link, :description, :title, :image, :category_id, :yt_uid, :name, :tag_list) 
+      params.require(:pin).permit(:link, :description, :title, :image, :category_id, :adult_id, :yt_uid, :name, :tag_list) 
     end
 
-    def scrape
+    def category_params
+      params.require(:category).permit(:name)
+    end
+
+    def scrape # parse html - Nokogiri - var before_action on create
       if params[:search_m3]
         s = Scrape_m3.new
         s.scrape_new_pin(params[:search_m3].to_s)
@@ -124,8 +140,7 @@ class PinsController < ApplicationController
         @pin_data = s
       end
     end
-
-    def find_pin
-      @pin = Pin.find(params[:id])
-    end
 end
+
+
+

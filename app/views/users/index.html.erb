@@ -12,7 +12,7 @@
 				<% @users.each do |user| %>
 					<div class="reviews">
 					  <span class="gravatar-table"><%= image_tag avatar_url(user) %>
-					  <h2><%= link_to user.name, user_pins_path(user) %></h2></span>
+					  <h2><%= link_to user.name, user_pins_path(user.name) %></h2></span>
 					</div>
 				<% end %>
 			</table>

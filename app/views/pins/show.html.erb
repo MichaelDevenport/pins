@@ -36,7 +36,10 @@
           </div>
           <hr>
           <div>
-            <h4 class="reviews-title text-muted">Category<strong> <%= link_to @pin.category.name, pins_path(category: @pin.category.name) if @pin.category %></h4></strong>
+            <h4 class="reviews-title text-muted">Category<strong> 
+              <%= link_to @pin.category.name, pins_path(category: @pin.category.name) if @pin.category %>
+              <%= link_to @pin.adult.name, pins_path(adult: @pin.adult.name) if @pin.adult %>
+            </h4></strong>
           </div>
 
           <p>
@@ -95,10 +98,7 @@
       </div>
       <div class="panel-body">
         <% if @pin.yt_uid.blank? %>
-          <!-- 16:9 aspect ratio -->
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/BaGmXiN1PQ8" allowfullscreen></iframe>
-          </div>
+          <h2 class="center"><span class="text-muted">Sorry no video embed available.</span> Please visit the site. Click<span class="text-muted"> ' visit site '</span> above</h2>
         <% else %>
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="//www.youtube.com/embed/<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>
