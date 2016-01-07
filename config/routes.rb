@@ -31,6 +31,9 @@ Rails.application.routes.draw do
     get "/" => "pins#index"
   end
 
+  get "adult-pin/:id/edit" => "pins#edit", :as => :edit_adult_pin
+  get "adult-pins" => "pins#adult_index"
+  get "adult-pin/new" => "pins#new_adult"
   get "sitemap" => "pages#sitemap"
   get "scrape-m3" => "pages#scrape_m3"
   get "scrape-m4" => "pages#scrape_m4"

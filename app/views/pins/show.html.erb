@@ -84,9 +84,17 @@
           <% end %>
           <p class="review-footer"><%= link_to "Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
             <% if @pin.user == current_user %>
-              <%= link_to edit_pin_path(@pin) do %>
-                <span class="glyphicon glyphicon-edit"></span>
-                Edit
+              <% if @pin.category([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]).to_s.present? %>
+                <%= link_to edit_pin_path(@pin) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                  Edit
+                <% end %>
+              <% end %>
+              <% if @pin.adult([1, 2, 3, 4]).to_s.present? %>
+                <%= link_to edit_adult_pin_path(@pin) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                  Edit
+                <% end %>
               <% end %>
               <%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <span class="glyphicon glyphicon-trash"></span>

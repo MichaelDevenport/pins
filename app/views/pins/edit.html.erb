@@ -1,17 +1,19 @@
 <div class="panel form">
 	<div class="panel-heading">
-		<h1>Editing pin</h1>
+		<h1>Editing a pin</h1>
 	</div>
 
 	<div class="panel-body">
-		<%= render 'form' %>
+		<%= render 'edit_form' %>
 	</div>
 
 	
 	<div class="panel-footer">
-    <%= link_to image_tag("imdb.png", alt: "Imdb video review"), 'http://www.imdb.com/', target: "none" %> |
-    <%= link_to image_tag("g2g.png", alt: "G2g.fm videos"), 'http://g2g.fm/', target: "none" %> |
-    <%= link_to image_tag("youtube.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q', target: "none" %>
+		<% if @pin.category([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]).to_s.present? %>
+	    <%= link_to image_tag("imdb.png", alt: "Imdb video review"), 'http://www.imdb.com/', target: "none" %> |
+	    <%= link_to image_tag("g2g.png", alt: "G2g.fm videos"), 'http://g2g.fm/', target: "none" %> |
+	    <%= link_to image_tag("youtube.png", alt: "Youtube movies"), 'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q', target: "none" %>
+    <% end %>
     <p class="pull-right"><%= link_to 'Show', @pin %> | <%= link_to 'Back', pins_path %></p>
   </div>
 </div>

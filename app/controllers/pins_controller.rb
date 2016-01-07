@@ -26,6 +26,19 @@ class PinsController < ApplicationController
     end 
   end
 
+  def adult_index
+    if params[:category].present?
+      @category_id = Category.find_by(name: params[:category]).id
+      @pins = Pin.where(category_id: @category_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+    elsif params[:adult].present?
+      @adult_id = Adult.find_by(name: params[:adult]).id
+      @pins = Pin.where(adult_id: @adult_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+    else
+      @permited = Adult.find(1, 2, 3, 4)
+      @pins = Pin.where(adult: @permited).all.order("created_at DESC").paginate(page: params[:page], per_page: 20)
+    end 
+  end
+
   def show
     @pin.increment_view_count
 
@@ -47,6 +60,18 @@ class PinsController < ApplicationController
   end
 
   def new
+    if @pin_data.present?
+      @pin = Pin.new(
+        title: @pin_data.title,
+        description: @pin_data.description,
+        link: @pin_data.link
+        )
+    else
+      @pin = current_user.pins.new
+    end
+  end
+
+  def new_adult
     if @pin_data.present?
       @pin = Pin.new(
         title: @pin_data.title,

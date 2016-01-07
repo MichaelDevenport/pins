@@ -50,12 +50,15 @@
   <br>
   <span class="fa fa-thumb-tack fa-2x"></span> Browse pins
   <li>
-    <%= link_to "All pins", root_path %>
+    <%= link_to "All pins except adult", root_path %>
+    <p><%= link_to "All adult pins", adult_pins_path %></p>
   </li>
   <br>
+  
   <span class="fa fa-cloud-upload fa-2x"></span> New content
   <li>
     <%= link_to "Create pin", new_pin_path %>
+    <p><%= link_to "Create adult pin ?", adult_pin_new_path %></p>
   </li>
   <br>
   <span class="fa fa-html5 fa-2x"></span> Scrape a website
@@ -70,16 +73,17 @@
     <li><%= link_to category.name, pins_path(category: category.name) %></li>
   <% end %>
   <br>
-  <span class="fa fa-qrcode fa-2x"></span> Adult Categories
-  <% Adult.all.each do |adult| %>
-    <li><%= link_to adult.name, pins_path(adult: adult.name) %></li>
-  <% end %>
-  <br>
   <span class="fa fa-tags fa-2x"></span> Tags
   <li>
     <%= link_to "All tags", tags_path %>
   </li>
   <br>
+  <span class="fa fa-venus-mars fa-2x"></span> Adult Categories
+  <% Adult.all.each do |adult| %>
+    <li><%= link_to adult.name, pins_path(adult: adult.name) %></li>
+  <% end %>
+  <br>
+  
   <% if user_signed_in? %>
     <span class="fa fa-users fa-2x"></span> Users
     <li>
