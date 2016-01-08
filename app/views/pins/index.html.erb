@@ -11,6 +11,7 @@
           <h5><strong><%= pin.title %></strong></h5>
           <p><span class="fa fa-filter"></span> 
             <%= link_to pin.category.name, pins_path(category: pin.category.name) if pin.category %>
+            <%= link_to pin.adult.name, pins_path(adult: pin.adult.name) if pin.adult %>
           </p>
           <p><%= pin.description %></p>
           <p><%= link_to pin.user.name, user_pins_path(pin.user.name) %></p>
