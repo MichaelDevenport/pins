@@ -17,9 +17,17 @@
 
           <% if current_user && pin.user == current_user %>
             <div class="actions">
-              <%= link_to edit_pin_path(pin) do %>
-                <span class="glyphicon glyphicon-edit"></span>
-                Edit
+              <% if pin.category([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]).to_s.present? %>
+                <%= link_to edit_pin_path(pin) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                  Edit
+                <% end %>
+              <% end %>
+              <% if pin.adult([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]).to_s.present? %>
+                <%= link_to edit_adult_pin_path(pin) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                  Edit
+                <% end %>
               <% end %>
             </div>
           <% end %>
