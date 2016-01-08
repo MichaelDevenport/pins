@@ -21,7 +21,7 @@ class PinsController < ApplicationController
       @adult_id = Adult.find_by(name: params[:adult]).id
       @pins = Pin.where(adult_id: @adult_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
     else
-      @permited = Category.find(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+      @permited = Category.find(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)
       @pins = Pin.where(category: @permited).all.order("created_at DESC").paginate(page: params[:page], per_page: 20)
     end 
   end
@@ -42,8 +42,8 @@ class PinsController < ApplicationController
   def show
     @pin.increment_view_count
 
-    if @pin.category([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]).to_s.present?
-      @permited = Category.find(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+    if @pin.category([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]).to_s.present?
+      @permited = Category.find(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)
       @random_pin = Pin.where(category: @permited).where.not(id: @pin).order("RANDOM()").first
     end
     if @pin.adult([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]).to_s.present?
@@ -92,7 +92,7 @@ class PinsController < ApplicationController
     if @pin.save
       redirect_to @pin, notice: 'Pin was successfully created.'
     else
-      render action: 'new'
+      redirect_to pins_url, notice: 'Something went wrong with pin, Please try again. Make sure all form fields are completed'
     end
   end
 
