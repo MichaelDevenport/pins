@@ -27,7 +27,7 @@
       <p class="center">You currently have 0 pins.</p> 
       <center>
         <div class="sidebar-profile-image">
-          <%= image_tag("hack.jpg", :size => '80x80', alt: "Youmix.me") %>
+          <%= image_tag("hack.jpg", :size => '80x80', alt: "Youmix.me Guest User") %>
         </div>
       </center>
       <div class="current_user_stats">
@@ -68,7 +68,7 @@
     <%= link_to "M6", scrape_m6_path, class: "btn btn-default btn-xs" %>
   </li>
   <br>
-  <span class="fa fa-qrcode fa-2x"></span> Main Categories
+  <span class="fa fa-qrcode fa-2x"></span> Cinematic Categories
   <% Category.all.each do |category| %>
     <li><%= link_to category.name, pins_path(category: category.name) %></li>
   <% end %>
@@ -108,10 +108,18 @@
   </li>
   <li>
     <%= link_to "Contact us", contact_path %>
-  </li>  
+  </li>
+  <br>
+  <div class="at-the-movies">
+    <p><%= image_tag("atTheMovies.gif", :class =>'img-circle', :size => '80x80', alt: "Youmix.me Movies") %>
+      <strong>Youmix.me Yourmix !</strong>
+    </p>
+  </div>
+  <hr class="featurette-divider">
 </nav>
 
-    
+ 
+
     
 <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="navbar navbar-inverse navbar-fixed-top audioButton">
