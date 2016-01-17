@@ -109,7 +109,7 @@
           <h2 class="center"><span class="text-muted">Sorry no video embed available.</span> Please visit the site. Click<span class="text-muted"> ' visit site '</span> above</h2>
         <% else %>
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>
+            <iframe class="embed-responsive-item" src="<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>
           </div>
         <% end %>
       </div>

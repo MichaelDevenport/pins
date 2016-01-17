@@ -48,7 +48,7 @@
     <% if @pin.category([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]).to_s.present? %>
       <div class="form-group">
         <%= f.label :youtube_uid_link %>
-        <%= f.text_field :yt_uid, class: "form-control", placeholder: "Copie & Paste the last 11 characters of the Youtube trailer or full video" %>
+        <%= f.text_field :yt_uid, class: "form-control", placeholder: "Copie & Paste Youtube url trailer or full video" %>
       </div>
     <% end %>
     <div class="form-group">

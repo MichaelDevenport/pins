@@ -14,7 +14,7 @@ class Pin < ActiveRecord::Base
 	validates :image, presence: true
 	validates :title, presence: true
 	validates :description, presence: true
-	validates_length_of :yt_uid, :minimum => 11, :maximum => 11, :allow_blank => true
+	#validates_length_of :yt_uid, :minimum => 11, :maximum => 11, :allow_blank => true
 
 	def tag_list
 		tags.join(', ')
@@ -29,4 +29,16 @@ class Pin < ActiveRecord::Base
 		self.view_count ? self.view_count += 1 : self.view_count = 1
 		self.save
 	end
+
+	after_create :trailer_or_video
+
+	private
+
+
+	def trailer_or_video
+	   new_url = "https://www.youtube.com/embed/"
+	   new_url << self.yt_uid.split("=").last
+	   self.yt_uid = new_url
+	   save
+	end 
 end
