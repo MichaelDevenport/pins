@@ -30,8 +30,8 @@ class Pin < ActiveRecord::Base
 		self.save
 	end
 
-	after_create :trailer_or_full_video
-	after_edit :trailer_or_full_video
+	#after_create :trailer_or_full_video
+	after_update :trailer_or_full_video
 
 	private
 
