@@ -9,12 +9,12 @@ class Pin < ActiveRecord::Base
 	has_many :taggings
 	has_many :tags, through: :taggings
 	has_attached_file :image, :styles => { :large => "400x400>", :medium => "300x300>", :thumb => "100x100>" }
-	#validates :category, presence: true
     validates_attachment_content_type :image, content_type: %w(image/jpeg image/jpg image/png image/gif)
 	validates :image, presence: true
 	validates :title, presence: true
 	validates :description, presence: true
-	#validates_length_of :yt_uid, :minimum => 11, :maximum => 11, :allow_blank => true
+	#==================regex to validiate format of Youtube url paths=============================
+	validates :yt_uid, :format => {:with => /\A(?<protocol>https?:\/\/)?(?<sub-domain>www\.)?(?<domain-path>youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))(?<uid>(\w|-){11})\z/ , :message => "Invalid url!" }, :allow_blank => true
 
 	def tag_list
 		tags.join(', ')
@@ -30,15 +30,14 @@ class Pin < ActiveRecord::Base
 		self.save
 	end
 
-	after_create :trailer_or_video
+	after_create :trailer_or_full_video
 
 	private
 
-
-	def trailer_or_video
-	   new_url = "https://www.youtube.com/embed/"
-	   new_url << self.yt_uid.split("=").last
-	   self.yt_uid = new_url
+	def trailer_or_full_video
+	   yt_url = "https://www.youtube.com/embed/"
+	   yt_url << self.yt_uid.split("=").last.to_s
+	   self.yt_uid = yt_url
 	   save
 	end 
 end
