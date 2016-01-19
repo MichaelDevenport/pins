@@ -30,13 +30,13 @@ class Pin < ActiveRecord::Base
 		self.save
 	end
 
-	#after_create :trailer_or_full_video
+	after_create :trailer_or_full_video
 	after_update :trailer_or_full_video
 
 	private
 
 	def trailer_or_full_video
-	   yt_url = "https://www.youtube.com/embed/"
+	   yt_url = "//www.youtube.com/embed/"
 	   yt_url << self.yt_uid.split("=").last.to_s
 	   self.yt_uid = yt_url
 	   save
