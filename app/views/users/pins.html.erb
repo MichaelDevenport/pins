@@ -23,29 +23,20 @@
   <div id="pins" class="transitions-enabled">
     <% @pins.each do |pin| %>
       <div class="box panel panel-default audioButton">
-        <%= link_to image_tag(pin.image.url(:medium)), pin, alt: "www.youmix.me youmix.me youmix you mix free downloads movies video pins streaming" %>
+        <%= link_to image_tag(pin.image.url(:medium)), pin, alt: "www.youmix.me tutorials" %>
         <div class="panel-body">
           <h5><strong><%= pin.title %></strong></h5>
           <p><span class="fa fa-filter"></span> 
             <%= link_to pin.category.name, pins_path(category: pin.category.name) if pin.category %>
-            <%= link_to pin.adult.name, pins_path(adult: pin.adult.name) if pin.adult %>
           </p>
           <p><%= pin.description %></p>
           <p><strong><%= pin.user.name if pin.user %></strong></p>
           
           <% if current_user && pin.user == current_user %>
             <div class="actions">
-              <% if pin.category([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]).to_s.present? %>
-                <%= link_to edit_pin_path(pin) do %>
-                  <span class="glyphicon glyphicon-edit"></span>
-                  Edit
-                <% end %>
-              <% end %>
-              <% if pin.adult([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]).to_s.present? %>
-                <%= link_to edit_adult_pin_path(pin) do %>
-                  <span class="glyphicon glyphicon-edit"></span>
-                  Edit
-                <% end %>
+              <%= link_to edit_pin_path(pin) do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit
               <% end %>
             </div>
           <% end %>

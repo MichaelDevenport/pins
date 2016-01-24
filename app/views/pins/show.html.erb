@@ -9,9 +9,9 @@
           <div class="movie-box">
             <p><strong><h6>Provided by <%= @pin.user.name if @pin.user %></h6></strong></p>
             <div class="show-img">
-              <%= image_tag @pin.image.url(:large), alt: "www.youmix.me youmix.me youmix you mix free downloads movies video pins streaming" %>
+              <%= image_tag @pin.image.url(:large), alt: "www.youmix.me tutorial" %>
             </div>
-            <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding"><%= link_to "Rate me !", new_pin_review_path(@pin), class: "btn btn-default btn-xs" %></i></strong></div>
+            <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding"><%= link_to "Rate me !", new_pin_review_path(@pin), class: "btn btn-info btn-xs" %></i></strong></div>
           </div>
         </div>
         <hr class="featurette-divider">
@@ -20,7 +20,7 @@
             <%= link_to (image_tag @random_pin.image.url(:medium)), pin_path(@random_pin) %>
           </div> 
           <h2 class="featurette-heading">click <span class="text-muted">me!</span></h2>
-          <p class="lead">You may also be interested in.. We have thousands of the latest videos online and lots added every day. Click my poster image to check me out.</p>
+          <p class="lead">You may also be interested in.. We have lots of the latest screencast tutorials online and new courses added every day. Click my poster image to check me out.</p>
         </div>
         <hr class="featurette-divider">
         <div class="share-btns">
@@ -32,13 +32,12 @@
         <div class="col-md-6">
           <div class="title-link-btn center">
             <h1 class="reviews-title center"><%= @pin.title %></h1>
-            <span class:="center"><%= link_to "Visit site", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">Media player</a></span>
+            <span class:="center"><%= link_to "link to site", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">screencast</a></span>
           </div>
           <hr>
           <div>
             <h4 class="reviews-title text-muted">Category<strong> 
               <%= link_to @pin.category.name, pins_path(category: @pin.category.name) if @pin.category %>
-              <%= link_to @pin.adult.name, pins_path(adult: @pin.adult.name) if @pin.adult %>
             </h4></strong>
           </div>
 
@@ -49,7 +48,7 @@
             <% end %>
           </p>
 
-          <h2 class="featurette-heading"><span class="text-muted">Description</span></h2>
+          <h3 class="reviews-title"><strong class="text-muted">Description</strong></h3>
           <p class="lead"><%= @pin.description %></p>
           <span class="timestamp">
             Pinned <%= time_ago_in_words(@pin.created_at) %> ago,
@@ -84,17 +83,9 @@
           <% end %>
           <p class="review-footer"><%= link_to "Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
             <% if @pin.user == current_user %>
-              <% if @pin.category([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]).to_s.present? %>
-                <%= link_to edit_pin_path(@pin) do %>
-                  <span class="glyphicon glyphicon-edit"></span>
-                  Edit
-                <% end %>
-              <% end %>
-              <% if @pin.adult([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]).to_s.present? %>
-                <%= link_to edit_adult_pin_path(@pin) do %>
-                  <span class="glyphicon glyphicon-edit"></span>
-                  Edit
-                <% end %>
+              <%= link_to edit_pin_path(@pin) do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit
               <% end %>
               <%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <span class="glyphicon glyphicon-trash"></span>
@@ -106,7 +97,7 @@
       </div>
       <div class="panel-body">
         <% if @pin.yt_uid.blank? %>
-          <h2 class="center"><span class="text-muted">Sorry no video embed available.</span> Please visit the site. Click<span class="text-muted"> ' visit site '</span> above</h2>
+          <h2 class="center"><span class="text-muted">Sorry no video embed available.</span> Please visit the site. Click<span class="text-muted"> ' link to site '</span> above</h2>
         <% else %>
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>

@@ -16,7 +16,8 @@
       <div class="current_user_stats">
         <%= render 'shared/stats' %>
       </div>
-    </div> 
+    </div>
+    <br> 
   <% else %>
     <div class="sidebar-profile">
       <h4 class= "center">Welcome 
@@ -36,85 +37,91 @@
     </div>
     <div class="sidebar-prompt">
       <div class="css-trick-2">
-        <strong><p id="error">Sign up to <span> create pins</span>, scrape websites</p></strong>
+        <strong><p id="error">Sign up to <span> pin</span>, educational content</p></strong>
         <p id="code">and<span> get</span><span> followers</span></p> 
       </div>
     </div>
     <br>
+
     <span class="fa fa-users fa-2x"></span> Join us !
-    <li>
-      <%= link_to "Sign up", new_user_registration_path %>
-    </li>
+    <ul>
+      <li>
+        <%= link_to "Sign up", new_user_registration_path %>
+      </li>
+    </ul>
+    <br>
+    <span class="fa fa-sign-in fa-2x"></span> Sign in
+    <ul>
+      <li>
+        <%= link_to "sign in Yay!", new_user_session_path %>
+      </li>
+    </ul>
+    <br>
   <% end %>
    
-  <br>
   <span class="fa fa-thumb-tack fa-2x"></span> Browse pins
-  <li>
-    <%= link_to "All pins except adult", root_path %>
-    <p><%= link_to "All adult pins", adult_pins_path %></p>
-  </li>
+  <ul>
+    <li><%= link_to "All pins", root_path %></li>
+  </ul>
   <br>
   
   <span class="fa fa-cloud-upload fa-2x"></span> New content
-  <li>
-    <%= link_to "Create pin", new_pin_path %>
-    <p><%= link_to "Create adult pin ?", adult_pin_new_path %></p>
-  </li>
+  <ul>
+    <li><%= link_to "Create pin", new_pin_path %></li>
+  </ul>
   <br>
-  <span class="fa fa-html5 fa-2x"></span> Scrape a website
-  <li>
-    <%= link_to "M3", scrape_m3_path, class: "btn btn-default btn-xs" %>
-    <%= link_to "M4", scrape_m4_path, class: "btn btn-default btn-xs" %>
-    <%= link_to "M6", scrape_m6_path, class: "btn btn-default btn-xs" %>
-  </li>
-  <br>
-  <span class="fa fa-qrcode fa-2x"></span> Cinematic Categories
+
+  <span class="fa fa-qrcode fa-2x"></span> Categories
   <% Category.all.each do |category| %>
-    <li><%= link_to category.name, pins_path(category: category.name) %></li>
+    <ul>
+      <li><%= link_to category.name, pins_path(category: category.name) %></li>
+    </ul> 
   <% end %>
   <br>
+
   <span class="fa fa-tags fa-2x"></span> Tags
-  <li>
-    <%= link_to "All tags", tags_path %>
-  </li>
-  <br>
-  <span class="fa fa-venus-mars fa-2x"></span> Adult Categories
-  <% Adult.all.each do |adult| %>
-    <li><%= link_to adult.name, pins_path(adult: adult.name) %></li>
-  <% end %>
+  <ul>
+    <li><%= link_to "All tags", tags_path %></li>
+  </ul>
   <br>
   
   <% if user_signed_in? %>
     <span class="fa fa-users fa-2x"></span> Users
-    <li>
-      <%= link_to "All users", users_path %>
-    </li>
-    <li>
-      <%= link_to "Pins from people you follow", feed_path %>
-    </li>
-    <li>
-      <%= link_to "Account Settings", edit_user_registration_path %>
-    </li>
+    <ul>
+      <li><%= link_to "All users", users_path %></li>
+    </ul>
     <br>
-    <li>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <span class="fa fa-sign-out"></span> Sign Out
-      <% end %>
-    </li>  
+      
+    <ul>
+      <li><%= link_to "Pins from people you follow", feed_path %></li>
+    </ul>
+    <br>
+
+    <ul>
+      <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+    </ul> 
+    <br>
+
+    <ul>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <span class="fa fa-sign-out"></span> Sign Out
+        <% end %>
+      </li>
+    </ul>
   <% end %>
   <br>
-  <li>
-      <%= link_to "About us", about_path %>
-  </li>
-  <li>
-    <%= link_to "Contact us", contact_path %>
-  </li>
+
+  <ul>
+    <li><%= link_to "About us", about_path %></li>
+  </ul>
   <br>
-  <div class="at-the-movies">
-    <p><%= image_tag("atTheMovies.gif", :class =>'img-circle', :size => '80x80', alt: "Youmix.me Movies") %>
-      <strong>Youmix.me Yourmix !</strong>
-    </p>
-  </div>
+      
+  <ul>
+    <li><%= link_to "Contact us", contact_path %></li>
+  </ul>
+  <br>
+
   <hr class="featurette-divider">
 </nav>
 
@@ -125,7 +132,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top audioButton">
 
   <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-    <i class="fa fa-thumb-tack"></i> Youmix.me movies
+    <i class="fa fa-thumb-tack"></i> Youmix.me tutorials
   </button>
   
   <ul class="nav navbar-nav navbar-right">

@@ -1,15 +1,29 @@
 <% provide(:title, "review") %>
 
-<%= render 'shared/form_audio' %>
 <div id="primary-content">
 	<div class="panel center form audioButton">
 		<div class="panel-heading green">
       <div class="panel-title">
-        <h3>New review</h3>
+        <h2>New review</h2>
       </div>
     </div>
-		<div class="panel-body ">
-			<%= render 'form' %>
+		<div class="panel-body">
+			<div class="col-md-6">
+				<div class="movie-box">
+	        <p><strong><h6>Provided by <%= @pin.user.name if @pin.user %></h6></strong></p>
+	        <div class="show-img">
+	          <%= image_tag @pin.image.url(:large), alt: "www.youmix.me tutorial" %>
+	        </div>
+	      </div>
+    	</div>
+      <div class="col-md-6">
+      	<h3 class="reviews-title center"><%= @pin.title %></h3>
+				<%= render 'form' %>
+				<br>
+				<h3 class="reviews-title"><strong>Description</strong></h3>
+        <p class="lead"><%= @pin.description %></p>
+        <hr class="featurette-divider">
+			</div>
 		</div>
 		<div class="panel-footer">
 			<%= link_to 'Back', pin_path(@pin) %>

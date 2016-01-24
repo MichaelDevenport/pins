@@ -1,25 +1,24 @@
 <% provide(:title, "sign in") %>
 
-<%= render 'shared/form_audio' %>
 <div id="primary-content">
   <div class="panel form audioButton">
     <div class="panel-heading center green">
       <div class="panel-title">
         <h1>Sign in here</h1>
-        <h3>Youmix.me is the best links to all the best video online</h3>
+        <h3>Youmix.me is the best links to all the best video screencasts online</h3>
       </div>
     </div>
     <div class="panel-body">
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
         <div class="form-group">
-          <%= f.label :email %><i> - Type your email, example: you@gmail.com</i>
-          <%= f.email_field :email, class: "form-control", :autofocus => true %>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control", placeholder: "Type your email, example: you@gmail.com", :autofocus => true %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password %><i> - Type your Youmix.me password here.</i>
-          <%= f.password_field :password, class: "form-control" %>
+          <%= f.label :password %><i> - .</i>
+          <%= f.password_field :password, class: "form-control", placeholder: "Type your Youmix.me password here" %>
         </div>
 
         <div class="form-group">

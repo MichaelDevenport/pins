@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_pin
-  before_action :authenticate_user!
+  
 
   def new
     @review = Review.new

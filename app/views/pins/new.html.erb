@@ -1,6 +1,5 @@
 <% provide(:title, "new pin") %>
 
-<%= render 'shared/form_audio' %>
 <div class="audioForm">
   <div id="primary-content">
     <div class="panel form audioButton">
@@ -13,11 +12,11 @@
       </div>
 
       <div class="panel-footer">
-        | <%= link_to image_tag("g2g.png", alt: "videos"), 'http://dayt.se/', target: "none" %> 
-        <%= link_to image_tag("youtube.png", alt: "Youtube movies"), 
-                              'https://www.youtube.com/channel/UCAJ2KpG4wVeLbrJk4fAkI1Q', target: "none" %> 
-        <%= link_to image_tag("imdb.png", alt: "Imdb video review"), 'http://www.imdb.com/', target: "none" %> |                   
-        <p class="pull-right"><%= link_to 'back', pins_path %></p>
+        <%= link_to image_tag("youtube.png", alt: "Youtube Treehouse"), 'https://www.youtube.com/channel/UCqHktcPJV7C7T3e9Cg4T4iw', target: "none" %> |
+        <%= link_to image_tag("youtube.png", alt: "Youtube DevTips"), 'https://www.youtube.com/user/DevTipsForDesigners', target: "none" %> |
+        <%= link_to image_tag("youtube.png", alt: "Youtube MackenzieChild Ruby on Rails"), 'https://www.youtube.com/user/mackenziechild', target: "none" %> |
+        <%= link_to image_tag("youtube.png", alt: "Youtube education"), 'https://www.youtube.com/channel/UC3yA8nDwraeOfnYfBWun83g', target: "none" %>
+        <p class="pull-right"><%= link_to 'Show', @pin %> | <%= link_to 'Back', pins_path %></p>
       </div>
     </div>
   </div>
