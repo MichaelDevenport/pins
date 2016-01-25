@@ -10,7 +10,7 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+#gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem "figaro"
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise', '~> 3.4.1'
@@ -24,7 +24,7 @@ gem 'will_paginate-bootstrap'
 gem 'searchkick', '~> 0.8.5'
 gem 'font-awesome-sass', '~> 4.3.2.1'
 gem 'acts_as_votable', '~> 0.10.0'
-gem "nokogiri"
+#gem "nokogiri"
 gem "utf8_utils"
 gem 'mail_form'
 
