@@ -81,8 +81,8 @@ create 2 users or more
 
 create 2 pins to get things up and running
 
-(NOTE3) the application will run an error on the first pin but it will save to db,
-navagate to create new pin again and create a second pin, all should be good to go.
+(NOTE3) the application will run an error on the first pin build but it will save to db,
+navigate to create new pin again and create a second pin, all should be good to go.
 
 The second pin after commit active record cycle is complete will render on the pins show page
 along with a random pin (the first pin you created). 
