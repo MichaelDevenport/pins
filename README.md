@@ -95,7 +95,7 @@ Sign in, change default email and password and admin username
 
 Question are very welcome actually i encourage them and no question is silly or dumb. 
 
-Please let me know if i have missed any steps or contact me anything else at http://www.youmix.me/contact
+Please let me know if i have missed any steps or contact me about anything else at http://www.youmix.me/contact
 
 research how this works by googling plus see application.html.erb
 
