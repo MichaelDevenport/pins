@@ -52,7 +52,9 @@ Create a .env file in the root directory,
 Set  environment variables
 
 GMAIL_DOMAIN=gmail.com
+
 GMAIL_USERNAME=your-email-name
+
 GMAIL_PASSWORD=your-email-password
 
 Step 6 
@@ -95,8 +97,6 @@ Question are very welcome actually i encourage them and no question is silly or 
 
 Please let me know if i have missed any steps or contact me anything else at http://www.youmix.me/contact
 
-ps: add this code to any form file for sound fx <code><%= render 'shared/form_audio' %></code> ;-)
-
 research how this works by googling plus see application.html.erb
 
 Excuse the redundant css - refactor and change code at will
@@ -104,4 +104,10 @@ Excuse the redundant css - refactor and change code at will
 Plus sign up at [Youmix.me](http://www.youmix.me) and add tutorials
 it's free, fun, and you'll be invoved with like minded people. Thats it Yay !
 
-Enjoy this application and KEEP ON LEARNING ! Michael Devenport (student) - i love you too
+Enjoy this application and KEEP ON LEARNING ! Michael Devenport (student) 
+
+ps: You will need to index the pins model to use the search function google 'searchkick' +
+add this code to any form file for sound fx <code><%= render 'shared/form_audio' %></code> ;-)
+
+I would personally like to thank OMR, MackenzieChild, and the awesome Michael Hartl 
+for providing resourses i used to learn web development over 2015. Tars guys - - i love you too
