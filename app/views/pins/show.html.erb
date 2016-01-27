@@ -97,12 +97,14 @@
       </div>
       <div class="panel-body">
         <% if @pin.yt_uid.blank? %>
-          <h2 class="center"><span class="text-muted">Sorry no video embed available.</span> Please visit the site. Click<span class="text-muted"> ' link to site '</span> above</h2>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/T0qAjgQFR4c" frameborder="0" allowfullscreen></iframe>
+          </div>
         <% else %>
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>
           </div>
-        <% end %>
+        <% end %> 
       </div>
       <div class="panel-footer player">
         <p></p>
@@ -127,3 +129,8 @@
 
 
 <a name="Media-Player"></a>
+
+
+
+
+

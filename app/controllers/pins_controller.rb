@@ -42,6 +42,7 @@ class PinsController < ApplicationController
   def create
     @pin = current_user.pins.new(pin_params)
     @pin.user_name = current_user.name()
+    
     if @pin.save
       redirect_to @pin, notice: 'Pin was successfully created.'
     else
@@ -95,7 +96,7 @@ class PinsController < ApplicationController
     end
 
     def pin_params
-      params.require(:pin).permit(:link, :description, :title, :image, :category_id, :yt_uid, :name, :tag_list) 
+      params.require(:pin).permit(:link, :description, :title, :image, :category_id, :yt_uid, :yt_embed_url, :name, :tag_list) 
     end
 
     def category_params

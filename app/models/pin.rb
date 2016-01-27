@@ -8,7 +8,7 @@ class Pin < ActiveRecord::Base
 	has_many :taggings
 	has_many :tags, through: :taggings
 	has_attached_file :image, :styles => { :large => "400x400>", :medium => "300x300>", :thumb => "100x100>" }
-    validates_attachment_content_type :image, content_type: %w(image/jpeg image/jpg image/png image/gif)
+	validates_attachment_content_type :image, content_type: %w(image/jpeg image/jpg image/png image/gif)
 	validates :image, presence: true
 	validates :title, presence: true
 	validates :description, presence: true
@@ -22,8 +22,8 @@ class Pin < ActiveRecord::Base
 	end
 
 	def tag_list=(tags_string)
-	    tag_names = tags_string.split(',').collect{ | tag | tag.strip.downcase}.uniq
-	    self.tags = tag_names.collect{ | name | Tag.find_or_create_by(name: name)}
+	  tag_names = tags_string.split(',').collect{ | tag | tag.strip.downcase}.uniq
+	  self.tags = tag_names.collect{ | name | Tag.find_or_create_by(name: name)}
 	end 
 
 	def increment_view_count
@@ -31,15 +31,20 @@ class Pin < ActiveRecord::Base
 		self.save
 	end
 
-	after_create :trailer_or_full_video 
-	after_update :trailer_or_full_video
+
+	after_create :yt_tutorial, :if => :yt_attribute_present?
+	after_update :yt_tutorial, :if => :yt_attribute_present?
+
+	def yt_attribute_present?
+	 	yt_uid != ''
+	end
 
 	private
 
-	def trailer_or_full_video
-	   yt_url = "//www.youtube.com/embed/"
-	   yt_url << self.yt_uid.split("=").last.to_s 
-	   self.yt_uid = yt_url
-	   save
+	def yt_tutorial
+	  yt_url = "//www.youtube.com/embed/"
+	  yt_url << self.yt_uid.split("=").last.to_s 
+	  self.yt_uid = yt_url
+	  save
 	end 
 end
