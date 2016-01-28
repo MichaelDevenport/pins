@@ -13,11 +13,11 @@ class PinsController < ApplicationController
   end
 
   def index
-    if params[:catergory].blank?
+    if params[:category].blank?
       @pins = Pin.all.order("created_at DESC").paginate(page: params[:page], per_page: 20)
     else
-      @catergory_id = Catergory.find_by(name: params[:catergory]).id
-      @pins = Pin.where(catergory_id: @catergory_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+      @category_id = Category.find_by(name: params[:category]).id
+      @pins = Pin.where(category_id: @category_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
     end 
   end
 
