@@ -110,4 +110,4 @@ ps: You will need to index the pins model to use the search function google 'sea
 add this code to any form file for sound fx <code><%= render 'shared/form_audio' %></code> ;-)
 
 I would personally like to thank OMR, MackenzieChild, and the awesome Michael Hartl 
-for providing resourses i used to learn web development over 2015. Tars guys - - i love you too
+for providing resources i used to learn web development over 2015. Tars guys - - i love you too
