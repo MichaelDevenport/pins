@@ -10,6 +10,9 @@ class PagesController < ApplicationController
   def contact
   end
 
+  def scrape_yt
+  end
+
   def landing
   	@disable_navbar = true
   	@random_pin = Pin.where.not(id: @pin).order("RANDOM()").first

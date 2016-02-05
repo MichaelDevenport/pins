@@ -24,7 +24,7 @@ gem 'will_paginate-bootstrap'
 gem 'searchkick', '~> 0.8.5'
 gem 'font-awesome-sass', '~> 4.3.2.1'
 gem 'acts_as_votable', '~> 0.10.0'
-#gem "nokogiri"
+gem "nokogiri"
 gem "utf8_utils"
 gem 'mail_form'
 

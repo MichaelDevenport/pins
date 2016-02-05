@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   get "sitemap" => "pages#sitemap"
+  get "syt" => "pages#scrape_yt"
   get "about" => "pages#about"
   get "contact" => "pages#contact"
   get "feed" => "feed#index"

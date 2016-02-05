@@ -1,0 +1,31 @@
+<% provide(:title, "SYT") %>
+
+<div id="#primary-content">
+  <div class="panel form audioButton">
+    <div class="panel-heading center">
+      <div class="css-trick">
+        <strong><p id="error">Scrape <span>Youtube</span> URL</p></strong>
+        <p id="code">title<span> description</span><span> primary tag</span></p> 
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <br>
+  	  <%= form_tag new_pin_path, :method => 'get', class: "scraper" do %>
+
+        <div class="form-group">
+          <%= text_field_tag :search_yt, params[:pin_url], class: "form-control", placeholder: "ONLY WORKS AT YOUTUBE.COM ! Go to Youtube ( click L1 below ) Paste URL link of the screencast you want to add to your collection." %><br>    
+        </div>
+        
+        <div class="form-group">
+  	      <%= submit_tag "Scrape", :name => nil, class: "btn btn-info scrape-btn" %>
+        </div>
+  	  <% end %> 
+    </div>
+
+    <div class="panel-footer">
+      <%= link_to image_tag("youtube.png", alt: "Youtube education"), 'https://www.youtube.com', target: "none" %> 
+    </div>
+  </div>
+</div>
+<!-- FOOTER -->

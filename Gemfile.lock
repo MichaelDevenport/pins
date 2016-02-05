@@ -252,6 +252,7 @@ DEPENDENCIES
   jquery-turbolinks
   mail_form
   masonry-rails (~> 0.2.4)
+  nokogiri
   paperclip (~> 4.2.1)
   pg
   rails (= 4.1.8)

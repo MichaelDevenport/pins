@@ -3,6 +3,7 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :scrape, only: [:new]
 
   def search
     if params[:search_pin].present?
@@ -33,7 +34,18 @@ class PinsController < ApplicationController
   end
 
   def new
-    @pin = current_user.pins.new
+    if @pin_data.failure == nil
+      @pin = Pin.new(
+        tag_list: @pin_data.tag_list,
+        title: @pin_data.title,
+        description: @pin_data.description
+        )
+    else
+      @pin = current_user.pins.new
+      if params[:search_yt]
+        @failure = @pin_data.failure
+      end
+    end 
   end
 
   def edit
@@ -101,6 +113,14 @@ class PinsController < ApplicationController
 
     def category_params
       params.require(:category).permit(:name)
+    end
+
+    def scrape # parse html - Nokogiri - var before_action on new
+      if params[:search_yt]
+        s = Scrape.new
+        s.scrape_new_pin(params[:search_yt].to_s)
+        @pin_data = s
+      end
     end
 end
 
