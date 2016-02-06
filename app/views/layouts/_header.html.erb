@@ -49,7 +49,6 @@
         <%= link_to "Sign up", new_user_registration_path %>
       </li>
     </ul>
-    <br>
     <span class="fa fa-sign-in fa-2x"></span> Sign in
     <ul>
       <li>
@@ -58,7 +57,12 @@
     </ul>
     <br>
   <% end %>
-   
+
+  <span class="fa fa-info fa-2x"></span> Who are we..
+  <ul>
+    <li><%= link_to "About us", about_path %></li>
+  </ul>
+  <br>
   <span class="fa fa-thumb-tack fa-2x"></span> Browse pins
   <ul>
     <li><%= link_to "All pins", root_path %></li>
@@ -71,13 +75,15 @@
   </ul>
   <br>
 
+  <span class="fa fa-html5 fa-2x"></span> Scrape a screencast
+  <br>
   <ul>
-    <span class="fa fa-html5 fa-2x"></span> Scrape a website
-    <li><%= link_to "SYT", syt_path, class: "btn btn-default btn-xs" %></li>
+    <li><%= link_to "SYT", syt_path, class: "btn btn-default btn-xs postion" %></li>
   </ul>
   <br>
 
-  <span class="fa fa-qrcode fa-2x"></span> Categories
+  <span class="fa fa-code fa-2x"></span> Categories
+  <br>
   <% Category.all.each do |category| %>
     <ul>
       <li><%= link_to category.name, pins_path(category: category.name) %></li>
@@ -86,6 +92,7 @@
   <br>
 
   <span class="fa fa-tags fa-2x"></span> Tags
+  <br>
   <ul>
     <li><%= link_to "All tags", tags_path %></li>
   </ul>
@@ -96,49 +103,40 @@
     <ul>
       <li><%= link_to "All users", users_path %></li>
     </ul>
-    <br>
       
     <ul>
       <li><%= link_to "Pins from people you follow", feed_path %></li>
     </ul>
-    <br>
-
-    <ul>
-      <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-    </ul> 
-    <br>
-
-    <ul>
-      <li>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <span class="fa fa-sign-out"></span> Sign Out
-        <% end %>
-      </li>
-    </ul>
   <% end %>
   <br>
 
-  <ul>
-    <li><%= link_to "About us", about_path %></li>
-  </ul>
+  <span class="fa fa fa-language increment-siz"></span> 
+  <span id="deincrement-lft-mar">dministration sector</span>
   <br>
-      
   <ul>
-    <li><%= link_to "Contact us", contact_path %></li>
+    <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+  </ul>    
+  <ul>
+    <li><%= link_to "Contact us?", contact_path %></li>
   </ul>
+  <ul>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %> Sign Out!
+        <% end %>
+      </li>
+    </ul>
   <br>
 
   <hr class="featurette-divider">
 </nav>
 
- 
 
     
 <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="navbar navbar-inverse navbar-fixed-top audioButton">
 
   <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-    <i class="fa fa-thumb-tack"></i> Youmix.me tutorials
+    <i class="fa fa-thumb-tack"></i> Youmix.me <span class="fa fa-code"></span>
   </button>
   
   <ul class="nav navbar-nav navbar-right">
