@@ -34,17 +34,19 @@ class PinsController < ApplicationController
   end
 
   def new
-    if @pin_data.failure == nil
-      @pin = Pin.new(
-        tag_list: @pin_data.tag_list,
-        title: @pin_data.title,
-        description: @pin_data.description
-        )
+    if params[:search_yt].present?
+      if @pin_data.failure == nil
+        @pin = Pin.new(
+          tag_list: @pin_data.tag_list,
+          title: @pin_data.title,
+          description: @pin_data.description,
+          yt_uid: @pin_data.yt_uid
+          )
+      else
+        @failure = @pin_data.failure 
+      end
     else
       @pin = current_user.pins.new
-      if params[:search_yt]
-        @failure = @pin_data.failure
-      end
     end 
   end
 

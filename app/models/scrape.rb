@@ -1,6 +1,6 @@
 class Scrape
 
-	attr_accessor :tag_list, :title, :description, :failure
+	attr_accessor :tag_list, :title, :description, :yt_uid, :failure
 
 	def scrape_new_pin(url)
 		begin
@@ -10,10 +10,11 @@ class Scrape
 			self.tag_list = doc.css('#watch7-user-header .spf-link').text.strip
 			self.title = doc.css('#eow-title , .html5-main-video').text.strip
 			self.description = doc.css('#eow-description').text.strip
+			#self.yt_uid = doc.at_css('.share-panel-url')['value']
 
 			return true
 		rescue Exception => e
-			self.failure = "Something went wrong with the scrape"
+			self.failure = "OOP's its all gone wrong!"
 		end
 	end
 end

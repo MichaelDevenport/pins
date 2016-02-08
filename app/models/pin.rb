@@ -14,7 +14,7 @@ class Pin < ActiveRecord::Base
 	validates :description, presence: true
 	#==================regex to validiate format of Youtube url paths=============================
 	validates :yt_uid, :format => 
-		{:with => /\A(?<protocol>https?:\/\/)?(?<sub-domain>www\.)?(?<domain-path>youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))(?<uid>(\w|-){11})\z/ ,
+		{:with => /\A(?<protocol>https?:\/\/)?(?<sub-domain>www\.)?(?<domain-path>youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))(?<uid>(\w|-){11})\z/ ,
 			 :message => "Invalid url!" }, :allow_blank => true
 
 	def tag_list
