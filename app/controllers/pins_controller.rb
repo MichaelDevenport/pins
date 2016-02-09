@@ -34,7 +34,7 @@ class PinsController < ApplicationController
   end
 
   def new
-    if params[:search_yt].present?
+    if params[:scrape_yt].present?
       if @pin_data.failure == nil
         @pin = Pin.new(
           tag_list: @pin_data.tag_list,
@@ -118,9 +118,9 @@ class PinsController < ApplicationController
     end
 
     def scrape # parse html - Nokogiri - var before_action on new
-      if params[:search_yt]
+      if params[:scrape_yt]
         s = Scrape.new
-        s.scrape_new_pin(params[:search_yt].to_s)
+        s.yt_scrape(params[:scrape_yt].to_s)
         @pin_data = s
       end
     end

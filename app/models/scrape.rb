@@ -2,15 +2,15 @@ class Scrape
 
 	attr_accessor :tag_list, :title, :description, :yt_uid, :failure
 
-	def scrape_new_pin(url)
+	def yt_scrape(pin_url)
 		begin
-			doc = Nokogiri::HTML(open(url).read, nil, 'utf-8')
+			doc = Nokogiri::HTML(open(pin_url).read, nil, 'utf-8')
 
 			doc.css('script').remove
 			self.tag_list = doc.css('#watch7-user-header .spf-link').text.strip
 			self.title = doc.css('#eow-title , .html5-main-video').text.strip
 			self.description = doc.css('#eow-description').text.strip
-			#self.yt_uid = doc.at_css('.share-panel-url')['value']
+			self.yt_uid = doc.css('#watch7-content link')[0]['href']
 
 			return true
 		rescue Exception => e
