@@ -1,6 +1,6 @@
 class Scrape
 
-	attr_accessor :tag_list, :title, :description, :yt_uid, :failure
+	attr_accessor :tag_list, :title, :description, :yt_uid, :link, :failure
 
 	def yt_scrape(pin_url)
 		begin
@@ -8,10 +8,10 @@ class Scrape
 
 			doc.css('script').remove
 			self.tag_list = doc.css('#watch7-user-header .spf-link').text.strip
-			self.title = doc.css('#eow-title , .html5-main-video').text.strip
+			self.title = doc.css('#eow-title').text.strip
 			self.description = doc.css('#eow-description').text.strip
 			self.yt_uid = doc.css('#watch7-content link')[0]['href']
-
+			self.link = doc.css('#watch7-content link')[0]['href']
 			return true
 		rescue Exception => e
 			self.failure = "OOP's its all gone wrong!"

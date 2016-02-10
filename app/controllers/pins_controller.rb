@@ -40,7 +40,8 @@ class PinsController < ApplicationController
           tag_list: @pin_data.tag_list,
           title: @pin_data.title,
           description: @pin_data.description,
-          yt_uid: @pin_data.yt_uid
+          yt_uid: @pin_data.yt_uid,
+          link: @pin_data.link
           )
       else
         @failure = @pin_data.failure 
