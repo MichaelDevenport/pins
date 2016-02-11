@@ -102,9 +102,6 @@
     <span class="fa fa-users fa-2x"></span> Users
     <ul>
       <li><%= link_to "All users", users_path %></li>
-    </ul>
-      
-    <ul>
       <li><%= link_to "Pins from people you follow", feed_path %></li>
     </ul>
   <% end %>
@@ -115,13 +112,12 @@
   <br>
   <ul>
     <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-  </ul>    
-  <ul>
     <li><%= link_to "Contact us?", contact_path %></li>
-  </ul>
+  </ul>    
+
   <ul>
       <li>
-        <%= link_to destroy_user_session_path, method: :delete do %> Sign Out!
+        <%= link_to destroy_user_session_path, method: :delete do %> Sign Out
         <% end %>
       </li>
     </ul>

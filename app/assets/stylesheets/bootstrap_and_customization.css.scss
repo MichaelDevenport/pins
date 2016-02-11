@@ -14,6 +14,11 @@ $navbar-default-brand-color: #c0392b;
 $brand-primary: #29527A;
 $brand-danger: #c0392b;
 
+a {
+  outline: 0 !important;
+  text-decoration: none !important;
+}
+
 .postion {
   margin-top: 4px;
 }
@@ -409,10 +414,6 @@ nav.share iframe {
 
 .navbar-default {
   background-color: white;
-}
-
-a {
-  text-decoration: none !important;
 }
 
 #votable-pin {

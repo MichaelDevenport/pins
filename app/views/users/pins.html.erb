@@ -29,7 +29,7 @@
           <p><span class="fa fa-filter"></span> 
             <%= link_to pin.category.name, pins_path(category: pin.category.name) if pin.category %>
           </p>
-          <p><%= pin.description %></p>
+          <p><%= truncate(pin.description, length: 73) %></p>
           <p><strong><%= pin.user.name if pin.user %></strong></p>
           
           <% if current_user && pin.user == current_user %>

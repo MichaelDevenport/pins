@@ -8,7 +8,12 @@
   	<link href='https://fonts.googleapis.com/css?family=Marvel:700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   	<%= csrf_meta_tags %>
+  	<!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="IE=9" />
 	</head>
 	<body>
 		<%= render 'layouts/header' unless @disable_nav %>

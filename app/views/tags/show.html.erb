@@ -1,6 +1,5 @@
 <% provide(:title, "tag") %>
 
-<%= render 'shared/form_audio' %>
 <div id="primary-content">
 	<div class="panel center form audioButton">
 		<div class="panel-heading green">
@@ -19,7 +18,7 @@
 			</table>
 		</div>
 		<p>
-		  <%= link_to '<< Back to Pins', pins_path, class: "btn btn-default btn-xs" %>
+		  <%= link_to 'Back to Pins', pins_path, class: "btn btn-default btn-xs" %>
 		  <button type="button" class="btn btn-default btn-xs" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
 	      <i class="fa fa-toggle-on"></i>
 	    </button>
