@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<%= favicon_link_tag("pinYoumixLogo.png", alt: "www.youmix.me youmix.me youmix you mix free downloads movies video pins streaming") %>	
+		<%= favicon_link_tag("pinYoumixLogo.png") %>	
   	<title><%= full_title(yield(:title)) %></title>
   	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -13,7 +13,7 @@
       </script>
     <![endif]-->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	</head>
 	<body>
 		<%= render 'layouts/header' unless @disable_nav %>
