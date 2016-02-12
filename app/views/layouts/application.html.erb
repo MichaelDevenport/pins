@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 	<head>
 		<%= favicon_link_tag("pinYoumixLogo.png") %>	
 	  	<title><%= full_title(yield(:title)) %></title>
@@ -12,9 +12,8 @@
 	      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
 	      </script>
 	    <![endif]-->
-	    <meta charset="UTF-8"/>
 	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	  	<meta http-equiv="X-UA-Compatible" content="IE=9" />
 	</head>
 	<body>
 		<%= render 'layouts/header' unless @disable_nav %>
