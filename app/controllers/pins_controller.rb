@@ -1,24 +1,28 @@
 class PinsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
-  before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :accept]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :scrape, only: [:new]
 
   def search
     if params[:search_pin].present?
-      @pins = Pin.search(params[:search_pin])
+      @pins = Pin.where(state: "published").search(params[:search_pin])
     else
-      @pins = Pin.all
+      @pins = Pin.where(state: "published").all
     end
   end
 
   def index
-    if params[:category].blank?
+    if params[:category].present?
+      @category_id = Category.find_by(name: params[:category]).id
+      @pins = Pin.where(category_id: @category_id, state: "published").order("created_at DESC").paginate(page: params[:page], per_page: 20)
+    elsif current_user.try(:admin?)
+      @pending = Pin.pending_count
+      @published = Pin.published_count
       @pins = Pin.all.order("created_at DESC").paginate(page: params[:page], per_page: 20)
     else
-      @category_id = Category.find_by(name: params[:category]).id
-      @pins = Pin.where(category_id: @category_id).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+      @pins = Pin.where(state: "published").order("created_at DESC").all.paginate(page: params[:page], per_page: 20)
     end 
   end
 
@@ -95,6 +99,11 @@ class PinsController < ApplicationController
     end 
   end
 
+  def accept
+    @pin.publish_pin
+    redirect_to pins_url, notice: 'Pin was successfully published'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pin
@@ -106,12 +115,14 @@ class PinsController < ApplicationController
     end
 
     def correct_user
-      @pin = current_user.pins.find_by(id: params[:id])
-      redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
+      if current_user.admin? == nil
+        @pin = current_user.pins.find_by(id: params[:id]) 
+        redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
+      end
     end
 
     def pin_params
-      params.require(:pin).permit(:link, :description, :title, :image, :category_id, :yt_uid, :yt_embed_url, :name, :tag_list) 
+      params.require(:pin).permit(:link, :description, :title, :image, :category_id, :yt_uid, :yt_embed_url, :name, :state, :tag_list) 
     end
 
     def category_params

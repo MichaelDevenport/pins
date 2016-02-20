@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     member do
       put "like", to: "pins#upvote"
       put "dislike", to: "pins#downvote"
+      put :accept
     end
     collection do
       get 'search'

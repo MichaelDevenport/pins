@@ -2,12 +2,12 @@
 
 <div id="primary-content">
 	<div class="panel center form audioButton">
-		<div class="panel-heading green">
+		<div class="panel-heading grey-shade">
       <div class="panel-title">
         <h2>New review</h2>
       </div>
     </div>
-		<div class="panel-body">
+		<div class="panel-body grey-background">
 			<div class="col-md-6">
 				<div class="movie-box">
 	        <p><strong><h6>Provided by <%= @pin.user.name if @pin.user %></h6></strong></p>
@@ -21,11 +21,11 @@
 				<%= render 'form' %>
 				<br>
 				<h3 class="reviews-title"><strong>Description</strong></h3>
-        <p class="lead"><%= @pin.description %></p>
+        <p class="lead"><%= truncate(@pin.description, length: 500) %></p>
         <hr class="featurette-divider">
 			</div>
 		</div>
-		<div class="panel-footer">
+		<div class="panel-footer grey-background">
 			<%= link_to 'Back', pin_path(@pin) %>
 		</div>
 	</div>

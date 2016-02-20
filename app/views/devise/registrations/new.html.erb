@@ -2,13 +2,13 @@
 
 <div id="primary-content">
   <div class="panel form audioButton">
-    <div class="panel-heading center green">
+    <div class="panel-heading center grey-shade">
       <h1>Sign up here</h1>
       <h3>Youmix.me is the best links to all the best programming screencasts online</h3>
       <p>Caution by siging up you agree to our Terms and Conditions</p>
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body grey-background">
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
@@ -33,7 +33,7 @@
       <% end %>
     </div>
 
-    <div class="panel-footer">
+    <div class="panel-footer grey-background">
       <p><i>..already a member ?</i></p>
       <%= link_to "Log in", new_user_session_path %>
     </div>

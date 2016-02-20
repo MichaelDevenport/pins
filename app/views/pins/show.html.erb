@@ -3,9 +3,19 @@
   <div id="zoom-content">
 
     <div class="panel panel-default show-container audioButton">
-
+      <div class="panel-body">
+        <% if @pin.yt_uid.blank? %>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/T0qAjgQFR4c" frameborder="0" allowfullscreen></iframe>
+          </div>
+        <% else %>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>
+          </div>
+        <% end %>
+      </div>
       <div class="col-md-6"> 
-        <div class="panel-heading center-show">
+        <div class="center">
           <div class="movie-box">
             <p><strong><h6>Provided by <%= @pin.user.name if @pin.user %></h6></strong></p>
             <div class="show-img">
@@ -16,98 +26,107 @@
         </div>
         <hr class="featurette-divider">
         <div class="featurette">
-          <div class="featurette-image img-thumbnail pull-right">
+          <div class="show-img img-thumbnail pull-right">
             <%= link_to (image_tag @random_pin.image.url(:medium)), pin_path(@random_pin) %>
           </div> 
-          <h2 class="featurette-heading">click <span class="text-muted">me!</span></h2>
-          <p class="lead">You may also be interested in.. We have lots of the latest screencast tutorials online and new courses added every day. Click my poster image to check me out.</p>
+          <h2 class="featurette-heading prompt">Click </h2>
+          <h2 class="featurette-heading text-muted prompt">me!</h2>
         </div>
         <hr class="featurette-divider">
         <div class="share-btns">
           <%= render_shareable :buttons=> [ 'twitter', 'facebook', 'pinterest'] %>
         </div>
       </div><!-- col-md-6 -->
-
-      <div class="panel-body">
-        <div class="col-md-6">
-          <div class="title-link-btn center">
-            <h1 class="reviews-title center"><%= @pin.title %></h1>
-            <span class:="center"><%= link_to "link to site", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">screencast</a></span>
-          </div>
-          <hr>
-          <div>
-            <h4 class="reviews-title text-muted">Category<strong> 
-              <%= link_to @pin.category.name, pins_path(category: @pin.category.name) if @pin.category %>
-            </h4></strong>
-          </div>
-
-          <p>
-            <span class="text-muted">Tags</span>
-            <% @pin.tags.each do | tag | %>
-              <%= link_to tag.name, tag_path(tag) if tag.name %>
-            <% end %>
-          </p>
-
-          <h3 class="reviews-title"><strong class="text-muted">Description</strong></h3>
-          <p class="lead"><%= @pin.description %></p>
-          <span class="timestamp">
-            Pinned <%= time_ago_in_words(@pin.created_at) %> ago,
-          </span>
-          <span class="timestamp">
-            viewed <%= pluralize(@pin.view_count, 'time') %>
-          </span><br>
-          <!-- Vote buttons and count display below ======== -->
-          <% if user_signed_in? %>
-            <h4><span class="text-muted">Click to vote..</span></h4>
-            <%= render 'pins/voting' %>
-          <% else %>
-            <div class="vote-prompt">
-              <h4><span class="text-muted">Sign in to vote..</span></h4>
-              <%= render 'pins/voting' %>  
+      <div class="panel-show">
+        <div class="panel-body">
+          <div class="col-md-6">
+            <div class="title-link-btn center">
+              <h1 class="reviews-title center"><%= @pin.title %></h1>
+              <span class:="center"><%= link_to "link to site", @pin.link, target: "none", class: "btn btn-primary" %> <a class="btn btn-primary" href="#Media-Player" role="button">screencast</a></span>
             </div>
-          <% end %>
-         
-          <h4 class="reviews-title"><strong>Latest reviews</strong></h4>
-          <% if @reviews.blank? %>
-            <h3><%= link_to "No reviews yet, would you like to be the first ?", new_pin_review_path(@pin) %></h3>
-          <% else %>
-            <% @reviews.each do |review| %>
-              <div class="reviews">
-                <div class="star-rating" data-score= <%= review.rating %> ></div>
-                <p><%= review.comment %></p>
-                <span class="timestamp">
-                  Comment made <%= time_ago_in_words(review.created_at) %> ago.
-                </span>
-              </div>
-            <% end %>
-          <% end %>
-          <p class="review-footer"><%= link_to "Review", new_pin_review_path(@pin), class: "btn btn-default" %> 
-            <% if @pin.user == current_user %>
-              <%= link_to edit_pin_path(@pin) do %>
-                <span class="glyphicon glyphicon-edit"></span>
-                Edit
+            <hr>
+            <div>
+              <h4 class="reviews-title text-muted">Category<strong> 
+                <%= link_to @pin.category.name, pins_path(category: @pin.category.name) if @pin.category %>
+              </h4></strong>
+            </div>
+
+            <div>
+              <strong class="text-muted description-text">Tags</strong>
+              <% @pin.tags.each do | tag | %>
+                <%= link_to tag.name, tag_path(tag) if tag.name %>
+              <% end %>
+            </div>
+            <% if current_user.try(:admin?) %>
+              <% if @pin.state == 'pending' %>
+                <%= link_to accept_pin_path(@pin), class: "pin", method: :put, data: { confirm: 'Are you sure?' } do %>
+                  <span class="fa fa-check-square fa-2x"></span>
+                <% end %>
+              <% end %>
+              <%= link_to edit_pin_path(@pin), data: { confirm: 'Are you sure?' } do %>
+                <span class="fa fa-pencil-square-o fa-2x"></span>
               <% end %>
               <%= link_to @pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <span class="glyphicon glyphicon-trash"></span>
-                Delete
+                <span class="fa fa-trash fa-2x"></span>
               <% end %>
             <% end %>
-          </p>
-        </div><!-- col-md-6 -->
-      </div>
-      <div class="panel-body">
-        <% if @pin.yt_uid.blank? %>
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/T0qAjgQFR4c" frameborder="0" allowfullscreen></iframe>
-          </div>
+            <h3 class="reviews-title"><strong class="text-muted">Description</strong></h3>
+            <div class="description-text">
+              <% if @pin.description.length > 750 %>
+                <%= truncate(@pin.description, length: 750) %>
+                <%= link_to '...read more', '', class: "read-more-#{@pin.id}" %>
+                <script>
+                  $('.read-more-<%= @pin.id %>').on('click', function(e) {
+                    e.preventDefault()
+                    $(this).parent().html('<%= escape_javascript @pin.description %>')
+                  })
+                </script>
+              <% else %>
+                <%= @pin.description %>
+              <% end %>
+            </div>
+            <span class="timestamp">
+              Pinned <%= time_ago_in_words(@pin.created_at) %> ago,
+            </span>
+            <span class="timestamp">
+              viewed <%= pluralize(@pin.view_count, 'time') %>
+            </span><br>
+            <!-- Vote buttons and count display below ======== -->
+            <% if user_signed_in? %>
+              <h4><span class="text-muted">Click to vote..</span></h4>
+              <%= render 'pins/voting' %>
+            <% else %>
+              <div class="vote-prompt">
+                <h4><span class="text-muted">Sign in to vote..</span></h4>
+                <%= render 'pins/voting' %>  
+              </div>
+            <% end %>
+          
+            <% if ! current_user.try(:admin?) %> 
+              <% if @pin.user == current_user %>
+                <%= link_to edit_pin_path(@pin) do %>
+                  <span class="fa fa-pencil-square-o fa-2x"></span>
+                  Edit your pin ?
+                <% end %>
+              <% end %>  
+            <% end %>
+          </div><!-- col-md-6 -->
+        </div>
+        <h4 class="reviews-title"><strong>Latest reviews</strong></h4>
+        <% if @reviews.blank? %>
+          <h3><%= link_to "No reviews yet, would you like to be the first ?", new_pin_review_path(@pin) %></h3>
         <% else %>
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="<%= @pin.yt_uid %>" frameborder="0" allowfullscreen></iframe>
-          </div>
-        <% end %> 
-      </div>
-      <div class="panel-footer player">
-        <p></p>
+          <% @reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              <p><%= review.comment %></p>
+              <span class="timestamp">
+                Comment made <%= time_ago_in_words(review.created_at) %> ago.
+              </span>
+            </div>
+          <% end %>
+        <% end %>
+        <p class="review-footer"><%= link_to "Review", new_pin_review_path(@pin), class: "btn btn-default" %></p>
       </div>
     </div>
   </div>

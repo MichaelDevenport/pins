@@ -4,17 +4,17 @@
   <div id="#primary-content">
     <div class="panel form audioButton">
       <div class="panel-heading center">
-        <h1 class="green">New pin</h1>
+        <h1 class="grey-shade">New pin</h1>
       </div>
 
-      <div class="panel-body">
+      <div class="panel-body grey-background">
         <% if @failure %>
           <h3><%= @failure %></h3>
         <% end %>
         <%= render 'form' %>
       </div>
 
-      <div class="panel-footer">
+      <div class="panel-footer grey-background">
         <%= link_to image_tag("youtube.png", alt: "Youtube Treehouse"), 'https://www.youtube.com/channel/UCqHktcPJV7C7T3e9Cg4T4iw', target: "none" %> |
         <%= link_to image_tag("youtube.png", alt: "Youtube DevTips"), 'https://www.youtube.com/user/DevTipsForDesigners', target: "none" %> |
         <%= link_to image_tag("youtube.png", alt: "Youtube MackenzieChild Ruby on Rails"), 'https://www.youtube.com/user/mackenziechild', target: "none" %> |

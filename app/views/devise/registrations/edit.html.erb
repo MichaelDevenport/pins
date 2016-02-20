@@ -1,10 +1,10 @@
 <div class="panel form">
   <div class="panel-heading center">
-    <div class="panel-title green">
+    <div class="panel-title grey-shade">
       <h1>Edit <%= resource_name.to_s.humanize %></h1>
     </div>
   </div>
-  <div class="panel-body">
+  <div class="panel-body grey-background">
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
       <%= devise_error_messages! %>
 
@@ -33,7 +33,7 @@
       </div>
     <% end %>
   </div>
-  <div class="panel-footer">
+  <div class="panel-footer grey-background">
     <h3>Cancel my account</h3>
 
     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-warning" %></p>

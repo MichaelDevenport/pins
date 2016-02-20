@@ -3,6 +3,14 @@
 
 <hr class="featurette-divider">
 
+<div class="center" >
+  <% if current_user.try(:admin?) %>
+    <% if params[:category] == nil %>
+      <strong>Pending count : <%= @pending %> | Published count : <%= @published%></strong>
+    <% end %>
+  <% end %>
+</div>
+
 <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
     <div class="box panel panel-default audioButton">
@@ -14,8 +22,10 @@
         </p>
         <p><%= truncate(pin.description, length: 73) %></p>
         <p><%= link_to pin.user.name, user_pins_path(pin.user.name) %></p>
-
-        <% if current_user && pin.user == current_user %>
+        <% if current_user.try(:admin?) %>
+          <p><%= pin.status %></p>
+        <% end %>  
+        <% if current_user && pin.user == current_user or current_user.try(:admin?) %>
           <div class="actions">
             <%= link_to edit_pin_path(pin) do %>
               <span class="glyphicon glyphicon-edit"></span>

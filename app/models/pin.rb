@@ -31,6 +31,28 @@ class Pin < ActiveRecord::Base
 		self.save
 	end
 
+	def publish_pin
+	    self.state = 'published'
+	    self.save
+	end
+
+	def self.pending_count
+		count = Pin.where(state: 'pending')
+		count.size    
+	end	
+
+	def self.published_count
+		count = Pin.where(state: 'published')
+		count.size
+	end
+
+	def status
+		if state == "pending"
+			return "ATTENTION! Pending!"
+		elsif state == "published"
+			return "Published"
+		end
+	end
 
 	after_create :yt_tutorial, :if => :yt_attribute_present?
 	after_update :yt_tutorial, :if => :yt_attribute_present?

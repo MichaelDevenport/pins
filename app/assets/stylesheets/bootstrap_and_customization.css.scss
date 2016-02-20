@@ -14,6 +14,12 @@ $navbar-default-brand-color: #c0392b;
 $brand-primary: #29527A;
 $brand-danger: #c0392b;
 
+.description-text {
+  font-size: 110%;
+  letter-spacing: 0.8px;
+  text-align: left;
+}
+
 a {
   outline: 0 !important;
   text-decoration: none !important;
@@ -47,7 +53,7 @@ i.fa-thumb-tack {
 div.css-trick {
   font-size: 45px;
   text-align: center;
-  text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+  text-shadow: 2px 2px 8px red,2px 2px 8px FireBrick,2px 2px 8px DarkRed;
   color: red;
 }
 div.css-trick p { margin:0; }
@@ -67,7 +73,7 @@ div.css-trick p { margin:0; }
 }
 @keyframes upper {
   0%,19.999%,22%,62.999%,64%, 64.999%,70%,100% {
-    opacity:.99; text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+    opacity:0.99; text-shadow: 0 0 80px #D43F3A,0 0 30px #D43F3A,0 0 6px #D43F3A;
   }
   20%,21.999%,63%,63.999%,65%,69.999% {
     opacity:0.4; text-shadow: none; 
@@ -75,12 +81,14 @@ div.css-trick p { margin:0; }
 }
 @keyframes lower {
   0%,12%,18.999%,23%,31.999%,37%,44.999%,46%,49.999%,51%,58.999%,61%,68.999%,71%,85.999%,96%,100% {
-    opacity:0.99; text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+    opacity:0.99; text-shadow: 2px 2px 8px red,2px 2px 8px  FireBrick,2px 2px 8px DarkRed;
   }
   19%,22.99%,32%,36.999%,45%,45.999%,50%,50.99%,59%,60.999%,69%,70.999%,86%,95.999% { 
-    opacity:0.4; text-shadow: none; 
+    opacity:0.9; text-shadow: none; 
   }
 }
+
+//
 
 .sidebar-prompt {
   background-color: rgba(138, 138, 138, 0.25);
@@ -125,6 +133,19 @@ div.css-trick-2 p { margin:0; }
   19%,22.99%,32%,36.999%,45%,45.999%,50%,50.99%,59%,60.999%,69%,70.999%,86%,95.999% { 
     opacity:0.4; text-shadow: none; 
   }
+}
+
+.prompt {
+  animation: random-pin 12s linear infinite;
+}
+
+@keyframes random-pin {
+  0%,12%,18.999%,23%,31.999%,37%,44.999%,46%,49.999%,51%,58.999%,61%,68.999%,71%,85.999%,96%,100% {
+   text-shadow: 2px 2px 0px #FF0000, 2px 2px 3px #FF0000, 2px 2px 6px #FF0000;
+ }
+ 20%,21.999%,63%,63.999%,65%,69.999% {
+    opacity:0.4; text-shadow: none;
+  } 
 }
 /*------ css-tricks-end ------*/
 
@@ -542,7 +563,7 @@ a, a:link, a:visited {
 body {
   color: white;
    /* Full Page Background Receipe */
-  background: url(background2.jpg);
+  background: url(http://blogs-images.forbes.com/jacobmorgan/files/2014/05/internet-of-things-2.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -582,7 +603,15 @@ ul.nav li.dropdown:hover ul.dropdown-menu {
 
 textarea {
   color: rgba(41, 34, 34, 0.9);
-} 
+  background-color: #fff !important;
+}
+
+
+
+.col-white-ow {
+  background-color: #fff !important;
+  border-radius: 5px;
+}
 
 
 .landing {
@@ -637,8 +666,12 @@ textarea {
 	text-align: center;
 }
 
-.green {
+.grey-shade {
   color: rgb(129,129,130);
+}
+
+.grey-background {
+  background-color: rgb(129,129,130) !important;
 }
 
 .orange {
@@ -728,7 +761,7 @@ textarea {
   margin-bottom: 2px;
 }
 
-.movie-box {
+.show-img {
   color: rgba(0, 0, 0, 0.75);
   background-image:url("showBox.png");
   display: inline-block;
@@ -753,32 +786,31 @@ textarea {
   margin-bottom: -10px;
 }
 
-.panel {
-  margin-top: 20px;
-}
-
-.panel-default {
-  background-color: rgba(25,25,25,0.5) !important;
-  border-color: rgba(4, 20, 144, 0.6);
-}
-
 .show-container {
   max-width: 100%;
 }
 
-.panel-default .panel-heading {
-  background-color: rgba(25,25,25,0.5) !important;
-  color: white;
-  text-align: center;
+.panel-default {
+  background-color: rgba(35, 35, 35, 0.98) !important;
+}
+
+.panel {
+  margin: 60px 0 20px 0;
+  background-color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.57);
+  border-radius: 4px;
+  box-shadow: 1px 1px 40px 1px rgba(249, 249, 249, 0.84);
 }
 
 .panel-body {
-  background-color: rgba(25,25,25,0.5) !important;
+  padding: 15px !important;
 }
 
-.panel-footer {
-  background-color: rgba(25,25,25,0.5) !important;
-}
+.panel-show {
+  color: white;
+  text-align: center;
+} 
+
 
 .reviews-title {
   margin-top: 20px;
@@ -848,10 +880,10 @@ textarea {
 
 /* Thin out the marketing headings */
 .featurette-heading {
-  font-size: 50px;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -1px;
+  font-size: 60px;
+  text-align: center;
+  animation: random-pin 12s linear infinite;
+  /*animation: upper 11s linear infinite;*/
 }
 
 

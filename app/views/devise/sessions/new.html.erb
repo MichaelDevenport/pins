@@ -2,13 +2,13 @@
 
 <div id="primary-content">
   <div class="panel form audioButton">
-    <div class="panel-heading center green">
+    <div class="panel-heading center grey-shade">
       <div class="panel-title">
         <h1>Sign in here</h1>
         <h3>Youmix.me is the best links to all the best video screencasts online</h3>
       </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body grey-background">
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
         <div class="form-group">
@@ -35,7 +35,7 @@
       <% end %>
     </div> 
 
-    <div class="panel-footer">
+    <div class="panel-footer grey-background">
       <p><i>Not a member </i></p>
       <%= link_to "Sign up", new_user_registration_path %>
     </div>
