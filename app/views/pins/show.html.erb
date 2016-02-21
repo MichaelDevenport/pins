@@ -18,19 +18,21 @@
         <div class="center">
           <div class="movie-box">
             <p><strong><h6>Provided by <%= @pin.user.name if @pin.user %></h6></strong></p>
-            <div class="show-img">
+            <div class="show-main-img">
               <%= image_tag @pin.image.url(:large), alt: "www.youmix.me tutorial" %>
             </div>
             <div class="star-rating" data-score= <%= @avg_review %> ><strong><i class="padding"><%= link_to "Rate me !", new_pin_review_path(@pin), class: "btn btn-info btn-xs" %></i></strong></div>
           </div>
         </div>
         <hr class="featurette-divider">
-        <div class="featurette">
-          <div class="show-img img-thumbnail pull-right">
+        <div class="random-pin">
+          <div class="col-md-4 rp-txt shadow">
+            <span class="weight">Click </span>
+            <span class="weight text-muted">Me!</span>
+          </div>
+          <div class="rp-img">
             <%= link_to (image_tag @random_pin.image.url(:medium)), pin_path(@random_pin) %>
           </div> 
-          <h2 class="featurette-heading prompt">Click </h2>
-          <h2 class="featurette-heading text-muted prompt">me!</h2>
         </div>
         <hr class="featurette-divider">
         <div class="share-btns">

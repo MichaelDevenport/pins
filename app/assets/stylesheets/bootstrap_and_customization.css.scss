@@ -134,8 +134,36 @@ div.css-trick-2 p { margin:0; }
     opacity:0.4; text-shadow: none; 
   }
 }
+/*------ css-tricks-end ------*/
 
-.prompt {
+/*------ random-pin ------*/
+
+.random-pin {
+
+  .rp-txt {
+    font-size: 60px;
+    text-align: center;
+    animation: random-pin 12s linear infinite;
+    .weight {
+      font-weight: 20px;
+    }
+  }
+  .rp-img {
+    background-image:url("showBox.png");
+    display: inline-block;
+    padding: 10px;
+    border-radius: 2px;
+  } 
+}
+.show-main-img {
+  margin-bottom: 4px;
+  background-image:url("showBox.png");
+  display: inline-block;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.shadow {
   animation: random-pin 12s linear infinite;
 }
 
@@ -147,7 +175,7 @@ div.css-trick-2 p { margin:0; }
     opacity:0.4; text-shadow: none;
   } 
 }
-/*------ css-tricks-end ------*/
+/*------ random-pin-end ------*/
 
 .share-btns {
   text-align: center;
@@ -751,24 +779,6 @@ textarea {
   text-align: center;
 }
 
-.center-show {
-  background-image:url("binary.jpg");
-  background-size: 100%;
-  margin: 10px;
-}
-
-.show-img {
-  margin-bottom: 2px;
-}
-
-.show-img {
-  color: rgba(0, 0, 0, 0.75);
-  background-image:url("showBox.png");
-  display: inline-block;
-  padding: 10px;
-  border-radius: 2px;
-}
-
 .padding {
   padding-right: 12px;
   font-size: 16px;
@@ -882,7 +892,6 @@ textarea {
 .featurette-heading {
   font-size: 60px;
   text-align: center;
-  animation: random-pin 12s linear infinite;
   /*animation: upper 11s linear infinite;*/
 }
 
